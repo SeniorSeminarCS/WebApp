@@ -22,3 +22,6 @@ GMT-9
 GMT-10 HAWAII
 GMT-11
 GMT-12
+
+Use html request http://www.timeapi.org/utc/in+7+hours where the # is + from GMT
+Use html request http://www.timeapi.org/utc/7+hours+ago where the # is - from GMT
