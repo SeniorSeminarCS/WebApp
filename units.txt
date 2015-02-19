@@ -1,0 +1,12 @@
+1 in = 2.54 cm
+1 ft = .3048 m
+1 yd = 0.914 m
+1 mile = 1.609 km
+1 ounce = 28.350 g
+1 pound = 454 grams
+1 pound = 0.454 kg
+1 fluid oz = 29.574 ml
+1 quart = 0.946 liter
+1 gallon = 3.785 liters
+1 degree Celsius = 1.8*C +32 degrees Fahrenheit
+
