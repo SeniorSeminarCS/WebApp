@@ -21,8 +21,8 @@ GMT-7 DENVER
 GMT-8 LOS ANGELES
 GMT-9 ANCHORAGE ALASKA
 GMT-10 HONOLULU HAWAII
-GMT-11 AUKLAND
-GMT-12 SUVA
+GMT-11 UN ALASKA
+GMT-12 AUCKLAND
 
 Use html request http://www.timeapi.org/utc/in+7+hours where the # is + from GMT
 Use html request http://www.timeapi.org/utc/7+hours+ago where the # is - from GMT
