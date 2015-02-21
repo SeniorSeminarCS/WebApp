@@ -1,18 +1,30 @@
 
 
 @media screen and (max-width: 500px) {
-	.phrase-main {
-		width: 400px;
-		height:300px;
-		margin: 0 auto;	
-	}
 
-	.language-selection {
-		width: 60%;
-		height: 30%;
+
+	.phrase-box {
+		width: 90%;
+		height: 100%;
 		margin: 0 auto;
-		background: black;
+		background: green;
+		border-radius: 10px;
+		border: 3px solid black;
 	}
+	
+	#language-select {
+		margin: 0 auto;
+		width: 90%;
+		height: 10%;
+		background: gray;
+		margin-top: 2%;
+	}
+	
+	#spanish-phrases {
+		margin: 0 auto;
+		border: 1px solid white;
+	}
+	
 }
 
 

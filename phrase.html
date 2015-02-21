@@ -6,10 +6,86 @@
 
 		<link rel="stylesheet" type="text/css" href="style-small.css">
 		<link rel="stylesheet" type="text/css" href="phrase-style.css">
+	
 	</head> 
 	
 	<body> 
-
+		
+	
+	
+		<div class="phrase-box"> 
+			<div id="language-select">
+				<p>Language</p>
+					<select id="lang-check" name="form_select">
+						<option value="0">N/A</option>
+						<option value ="1">Spanish</option>
+						<option value ="2">Italian</option>
+						<option value ="3">Greek</option>
+						<option value ="4">French</option>
+					</select>
+			</div>
+					<div id="hidden_div" style="display: none;">
+						<table id="spanish-phrases">
+							 <thead>
+							    <tr>
+							      <th>English</th>
+							      <th>Spanish</th>
+							    </tr>
+							  </thead>
+							  
+							  
+							  
+							<tbody>
+								<tr>
+									<td>Hello</td>
+									<td>Hola</td>
+								</tr>
+								<tr>
+									<td>&#191;Where is the bathroom?</td>
+									<td>Donde esta el bano?</td>
+								</tr>
+							</tbody>
+													
+						</table>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div id="hidden_div2" style="display: none;">Hello second content</div>
+					<div id="hidden_div3" style="display: none;">Hello third content</div>
+					<div id="hidden_div4" style="display: none;">Hello fourth content</div>
+					<script>
+			
+						document.getElementById('lang-check').addEventListener('change', function () {
+							
+						var style = this.value == 1 ? 'block' : 'none';
+					    document.getElementById('hidden_div').style.display = style;
+					    
+					    var style = this.value ==2 ? 'block' : 'none';
+					    document.getElementById('hidden_div2').style.display = style;
+					    
+					     var style = this.value ==3 ? 'block' : 'none';
+					    document.getElementById('hidden_div3').style.display = style;
+					    
+					     var style = this.value ==4 ? 'block' : 'none';
+					    document.getElementById('hidden_div4').style.display = style;
+					    
+						});
+		
+					</script>
+			
+		</div>
+	
+	
+	
+		
+		
+		
+		
+		
 		
 		<div id="container">
 			
@@ -122,25 +198,7 @@
 		</div>
   			
   			
-  			
-		<div class="phrase-main">
-	  		<div class="language-selection"> 
-		  		<div id="english-phrase-box">
-			  		<ul id="">
-				  		<li></li>
-				  		<li></li>
-				  		<li></li>
-				  		<li></li>
-				  		<li></li>
-				  		<li></li>
-				  		<li></li>
-				  		<li></li>
-				  		<li></li>
-			  		</ul>
-		  		</div>
-	  		</div>
-		  			  			
-	  	</div>
+  	
   			
   			
 	</body> 

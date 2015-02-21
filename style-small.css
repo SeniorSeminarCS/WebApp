@@ -662,7 +662,7 @@
 		height: 190px;
 		background: #33CCFF;
 		margin: 0 auto;
-		bottom: -100px;
+		top: 5px;
 		position: relative;
 		border-radius:10px;
 		border: 2.5px solid white;

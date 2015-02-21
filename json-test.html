@@ -1,0 +1,46 @@
+
+<!DOCTYPE> 
+<html> 
+	<head> 	
+	<script>
+		var obj1 = {user:"John", age:22, country:"USA"};
+		var obj2 = {user:"Will", age:23, country:"USA"};
+		var obj3 = {user:"Chris", age:21, country:"USA"};
+		var obj4 = {u1:obj1, u2:obj2, u3: obj3};
+		
+		document.write(obj3.user+" is "+obj3.age+" and lives in "+obj3.country);
+		
+		obj3.country="Italy";
+		document.write("<hr />");
+		document.write(obj3.user+" is "+obj3.age+" and lives in "+obj3.country);
+		document.write("<hr />");
+		document.write(obj4.u2.country);
+		
+		
+		var meats = ["beef", "pork", "lamb"];
+		var fruit = ["apple", "plum", "grape", "orange"];
+		
+		var obj5 = { arr1:meats, arr2:fruit};
+		
+		document.write(obj5.arr1[0]);
+		
+		
+		var jason = {
+			"age" : "24",
+			"hometown" : "Missoula, MT",
+			"gender" : "male"
+		};
+		
+		document.write("Jason is " + jason.age); // Output: Jason is 24
+		document.write("Jason is a " + jason.gender); // Output: Jason is a mal
+		
+		
+
+	</script>	
+		
+		
+	</head> 
+	
+	<body>
+
+</html>
