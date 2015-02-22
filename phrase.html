@@ -2,94 +2,18 @@
 <!DOCTYPE> 
 <html> 
 	<head> 
-		<title>  </title> 
-
+		<title>Phrasebook</title> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="style-small.css">
 		<link rel="stylesheet" type="text/css" href="phrase-style.css">
-	
 	</head> 
 	
 	<body> 
-		
 	
-	
-		<div class="phrase-box"> 
-			<div id="language-select">
-				<p>Language</p>
-					<select id="lang-check" name="form_select">
-						<option value="0">N/A</option>
-						<option value ="1">Spanish</option>
-						<option value ="2">Italian</option>
-						<option value ="3">Greek</option>
-						<option value ="4">French</option>
-					</select>
-			</div>
-					<div id="hidden_div" style="display: none;">
-						<table id="spanish-phrases">
-							 <thead>
-							    <tr>
-							      <th>English</th>
-							      <th>Spanish</th>
-							    </tr>
-							  </thead>
-							  
-							  
-							  
-							<tbody>
-								<tr>
-									<td>Hello</td>
-									<td>Hola</td>
-								</tr>
-								<tr>
-									<td>&#191;Where is the bathroom?</td>
-									<td>Donde esta el bano?</td>
-								</tr>
-							</tbody>
-													
-						</table>
-						
-					</div>
-					
-					
-					
-					
-					
-					<div id="hidden_div2" style="display: none;">Hello second content</div>
-					<div id="hidden_div3" style="display: none;">Hello third content</div>
-					<div id="hidden_div4" style="display: none;">Hello fourth content</div>
-					<script>
-			
-						document.getElementById('lang-check').addEventListener('change', function () {
-							
-						var style = this.value == 1 ? 'block' : 'none';
-					    document.getElementById('hidden_div').style.display = style;
-					    
-					    var style = this.value ==2 ? 'block' : 'none';
-					    document.getElementById('hidden_div2').style.display = style;
-					    
-					     var style = this.value ==3 ? 'block' : 'none';
-					    document.getElementById('hidden_div3').style.display = style;
-					    
-					     var style = this.value ==4 ? 'block' : 'none';
-					    document.getElementById('hidden_div4').style.display = style;
-					    
-						});
-		
-					</script>
-			
-		</div>
-	
-	
-	
-		
-		
-		
-		
-		
 		
 		<div id="container">
 			
-			<a href="#">
+			<a href="clock.html">
 				<div id="clock">
 					<div class="icon">
 						<div class="clock">
@@ -98,19 +22,22 @@
 							<div class="shadows"></div>
 	    				</div>
 	  				</div>
+	  				<p class="mobile-menu-text">Clock</p>
   				</div>
+  				
   			</a>
   			
   			
-			<a href="#">
+			<a href="weather.html">
 				<div id="weather">
 					<div id = "cloud">
 					</div>
+					<p class="mobile-menu-text">Weather</p>
 				</div>
 			</a>
 			
 			
-			<a href="#">
+			<a href="currency.html">
 				<div id="currency">
 					<div class="icon">
 						<div class="calculator">
@@ -121,12 +48,15 @@
 								<span class="medium">=</span>
 							</div>
     					</div>
+    					
   					</div>
+  					<p class="mobile-menu-text">Currency</p>
   				</div>
   			</a>
   			
   			
-			<a href="#">
+  			
+			<a href="measure.html">
 				<div id="measure">
 					<div class="icon">
 						<div class="ruler">
@@ -140,6 +70,7 @@
 							<div class="point"></div>
 						</div>
 					</div>
+					<p class="mobile-menu-text">Measurements</p>
 				</div>
 			</a>
 			
@@ -166,11 +97,12 @@
 							<div class="bookmark"></div>
     					</div>
   					</div>
+  					<p class="mobile-menu-text">Phrasebook</p>
   				</div>
   			</a>
   			
   			
-			<a href="#">
+			<a href="advice.html">
 				<div id="advice">
 					<div class="icon">
 						<div class="map">
@@ -191,13 +123,298 @@
 	  					<div class="flip"></div>
 	  					<div class="pin"></div>
     				</div>
+    				<p class="mobile-menu-text">Advice</p>
   					</div>
   				</div>
   			</a>
-  			
 		</div>
+  		
   			
-  			
+  		<div class="phrase-box"> 
+			<div id="language-select">
+				<p>Language</p>
+				<p>Please select which language you would like see certain phrases.</p>
+			</div>
+					<div class="lang-check-container"><select id="lang-check" name="form_select">
+						<option class="lang-check-options" value="0">N/A</option>
+						<option class="lang-check-options" value ="1">Spanish</option>
+						<option class="lang-check-options" value ="2">Italian</option>
+						<option class="lang-check-options" value ="3">French</option>
+					</select></div>
+					
+			
+					<div id="hidden_div_spanish" style="display: none;">
+						<table id="spanish-phrases">
+							 <thead>
+							    <tr>
+							      <th>English</th>
+							      <th>Spanish</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Hello.</td>
+									<td>Hola.</td>
+								</tr>
+								<tr>
+									<td>How are you?</td>
+									<td>&#191;C&#243;mo est&#225;?</td>
+								</tr>
+								<tr>
+									<td>My name is...</td>
+									<td>Me llamo...</td>
+								</tr>
+								<tr>
+									<td>Where is the bathroom?</td>
+									<td>&#191;Donde esta el ba&#241;o?</td>
+								</tr>
+								<tr>
+									<td>Do you speak English?</td>
+									<td>&#191;Hablas ingles?</td>
+								</tr>
+								<tr>
+									<td>Can you help me?</td>
+									<td>&#191;Puede ayudarme?</td>
+								</tr>
+								<tr>
+									<td>I don't understand.</td>
+									<td>No entiendo.</td>
+								</tr>
+								<tr>
+									<td>I am lost. Can you help me find where I need to go?</td>
+									<td>&#191;Estoy perdido. Puede ayudarme buscar &#225;donde tengo ir?</td>
+								</tr>
+								<tr>
+									<td>Can you write that down for me?</td>
+									<td>&#191;Puede escribirlo para m&#237;?</td>
+								</tr>
+								<tr>
+									<td>Please call the American Embassy.</td>
+									<td>&#191;Por favor, llama la Embajada Americana.</td>
+								</tr>
+								<tr>
+									<td>I need the police.</td>
+									<td>Necesito la polic&#237;a.</td>
+								</tr>
+								<tr>
+									<td>Where is the airport?</td>
+									<td>&#191;D&#243;nde est&#225; el aeropuerto?</td>
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+					
+					
+					
+					<div id="hidden_div_italian" style="display: none;">
+						<table id="italian-phrases">
+							 <thead>
+							    <tr>
+							      <th>English</th>
+							      <th>Italian</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Hello.</td>
+									<td>Ciao.</td>
+								</tr>
+								<tr>
+									<td>How are you?</td>
+									<td>Como state?</td>
+								</tr>
+								<tr>
+									<td>My name is...</td>
+									<td>Mi chiamo...</td>
+								</tr>
+								<tr>
+									<td>Where is the bathroom?</td>
+									<td>Dove posso trovare il bagno?</td>
+								</tr>
+								<tr>
+									<td>Do you speak English?</td>
+									<td>Parla inglese?</td>
+								</tr>
+								<tr>
+									<td>Can you help me?</td>
+									<td>Potrebbe aiutarmi?</td>
+								</tr>
+								<tr>
+									<td>I don't understand.</td>
+									<td>Non capisco!</td>
+								</tr>
+								<tr>
+									<td>I am lost. Can you help me find where I need to go?</td>
+									<td>&#191;Mi sono perso/a. Potrebbe aiutarmi trovare a dove devo andare?</td>
+								</tr>
+								<tr>
+									<td>Can you write that down for me?</td>
+									<td>Pu&#242;scrivere per favore?</td>
+								</tr>
+								<tr>
+									<td>Please call the American Embassy.</td>
+									<td>&#191;Per favore, chiama la Ambasciata Americana.</td>
+								</tr>
+								<tr>
+									<td>I need the police.</td>
+									<td>Devo la polizia.</td>
+								</tr>
+								<tr>
+									<td>Where is the airport?</td>
+									<td>Dove posso trovare aeroporto?</td>
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+
+					<div id="hidden_div_italian" style="display: none;">
+						<table id="italian-phrases">
+							 <thead>
+							    <tr>
+							      <th>English</th>
+							      <th>Italian</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Hello.</td>
+									<td>Ciao.</td>
+								</tr>
+								<tr>
+									<td>How are you?</td>
+									<td>Como state?</td>
+								</tr>
+								<tr>
+									<td>My name is...</td>
+									<td>Mi chiamo...</td>
+								</tr>
+								<tr>
+									<td>Where is the bathroom?</td>
+									<td>Dove posso trovare il bagno?</td>
+								</tr>
+								<tr>
+									<td>Do you speak English?</td>
+									<td>Parla inglese?</td>
+								</tr>
+								<tr>
+									<td>Can you help me?</td>
+									<td>Potrebbe aiutarmi?</td>
+								</tr>
+								<tr>
+									<td>I don't understand.</td>
+									<td>Non capisco!</td>
+								</tr>
+								<tr>
+									<td>I am lost. Can you help me find where I need to go?</td>
+									<td>&#191;Mi sono perso/a. Potrebbe aiutarmi trovare a dove devo andare?</td>
+								</tr>
+								<tr>
+									<td>Can you write that down for me?</td>
+									<td>Pu&#242;scrivere per favore?</td>
+								</tr>
+								<tr>
+									<td>Please call the American Embassy.</td>
+									<td>&#191;Per favore, chiama la Ambasciata Americana.</td>
+								</tr>
+								<tr>
+									<td>I need the police.</td>
+									<td>Devo la polizia.</td>
+								</tr>
+								<tr>
+									<td>Where is the airport?</td>
+									<td>Dove posso trovare aeroporto?</td>
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+					
+					<div id="hidden_div_french" style="display: none;">
+						<table id="french-phrases">
+							 <thead>
+							    <tr>
+							      <th>English</th>
+							      <th>French</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Hello.</td>
+									<td>Bonjour.</td>
+								</tr>
+								<tr>
+									<td>How are you?</td>
+									<td>&#199;a va?</td>
+								</tr>
+								<tr>
+									<td>My name is...</td>
+									<td>Je m'appelle...</td>
+								</tr>
+								<tr>
+									<td>Where is the bathroom?</td>
+									<td>O&#249; sont les toilettes?</td>
+								</tr>
+								<tr>
+									<td>Do you speak English?</td>
+									<td>Parlez-vous Anglais?</td>
+								</tr>
+								<tr>
+									<td>Can you help me?</td>
+									<td>Pouvez-vous m'aider?</td>
+								</tr>
+								<tr>
+									<td>I don't understand.</td>
+									<td>Je ne comprends pas!</td>
+								</tr>
+								<tr>
+									<td>I am lost. Can you help me find where I need to go?</td>
+									<td>Je suis perdu. Pouvez-vous m'aider trouver o&#249; j'ai besoin aller.</td>
+								</tr>
+								<tr>
+									<td>Can you write that down for me?</td>
+									<td>Est-ce que vous pourriez l'&#233;crire?</td>
+								</tr>
+								<tr>
+									<td>Please call the American Embassy.</td>
+									<td>&#191;Merci, appelez la Ambassade Am&#233;ricain.</td>
+								</tr>
+								<tr>
+									<td>I need the police.</td>
+									<td>Devo la polizia.</td>
+								</tr>
+								<tr>
+									<td>Where is the airport?</td>
+									<td>Dove posso trovare aeroporto?</td>
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+					
+					
+					<script>
+			
+						document.getElementById('lang-check').addEventListener('change', function () {
+							
+						var style = this.value == 1 ? 'block' : 'none';
+					    document.getElementById('hidden_div_spanish').style.display = style;
+					    
+					    var style = this.value ==2 ? 'block' : 'none';
+					    document.getElementById('hidden_div_italian').style.display = style;
+					    					    
+					     var style = this.value ==3 ? 'block' : 'none';
+					    document.getElementById('hidden_div_french').style.display = style;
+					    
+						});
+		
+					</script>
+			
+		</div>
+	
+	
+
   	
   			
   			

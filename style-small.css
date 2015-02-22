@@ -5,14 +5,15 @@
 		height: 200px;
 		background: #33CCFF;
 		margin-left: 5%;
+		margin-bottom: 50px;
 		top: 35px;
 		position: relative;
 		border-radius:200px;
 		border: 2.5px solid white;
+		float:left;
 	}
 	
-		
-		
+	
 	#clock {
 		width: 90px;
 		height: 90px;
@@ -655,19 +656,21 @@
 
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) and (max-height: 1200px) {
 	
 	#container {
-		width: 220px;
-		height: 190px;
+		width: 300px;
+		height: 150px;
 		background: #33CCFF;
 		margin: 0 auto;
+		margin-bottom: 3%;
 		top: 5px;
 		position: relative;
 		border-radius:10px;
 		border: 2.5px solid white;
 		padding: 5px;
-		padding-bottom: 10px;
+		padding-bottom: 15px;
+		
 	}
 	
 		
