@@ -1,9 +1,28 @@
 @charset "utf-8";
 /* CSS Converter */
 
-select{
-	margin:auto;
+
+
+
+#converter{
+	background:#36F;
+	border-radius: 10px;
+	width: 600;
+	height:600;
+	margin: 0 auto;
+	color:#ff6;
 	text-align:center;
+	
 }
 
+#converter input[type="button"]{
+	padding:10px;
+	background:#FF9;
+	color:#36f;
+	font-size:14px;
+}
+
+#converter input[type="textfield"]{
+	
+}
 

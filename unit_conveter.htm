@@ -135,12 +135,50 @@
         <!-- Unit Converter Div -->
         
         <div id="converter">
+        <form name="calculator" >
+<p> Step 1: Type an amount: </p><input type="textfield" name="ans" value="">
+<br />
+<input type="button" value="Inch / Centimeters" onClick="document.calculator.ans.value+='2.54'">
+<input type="button" value="Feet / Centimeters" onClick="document.calculator.ans.value+='30.48'">
+<input type="button" value="Feet / Meter" onClick="document.calculator.ans.value+='0.3048'">
+<input type="button" value="Yard / Meter" onClick="document.calculator.ans.value+='0.914'">
+<br />
+<input type="button" value="Mile / Kilometers" onClick="document.calculator.ans.value+='1.609'">
+<input type="button" value="Once / Grams" onClick="document.calculator.ans.value+='28.350'">
+<input type="button" value="Pound / Grams" onClick="document.calculator.ans.value+='454'">
+<input type="button" value="Pound / Kilograms" onClick="document.calculator.ans.value+='0.454'">
+<br />
+<input type="button" value="Fluid Ounce / Milliliters" onClick="document.calculator.ans.value+='29.574'">
+<input type="button" value="Quart / Liter" onClick="document.calculator.ans.value+='0.946'">
+<input type="button" value="Gallon / Liter" onClick="document.calculator.ans.value+='3.785'">
+<br />
+<input type="button" value="English to Metric" onClick="document.calculator.ans.value+='*'">
+<input type="button" value="Metric to English" onClick="document.calculator.ans.value+='/'">
+<br />
+<input type="button" value="0" onClick="document.calculator.ans.value+='0'">
+<input type="reset" value="Reset">
+<input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+</form>
+ </div>       
         
-        <select>
+        
+        
+        
+        
+       <!-- <select>
+        	<option value="2.54" onClick="document.calculator.ans.value+='2.54'"> Inch -> Centimeters </option>
         	<option value="feet-meters"> Feet -> Meters </option>
+            <option value="yard-meters"> Yard -> Meters </option>
+            <option value="mile-kilometers"> Mile -> KiloMeters </option>
+            <option value="ounce-grams"> Ounce -> Grams </option>
+            <option value="pound-grams"> Pound -> Grams </option>
+            <option value="fluidonce-milliliters"> Fluid Once -> Milliliters </option>
+            <option value="quart-liter"> Quart -> Liters </option>
+            <option value="gallon-liter"> Gallon -> Liters </option>
         </select>
-            
-        </div>
+        <input type="button" value="*" onClick="document.calculator.ans.value+='*'">
+<input type="button" value="2.54" onClick="document.calculator.ans.value+='2.54'">
+        </div>-->
   			
   			
   	
