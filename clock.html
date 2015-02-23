@@ -162,7 +162,7 @@
 		   	<option value="10"> GMT+10 Tokyo, JP </option>			<option value="11"> GMT+11 Sydnet, AU </option>
 			<option value="12"> GMT+12 Fiji </option>
         </select>
-        <button type="button" onclick="getTime()">Get Time</button>    
+        <button type="button" onclick="getMyTime()">Get Time</button>    
 		<p id="currentDate"></p>
 		<p id="currentTime"></p>
 		<p id="currentDay">Day: </p>
@@ -171,54 +171,69 @@
 		<p id="currentHour">Hour: </p>
 		<p id="currentSecond">Second: </p>
 		<p id="currentMinute">Minute: </p>
+		
+		
+		<!-- <script src="http://www.timeapi.org/utc/now.json?callback=myCallback"></script> -->
+
+
 		<script>
-			function getTime(){
+			function getMyTime(){
 				var xmlhttp = new XMLHttpRequest();
-				var url = "http://www.timeapi.org/utc/";
+				var url = "http://www.timeapi.org/utc/now.json?callback=myCallback";
 				var x = document.getElementById("Time").value;
 				if(x>0)
-					url = "http://www.timeapi.org/utc/"+x+"+hours+from+now";
+					url = "http://www.timeapi.org/utc/"+x+"+hours+from+now.json?callback=myCallback";
 				else if(x<0){
 					x = Math.abs(x);
-					url = "http://www.timeapi.org/utc/"+x+"+hours+ago";
+					url = "http://www.timeapi.org/utc/"+x+"+hours+ago.json?callback=myCallback";
 				}
-				alert("The url is: "+url);	
-				xmlhttp.open("GET", url, true);	
-				xmlhttp.onreadystatechange=function() {
-			 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			  	   		ResultSplit(xmlhttp.responseText);
-					}
-				}
-
-				xmlhttp.send();
-			
+				var script = document.createElement("script");
+				script.setAttribute("src", url);
+				document.head.appendChild(script);
 			}
 			
+			function myCallback(json) { 
+				var date = json.dateString;
+				ResultSplit(date);
+			} 
+			
 			//Tested this out, it works if the input is in correct format
-			//ex. 2015-02-23T17:47:01+00:00 -> should be response from webstie
+			//ex.  February 23, 2015 21:24:17 GMT+0000 -> should be response from webstie
 			function ResultSplit(textData) {
-				var date, day, month, year, minute, second;
-		    	var newTime = "", time = "";
-		    	var results = textData.split("T",2);
-		    	date = results[0];
-		    	time = results[1];
-		    	var results2 = date.split("-",3);
-			    year = results2[0];
-		   		month = results2[1];
-			    day = results2[2];
-			 	newTime = time.substr(0,8);
-			    var results3 = newTime.split(":",3);
-			    hour = results3[0];
-			 	minute = results3[1];
-			 	second = results3[2];
-			 	document.getElementById("currentDate").innerHTML = "Date: "+date;
-				document.getElementById("currentTime").innerHTML = "Time: "+time;
+				var day, month, year, minute, second;
+		    	var time = "";
+				var date = textData;
+				var n = textData.indexOf(" ");
+		    	//var results = textData.split(" ",2);
+				month = textData.substring(0,n);
+				console.log("Month: "+month);
+				rest = textData.substring(n,textData.length);
+				console.log("Rest: "+rest);
+				var results = rest.split(",",2);
+				day = results[0];
+				console.log("Day: "+day);
+				rest = results[1];
+				console.log("Rest: "+rest);
+				year = rest.substring(1, 5);
+				console.log("Year: "+year);
+				time = rest.substring(6,14);
+				console.log("Time: "+time);
+				results = time.split(":",3);
+				hour = results[0];
+				console.log("Hour: "+hour);
+				minute = results[1];
+				console.log("Minute: "+minute);
+				second = results[2];
+				console.log("Second: "+second);
+			    document.getElementById("currentDate").innerHTML = "Date: "+date;
+			    document.getElementById("currentTime").innerHTML = "Time: "+time;
 			    document.getElementById("currentDay").innerHTML = "Day: "+day;
 			    document.getElementById("currentMonth").innerHTML = "Month: "+month;
 			    document.getElementById("currentYear").innerHTML = "Year: "+year;
 			    document.getElementById("currentHour").innerHTML = "Hour: "+hour;
 			    document.getElementById("currentMinute").innerHTML = "Minute: "+minute;
 			    document.getElementById("currentSecond").innerHTML = "Second: "+second;
+			
 			}
 		</script>
 		
