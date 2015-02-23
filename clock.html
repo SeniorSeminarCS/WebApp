@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>World Clock</title>
+
+<link rel="stylesheet" type="text/css" href="style-small.css">
+<link rel="stylesheet" type="text/css" href="clock.css">
+
+</head>
+
+<body>
+
+
+<!DOCTYPE> 
+<html> 
+	<head> 
+		<title>  </title> 
+
+		<link rel="stylesheet" type="text/css" href="style-small.css">
+
+	<body> 
+		
+
+		<div id="container">
+			
+			<a href="#">
+				<div id="clock">
+					<div class="icon">
+						<div class="clock">
+							<div class="circle"></div>
+							<div class="clockwise"></div>
+							<div class="shadows"></div>
+	    				</div>
+	  				</div>
+  				</div>
+  			</a>
+  			
+  			
+			<a href="#">
+				<div id="weather">
+					<div id = "cloud">
+					</div>
+				</div>
+			</a>
+			
+			
+			<a href="#">
+				<div id="currency">
+					<div class="icon">
+						<div class="calculator">
+							<div class="display"></div>
+							<div class="controls">&#10010;&nbsp; 
+								<span class="big">-</span> 
+								<br> &#10006;&nbsp; 
+								<span class="medium">=</span>
+							</div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+  			
+			<a href="#">
+				<div id="measure">
+					<div class="icon">
+						<div class="ruler">
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			
+			<a href="phrase.html">
+				<div id="phrase">  
+					<div class="icon">
+						<div class="book">
+							<div class="top"></div>
+							<div class="pages">
+								<div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+							</div>
+							<span id="phrase-title">Phrases</span>
+							<div class="bookmark"></div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+  			
+			<a href="#">
+				<div id="advice">
+					<div class="icon">
+						<div class="map">
+							<div class="folded">
+							  <div class="fold">
+									<div class="content"></div>
+        						</div>
+								<div class="fold">
+									<div class="content">
+										<div class="other"></div>
+       							  </div>
+       						  </div>
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+      						</div>
+	  					<div class="shadow"></div>
+	  					<div class="flip"></div>
+	  					<div class="pin"></div>
+    				</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+		</div>
+        
+        <!-- Clock Div -->
+        
+        <div id="worldclock">
+        
+        <select id="Time">
+        	<option value="-12"> GMT-12 Auckland, AU </option>
+		    <option value="-11">GMT-11 Unalaska, US </option>
+		   	<option value="-10"> GMT-10 Honolulu, US </option>
+		   	<option value="-9"> GMT-9 Anchorage, US </option>
+		   	<option value="-8"> GMT-8 Los Angeles, US </option>
+		   	<option value="-7"> GMT-7 Denver, US </option>
+		   	<option value="-6"> GMT-6 Chicago, US </option>
+		   	<option value="-5"> GMT-5 New York City, US </option>
+		   	<option value="-4"> GMT-4 San Juan, PR</option>
+		   	<option value="-3"> GMT-3 Buenos Aires, AR </option>
+		   	<option value="-2"> GMT-2 Sao Paulo, BR  </option>
+		   	<option value="-1"> GMT-1 Cape Verde Islands </option>
+		   	<option selected="selected" value="0"> GMT+0 London, UK </option>
+		   	<option value="1"> GMT+1 Madrid, ES </option>
+		   	<option value="2"> GMT+2 Athens, GR </option>
+		   	<option value="3"> GMT+3 Kuwait City, KW </option>
+		   	<option value="4"> GMT+4 Moscow, RU </option>
+		   	<option value="5"> GMT+5 Dubai, AE </option>
+		   	<option value="6"> GMT+6 Islamabad, PK </option>
+		   	<option value="7"> GMT+7 Almaty, KZ </option>
+		   	<option value="8"> GMT+8 Bangkok, TH </option>
+		   	<option value="9"> GMT+9 Hong Kong, CH </option>
+		   	<option value="10"> GMT+10 Tokyo, JP </option>			<option value="11"> GMT+11 Sydnet, AU </option>
+			<option value="12"> GMT+12 Fiji </option>
+        </select>
+        <button type="button" onclick="getTime()">Get Time</button>    
+		<p id="currentDate"></p>
+		<p id="currentTime"></p>
+		<script>
+		function getTime(){
+			var xmlhttp = new XMLHttpRequest();
+			var url = "http://www.timeapi.org/utc/";
+			var x = document.getElementById("Time").value;
+			if(x>0)
+				url = "http://www.timeapi.org/utc/"+x+"+hours+from+now";
+			else if(x<0){
+				x = Math.abs(x);
+				url = "http://www.timeapi.org/utc/"+x+"+hours+ago";
+			}
+			alert("The url is: "+url);	
+			xmlhttp.open("GET", url, true);	
+			xmlhttp.onreadystatechange=function() {
+					    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					        ResultSplit(xmlhttp.responseText);
+					    }
+			}
+
+			xmlhttp.send();
+			
+		}
+		
+		
+		function ResultSplit(response) {
+			
+		    var arr = JSON.parse(response);
+			var date;
+			var time;
+			var res = arr.split("T",2)
+			date = arr[0];
+			time = arr[1];
+			document.getElementById("currentDate").innerHTML = date;
+			document.getElementById("currentTime").innerHTML = time;
+		}
+		
+		</script>
+        </div>
+  			
+  			
+  	
+  			
+  			
+</body> 
+</html>
+</body>
+</html>
+
