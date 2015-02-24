@@ -1,3 +1,5 @@
+<!DOCTYPE>
+<html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,18 +10,7 @@
 
 </head>
 
-<body>
-
-
-<!DOCTYPE> 
-<html> 
-	<head> 
-		<title>  </title> 
-
-		<link rel="stylesheet" type="text/css" href="style-small.css">
-
 	<body> 
-		
 
 		<div id="container">
 			
@@ -35,14 +26,12 @@
   				</div>
   			</a>
   			
-  			
 			<a href="weather.html">
 				<div id="weather">
 					<div id = "cloud">
 					</div>
 				</div>
 			</a>
-			
 			
 			<a href="#">
 				<div id="currency">
@@ -58,7 +47,6 @@
   					</div>
   				</div>
   			</a>
-  			
   			
 			<a href="#">
 				<div id="measure">
@@ -76,7 +64,6 @@
 					</div>
 				</div>
 			</a>
-			
 			
 			<a href="phrase.html">
 				<div id="phrase">  
@@ -103,7 +90,6 @@
   				</div>
   			</a>
   			
-  			
 			<a href="#">
 				<div id="advice">
 					<div class="icon">
@@ -128,13 +114,12 @@
   					</div>
   				</div>
   			</a>
-  			
 		</div>
         
         <!-- Clock Div -->
-        
         <div id="worldclock">
         
+		<!--drop down box, make London(GMT+0) default -->
         <select id="Time">
         	<option value="-12"> GMT-12 Auckland, AU </option>
 		    <option value="-11">GMT-11 Unalaska, US </option>
@@ -158,9 +143,11 @@
 		   	<option value="7"> GMT+7 Almaty, KZ </option>
 		   	<option value="8"> GMT+8 Bangkok, TH </option>
 		   	<option value="9"> GMT+9 Hong Kong, CH </option>
-		   	<option value="10"> GMT+10 Tokyo, JP </option>			<option value="11"> GMT+11 Sydnet, AU </option>
+		   	<option value="10"> GMT+10 Tokyo, JP </option>
+			<option value="11"> GMT+11 Sydnet, AU </option>
 			<option value="12"> GMT+12 Fiji </option>
         </select>
+
         <button type="button" onclick="getMyTime()">Get Time</button>    
 		<p id="currentDate"></p>
 		<p id="currentTime"></p>
@@ -168,17 +155,15 @@
 		<p id="currentMonth">Month: </p>
 		<p id="currentYear">Year: </p>
 		<p id="currentHour">Hour: </p>
-		<p id="currentSecond">Second: </p>
 		<p id="currentMinute">Minute: </p>
-		
-		
-		<!-- <script src="http://www.timeapi.org/utc/now.json?callback=myCallback"></script> -->
-
+		<p id="currentSecond">Second: </p>
 
 		<script>
 			function getMyTime(){
-				var xmlhttp = new XMLHttpRequest();
+				//creates default url if user selects value 0
 				var url = "http://www.timeapi.org/utc/now.json?callback=myCallback";
+				
+				//manipute url based on dropdown selsction
 				var x = document.getElementById("Time").value;
 				if(x>0)
 					url = "http://www.timeapi.org/utc/"+x+"+hours+from+now.json?callback=myCallback";
@@ -186,44 +171,37 @@
 					x = Math.abs(x);
 					url = "http://www.timeapi.org/utc/"+x+"+hours+ago.json?callback=myCallback";
 				}
+				
+				//write new script to run url and add it to the head
 				var script = document.createElement("script");
 				script.setAttribute("src", url);
 				document.head.appendChild(script);
 			}
 			
+			//wrapper function called when url is done
 			function myCallback(json) { 
 				var date = json.dateString;
 				ResultSplit(date);
 			} 
 			
-			//Tested this out, it works if the input is in correct format
+			//splits returned data into appropriate variables
 			//ex.  February 23, 2015 21:24:17 GMT+0000 -> should be response from webstie
 			function ResultSplit(textData) {
 				var day, month, year, minute, second;
 		    	var time = "";
 				var date = textData;
 				var n = textData.indexOf(" ");
-		    	//var results = textData.split(" ",2);
 				month = textData.substring(0,n);
-				console.log("Month: "+month);
 				rest = textData.substring(n,textData.length);
-				console.log("Rest: "+rest);
 				var results = rest.split(",",2);
 				day = results[0];
-				console.log("Day: "+day);
 				rest = results[1];
-				console.log("Rest: "+rest);
 				year = rest.substring(1, 5);
-				console.log("Year: "+year);
 				time = rest.substring(6,14);
-				console.log("Time: "+time);
 				results = time.split(":",3);
 				hour = results[0];
-				console.log("Hour: "+hour);
 				minute = results[1];
-				console.log("Minute: "+minute);
 				second = results[2];
-				console.log("Second: "+second);
 			    document.getElementById("currentDate").innerHTML = "Date: "+date;
 			    document.getElementById("currentTime").innerHTML = "Time: "+time;
 			    document.getElementById("currentDay").innerHTML = "Day: "+day;
@@ -232,18 +210,8 @@
 			    document.getElementById("currentHour").innerHTML = "Hour: "+hour;
 			    document.getElementById("currentMinute").innerHTML = "Minute: "+minute;
 			    document.getElementById("currentSecond").innerHTML = "Second: "+second;
-			
 			}
 		</script>
-		
 		</div>
-  			
-  			
-  	
-  			
-  			
-</body> 
+	</body> 
 </html>
-</body>
-</html>
-
