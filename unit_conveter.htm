@@ -138,6 +138,13 @@
         <form name="calculator" >
 <p> Step 1: Type an amount: </p><input type="textfield" name="ans" value="">
 <br />
+<br /> 
+<p>Step 2: Choose which direction to convert</p>
+<input type="button" value="English to Metric" onClick="document.calculator.ans.value+='*'">
+<input type="button" value="Metric to English" onClick="document.calculator.ans.value+='/'">
+<br />
+<br />
+<p>Step 3: Choose which type to convert </p>
 <input type="button" value="Inch / Centimeters" onClick="document.calculator.ans.value+='2.54'">
 <input type="button" value="Feet / Centimeters" onClick="document.calculator.ans.value+='30.48'">
 <input type="button" value="Feet / Meter" onClick="document.calculator.ans.value+='0.3048'">
@@ -152,12 +159,10 @@
 <input type="button" value="Quart / Liter" onClick="document.calculator.ans.value+='0.946'">
 <input type="button" value="Gallon / Liter" onClick="document.calculator.ans.value+='3.785'">
 <br />
-<input type="button" value="English to Metric" onClick="document.calculator.ans.value+='*'">
-<input type="button" value="Metric to English" onClick="document.calculator.ans.value+='/'">
 <br />
-<input type="button" value="0" onClick="document.calculator.ans.value+='0'">
+<p>Step 4: Final</p>
 <input type="reset" value="Reset">
-<input type="button" value="=" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+<input type="button" value="Convert" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)">
 </form>
  </div>       
         
