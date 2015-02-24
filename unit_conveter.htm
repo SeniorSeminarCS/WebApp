@@ -119,12 +119,12 @@
         
         <div id="converter">
         <form name="calculator" >
-<p> Step 1: Type an amount: </p><input type="textfield" name="ans" value="">
+<p> Step 1: Type an amount: </p><input type="textfield" name="ans" value="" id = "answer">
 <br />
 <br /> 
 <p>Step 2: Choose which direction to convert</p>
-<input type="button" value="English to Metric" onClick="document.calculator.ans.value+='*'">
-<input type="button" value="Metric to English" onClick="document.calculator.ans.value+='/'">
+<input type="button" value="English to Metric" onClick= addMultiplier()><!-- >"document.calculator.ans.value+='*'"> -->
+<input type="button" value="Metric to English" onClick= addDivider()><!--"document.calculator.ans.value+='/'"> -->
 <br />
 <br />
 <p>Step 3: Choose which type to convert </p>
@@ -142,6 +142,8 @@
 <input type="button" value="Quart / Liter" onClick="document.calculator.ans.value+='0.946'">
 <input type="button" value="Gallon / Liter" onClick="document.calculator.ans.value+='3.785'">
 <br />
+<input type="button" value ="°F / °C" onClick=calculateTemp()><!--"document.calculator.ans.value+='3.785'"> -->
+<br />
 <br />
 <p>Step 4: Final</p>
 <input type="reset" value="Reset">
@@ -149,7 +151,48 @@
 </form>
  </div>       
         
-        
+	<script>
+		function addMultiplier(){
+			if(document.calculator.ans.value[document.calculator.ans.value.length -1] == '*'){
+				return;
+			}
+			
+			if(document.calculator.ans.value[document.calculator.ans.value.length -1] == '/'){
+				document.calculator.ans.value = document.calculator.ans.value.substr(0,document.calculator.ans.value.length -1)
+				document.calculator.ans.value+='*';
+			}
+			else {
+				document.calculator.ans.value+='*';
+			}
+		}
+		function addDivider(){
+			if(document.calculator.ans.value[document.calculator.ans.value.length -1] == '/'){
+				return;
+			}
+			
+			if(document.calculator.ans.value[document.calculator.ans.value.length -1] == '*'){
+				document.calculator.ans.value = document.calculator.ans.value.substr(0,document.calculator.ans.value.length -1)
+				document.calculator.ans.value+='/';
+			}
+			else {
+				document.calculator.ans.value+='/';
+			}
+
+		}
+		function calculateTemp(){
+			var x = document.getElementById("answer").value;
+			var value = x.substring(0, x.length-1);
+			if(x[x.length -1] == '*'){
+				document.calculator.ans.value = "("+value+"-32)/1.8";
+			}
+			else if (x[x.length-1] == '/') {
+				document.calculator.ans.value = "("+value+"*1.8) + 32";
+			}
+			else {
+				alert("Error! You must complete step 2 first.");
+			}
+		}
+	</script>
         
         
         
