@@ -7,6 +7,8 @@
 <link rel="stylesheet" type="text/css" href="style-small.css">
 <link rel="stylesheet" type="text/css" href="clock.css">
 
+<!-- ><script id = "timer"> </script> -->
+
 </head>
 
 	<body> 
@@ -173,8 +175,13 @@
 				
 				//write new script to run url and add it to the head
 				var script = document.createElement("script");
+				if(document.head.lastChild.nodeName == "SCRIPT")
+					document.head.removeChild(document.head.lastChild)
+				//alert(document.head.lastChild.getAttribute("src"));
+				//document.head.lastChild.getAttribute("src") != null;
 				script.setAttribute("src", url);
 				document.head.appendChild(script);
+				//alert(document.head.lastChild.nodeName);
 			}
 			
 			//wrapper function called when url is done
