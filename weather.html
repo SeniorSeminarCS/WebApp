@@ -6,22 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="style-small.css">
 		<link rel="stylesheet" type="text/css" href="phrase-style.css">
+		<link rel="stylesheet" type="text/css" href="weather-style.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="jquery-2.1.3.js"></script>
 		<script src="weather.js"></script>
-		
-		<style>
-	      #map-canvas {
-	        height: 40%;
-	        width: 40%;
-	        margin: 90px;
-	        padding: 0px;
-	        border-radius: 20%;
-	      }
-    	</style>
-		
-	
-
 	</head> 
 	
 	<body> 
@@ -42,15 +30,13 @@
   			</a>
   			
   			
-			<a href="#">
+			<a href="weather.html">
 				<div id="weather">
 					<div id = "cloud">
 					</div>
 				</div>
 			</a>
-			
-			
-			<a href="currency_converter">
+			<a href="currency_converter.html">
 				<div id="currency">
 					<div class="icon">
 						<div class="calculator">
@@ -65,7 +51,9 @@
   				</div>
   			</a>
   			
-  			
+
+			<a href="unit_converter.html">
+
 			<a href="unit_converter.html">
 				<div id="measure">
 					<div class="icon">
@@ -82,7 +70,6 @@
 					</div>
 				</div>
 			</a>
-			
 			
 			<a href="phrase.html">
 				<div id="phrase">  
@@ -110,7 +97,7 @@
   			</a>
   			
   			
-			<a href="#">
+			<a href="advice.html">
 				<div id="advice">
 					<div class="icon">
 						<div class="map">
@@ -136,32 +123,29 @@
   			</a>
   			
 		</div>
-  			
-  			
-  		  <form id="weather_status_form">
-    <p>Please select a city:</p><br>
-    
-	<input type="radio" id="weather_city" name="city" value="moscow" />Moscow</br>
-	<input type="radio" id="weather_city" name="city" value="paris" />Paris</br>
-	<input type="radio" id="weather_city" name="city" value="london" />London</br>
-	<input type="radio" id="weather_city" name="city" value="new york" />New York</br>
-	<input type="radio" id="weather_city" name="city" value="prague" />Prague</br>
-	<input type="radio" id="weather_city" name="city" value="miami" />Miami</br>
-	<input type="radio" id="weather_city" name="city" value="madrid" />Madrid</br>
 
-	<p><input type="button" value="Check city"></p>
-	<p>Country: <span id="weather_country"></span></p>
-    
-        
-	</form>
 
-	  <p id="weather_description"></p>
-	  <p>Temperature: <span id="weather_temp"></span>&#176;</p>
-	  <p>Humidity: <span id="weather_humidity"></span></p>
-	  <p>Cloudiness: <span id="weather_clouds"></span>%</p>
-	  <p>Wind speed: <span id="weather_wind"></span></p>
-  
 
+
+		<div id="weather-container">
+			<form id="weather_status_form">
+				<br>
+				<div id="weather-city-box"><input type="text" id="weather_city" placeholder="Input"/></br></div>		
+				<div id="button-box"><input type="button" value="Current Forecast"></div>
+			</form>
+			
+			<div id="current-weather-info">
+				<div class="conditions-box"><p>Country: <span id="weather_country"></span></p></div>
+				<div class="conditions-box"><p>Current Conditions: <span id="weather_description"></span></p></div>
+				<div class="conditions-box"><p>Temperature: <span id="weather_temp"></span>&#176;</p></div>
+				<div class="conditions-box"><p>Humidity: <span id="weather_humidity"></span></p></div>
+				<div class="conditions-box"><p>Cloudiness: <span id="weather_clouds"></span>%</p></div>
+				<div class="conditions-box"><p>Wind speed: <span id="weather_wind"></span></p></div>
+			</div>	
+		</div>		
+			
+			
+		
 	</body> 
 </html>
 

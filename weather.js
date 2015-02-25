@@ -4,7 +4,7 @@
   $(document).ready(function() {
     
     $("input[type='button']").click(function(){
-        var radioValue = $("input[name='city']:checked").val();
+        var radioValue = $("#weather_city").val();
     $('#weather_city').val(radioValue);
     processForm();
     
@@ -32,7 +32,6 @@
         $('#weather_humidity').text(response.main.humidity);
         $('#weather_clouds').text(response.clouds.all);
         $('#weather_wind').text(response.wind.speed);
-   
       },
     });
   }
