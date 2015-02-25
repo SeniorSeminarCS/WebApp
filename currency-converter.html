@@ -123,9 +123,16 @@
         <!-- Currency Converter -->
         
         <div id="converter">
-       curl --get --include "https://currency-exchange.p.mashape.com/exchange?from=SGD&q=1.0&to=MYR" \
-  -H "X-Mashape-Key: rowhBlP4RimshUM2l5V5HET64efsp1dL66tjsnuKhQvdMu7bI8" \
-  -H "Accept: text/plain" 
+        <p> To: </p>
+			<select id="tocur">
+            	<option value="usd"> USD </option>
+                <option value="eur"> EUR </option>            
+            </select>
+         <p> From: </p>
+            <select id="fromcur">
+            	<option value="usd"> USD </option>
+                <option value="eur"> EUR </option>            
+            </select>
         
         
         </div>
