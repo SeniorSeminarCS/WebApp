@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Currency Converter</title>
@@ -11,9 +11,6 @@
 </head>
 
 <body>
-
-
-
 		<div id="container">
 			
 			<a href="clock.html">
@@ -50,7 +47,7 @@
   				</div>
   			</a>
   			
-			<a href="#">
+			<a href="unit_converter">
 				<div id="measure">
 					<div class="icon">
 						<div class="ruler">
@@ -124,16 +121,40 @@
         
         <div id="converter">
         <p> To: </p>
-			<select id="tocur">
-            	<option value="usd"> USD </option>
-                <option value="eur"> EUR </option>            
+			<select id="fromCur">
+            	<option value="USD"> USD </option>
+                <option value="EUR"> EUR </option>            
             </select>
+		<p> Amount: </p> <input type="textfield" value="0" id = "amount">
          <p> From: </p>
-            <select id="fromcur">
-            	<option value="usd"> USD </option>
-                <option value="eur"> EUR </option>            
+            <select id="toCur">
+            	<option value="USD"> USD </option>
+                <option value="EUR"> EUR </option>            
             </select>
-        
+		<br />
+        <button type="button" onclick="getCurrency()">Convert</button>    
+		<p> Amount: </p> <input type="textfield" value="0" id = "answer">
+
+
+	<script> 
+		function getCurrency(){
+			var url = "http://www.freecurrencyconverterapi.com/api/v3/convert?q="+document.getElementById("fromCur").value+"_"+document.getElementById("toCur").value+"&compact=y&callback=myCallback"
+			var script = document.createElement("script");
+			script.setAttribute("src", url);
+			document.head.appendChild(script);
+			//alert(url);
+		}
+		
+		function myCallback(json) { 
+			var results = document.getElementById("fromCur").value+"_"+document.getElementById("toCur").value
+			var rate = json[results].val;
+			var conversion = document.getElementById("amount").value*rate;
+			conversion = Math.round(conversion * 100) / 100;
+			console.log(conversion);
+			document.getElementById("answer").setAttribute("value", conversion);
+		} 
+		
+	</script>
         
         </div>
 </body>
