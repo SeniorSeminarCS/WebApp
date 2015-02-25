@@ -120,44 +120,42 @@
         <!-- Currency Converter -->
         
         <div id="converter">
-        <p> To: </p>
-			<select id="fromCur">
-            	<option value="USD"> USD </option>
+        <p> From: </p>
+			<select id="fromCur" onchange="getCurrency()">
+            	<option value="USD" selected="selected"> USD </option>
                 <option value="EUR"> EUR </option>            
             </select>
-		<p> Amount: </p> <input type="textfield" value="0" id = "amount">
-         <p> From: </p>
-            <select id="toCur">
+		<p> Amount: </p> <input type="textfield" value="0" id = "amount" onchange="getCurrency()">
+         <p> To: </p>
+            <select id="toCur" onchange="getCurrency()">
             	<option value="USD"> USD </option>
-                <option value="EUR"> EUR </option>            
+                <option value="EUR" selected="selected"> EUR </option>            
             </select>
 		<br />
-        <button type="button" onclick="getCurrency()">Convert</button>    
-		<p> Amount: </p> <input type="textfield" value="0" id = "answer">
-
+       <!-- <button type="button" onclick="getCurrency()">Convert</button>   -->
+		<p> Amount: </p> <input type="textfield" value="" id = "answer">
+		</div>
 
 	<script> 
 		function getCurrency(){
+			//create URL based on user selections and create new script
 			var url = "http://www.freecurrencyconverterapi.com/api/v3/convert?q="+document.getElementById("fromCur").value+"_"+document.getElementById("toCur").value+"&compact=y&callback=myCallback"
 			var script = document.createElement("script");
 			if(document.head.lastChild.nodeName == "SCRIPT")
 				document.head.removeChild(document.head.lastChild)
 			script.setAttribute("src", url);
 			document.head.appendChild(script);
-			//alert(url);
 		}
 		
 		function myCallback(json) { 
 			var results = document.getElementById("fromCur").value+"_"+document.getElementById("toCur").value
 			var rate = json[results].val;
 			var conversion = document.getElementById("amount").value*rate;
-			conversion = Math.round(conversion * 100) / 100;
-			console.log(conversion);
+			conversion = Math.round(conversion * 100) / 100; //rounds value to 2 decimals
 			document.getElementById("answer").setAttribute("value", conversion);
 		} 
 		
 	</script>
         
-        </div>
 </body>
 </html>
