@@ -148,14 +148,14 @@
         </select>
 
         <button type="button" onclick="getMyTime()">Get Time</button>    
-		<p id="currentDate"></p>
-		<p id="currentTime"></p>
-		<p id="currentDay">Day: </p>
+		<p id="currentDate">Date: </p>
+		<p id="currentTime">Time: </p>
+		<!-- <p id="currentDay">Day: </p>
 		<p id="currentMonth">Month: </p>
 		<p id="currentYear">Year: </p>
 		<p id="currentHour">Hour: </p>
 		<p id="currentMinute">Minute: </p>
-		<p id="currentSecond">Second: </p>
+		<p id="currentSecond">Second: </p> -->
 		
 		<br />
 		<button type="button" onclick="updateTime()">Update Time</button>    
@@ -210,14 +210,14 @@
 				hour = results[0];
 				minute = results[1];
 				second = results[2];
-			    document.getElementById("currentDate").innerHTML = "Date: "+date;
-			    document.getElementById("currentTime").innerHTML = "Time: "+time;
-			    document.getElementById("currentDay").innerHTML = "Day: "+day;
+			   	document.getElementById("currentDate").innerHTML = month+" "+day+", "+year;
+			    document.getElementById("currentTime").innerHTML = hour+":"+minute+":"+second;
+			    /*document.getElementById("currentDay").innerHTML = "Day: "+day;
 			    document.getElementById("currentMonth").innerHTML = "Month: "+month;
 			    document.getElementById("currentYear").innerHTML = "Year: "+year;
 			    document.getElementById("currentHour").innerHTML = "Hour: "+hour;
 			    document.getElementById("currentMinute").innerHTML = "Minute: "+minute;
-			    document.getElementById("currentSecond").innerHTML = "Second: "+second;
+			    document.getElementById("currentSecond").innerHTML = "Second: "+second;*/
 			}
 			
 			function updateTime(){
