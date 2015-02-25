@@ -16,18 +16,18 @@
 	
 }
 
-#worldclock input[type="button"]{
+#converter input[type="button"]{
 	padding:10px;
 	background:#FF9;
 	color:#36f;
 	font-size:16px;
 }
 
-#worldclock input[type="textfield"]{
+#converter input[type="textfield"]{
 	
 }
 
-#worldclock input[type="reset"]{
+#converter input[type="reset"]{
 	padding:10px;
 	background:#FF9;
 	color:#36f;
