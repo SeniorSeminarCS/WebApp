@@ -7,8 +7,6 @@
 <link rel="stylesheet" type="text/css" href="style-small.css">
 <link rel="stylesheet" type="text/css" href="clock.css">
 
-<!-- ><script id = "timer"> </script> -->
-
 </head>
 
 	<body> 
@@ -158,6 +156,10 @@
 		<p id="currentHour">Hour: </p>
 		<p id="currentMinute">Minute: </p>
 		<p id="currentSecond">Second: </p>
+		
+		<br />
+		<button type="button" onclick="updateTime()">Update Time</button>    
+
 
 		<script>
 			function getMyTime(){
@@ -176,7 +178,7 @@
 				//write new script to run url and add it to the head
 				var script = document.createElement("script");
 				if(document.head.lastChild.nodeName == "SCRIPT")
-					document.head.removeChild(document.head.lastChild)
+					document.head.removeChild(document.head.lastChild);
 				//alert(document.head.lastChild.getAttribute("src"));
 				//document.head.lastChild.getAttribute("src") != null;
 				script.setAttribute("src", url);
@@ -216,6 +218,16 @@
 			    document.getElementById("currentHour").innerHTML = "Hour: "+hour;
 			    document.getElementById("currentMinute").innerHTML = "Minute: "+minute;
 			    document.getElementById("currentSecond").innerHTML = "Second: "+second;
+			}
+			
+			function updateTime(){
+				if(document.head.lastChild.nodeName == "SCRIPT"){
+					var update = document.createElement("script");
+					update.setAttribute("src", document.head.lastChild.getAttribute("src"));
+					document.head.removeChild(document.head.lastChild);
+					document.head.appendChild(update);
+				}
+
 			}
 		</script>
 

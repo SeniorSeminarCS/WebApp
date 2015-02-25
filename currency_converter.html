@@ -140,6 +140,8 @@
 		function getCurrency(){
 			var url = "http://www.freecurrencyconverterapi.com/api/v3/convert?q="+document.getElementById("fromCur").value+"_"+document.getElementById("toCur").value+"&compact=y&callback=myCallback"
 			var script = document.createElement("script");
+			if(document.head.lastChild.nodeName == "SCRIPT")
+				document.head.removeChild(document.head.lastChild)
 			script.setAttribute("src", url);
 			document.head.appendChild(script);
 			//alert(url);
