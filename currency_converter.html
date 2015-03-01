@@ -121,19 +121,42 @@
         
         <div id="converter">
         <p> From: </p>
+			<!-- http://www.xe.com/iso4217.php -->
 			<select id="fromCur" onchange="getCurrency()">
-            	<option value="USD" selected="selected"> USD </option>
-                <option value="EUR"> EUR </option>            
+				<option value="AUD"> Australian Dollar </option>
+				<option value="CAD"> Canadian Dollar </option>
+				<option value="CHF"> Switzerland Franc </option>
+				<option value="EUR" selected> Euro </option> 
+				<option value="GBP"> Great Britain Pound </option>  
+				<option value="HKD"> Hong Kong Dollar </option>
+				<option value="INR"> Indian Rupee </option>
+				<option value="JPY"> Japaneese Yen </option>
+				<option value="MXN"> Mexican Peso </option> 
+				<option value="RUB"> Russia Ruble </option>    
+				<option value="PKR"> Pakistan Rupee </option>    
+            	<option value="USD"> US Dollar </option>
+				<option value="ZAR"> South Africa Rand </option>
             </select>
 		<p> Amount: </p> <input type="textfield" value="0" id = "amount" onchange="getCurrency()">
          <p> To: </p>
             <select id="toCur" onchange="getCurrency()">
-            	<option value="USD"> USD </option>
-                <option value="EUR" selected="selected"> EUR </option>            
-            </select>
+				<option value="AUD"> Australian Dollar </option>
+				<option value="CAD"> Canadian Dollar </option>
+				<option value="CHF"> Switzerland Franc </option>
+				<option value="EUR"> Euro </option> 
+				<option value="GBP"> Great Britain Pound </option>  
+				<option value="HKD"> Hong Kong Dollar </option>
+				<option value="INR"> Indian Rupee </option>
+				<option value="JPY"> Japaneese Yen </option>
+				<option value="MXN"> Mexican Peso </option> 
+				<option value="RUB"> Russia Ruble </option>    
+				<option value="PKR"> Pakistan Rupee </option>    
+		       	<option value="USD" selected> US Dollar </option>
+				<option value="ZAR"> South Africa Rand </option>            
+			</select>
 		<br />
        <!-- <button type="button" onclick="getCurrency()">Convert</button>   -->
-		<p> Amount: </p> <input type="textfield" value="" id = "answer">
+		<p> Amount: </p> <input type="textfield" value="" id = "answer" readonly>
 		</div>
 
 	<script> 
@@ -151,7 +174,7 @@
 			var results = document.getElementById("fromCur").value+"_"+document.getElementById("toCur").value
 			var rate = json[results].val;
 			var conversion = document.getElementById("amount").value*rate;
-			conversion = Math.round(conversion * 100) / 100; //rounds value to 2 decimals
+			conversion = Math.round(conversion * 10000) / 10000; //rounds value to 5 decimals
 			document.getElementById("answer").setAttribute("value", conversion);
 		} 
 		

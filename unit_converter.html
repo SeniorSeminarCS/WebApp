@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" type="text/css" href="style-small.css">
 <link rel="stylesheet" type="text/css" href="converter.css">
+<script src = "unit_converter.js"></script>
 
 </head>
 	<body> 
@@ -119,231 +120,31 @@
         
         <div id="converter">
         <form name="calculator" >
-<!-- ><p> Step 1: Type an amount: </p><input type="textfield" name="ans" value="" id = "answer">
-<br />
-<br /> 
-<p>Step 2: Choose which direction to convert</p>
-<input type="button" value="English to Metric" onClick= addMultiplier()>
-<input type="button" value="Metric to English" onClick= addDivider()>
-<br />
-<br />
-<p>Step 3: Choose which type to convert </p>
-<input type="button" value="Inch / Centimeters" onClick="document.calculator.ans.value+='2.54'">
-<input type="button" value="Feet / Centimeters" onClick="document.calculator.ans.value+='30.48'">
-<input type="button" value="Feet / Meter" onClick="document.calculator.ans.value+='0.3048'">
-<input type="button" value="Yard / Meter" onClick="document.calculator.ans.value+='0.914'">
-<br />
-<input type="button" value="Mile / Kilometers" onClick="document.calculator.ans.value+='1.609'">
-<input type="button" value="Once / Grams" onClick="document.calculator.ans.value+='28.350'">
-<input type="button" value="Pound / Grams" onClick="document.calculator.ans.value+='454'">
-<input type="button" value="Pound / Kilograms" onClick="document.calculator.ans.value+='0.454'">
-<br />
-<input type="button" value="Fluid Ounce / Milliliters" onClick="document.calculator.ans.value+='29.574'">
-<input type="button" value="Quart / Liter" onClick="document.calculator.ans.value+='0.946'">
-<input type="button" value="Gallon / Liter" onClick="document.calculator.ans.value+='3.785'">
-<br />
-<input type="button" value ="°F / °C" onClick=calculateTemp()>
-<br />
-<br />
-<p>Step 4: Final</p>
-<input type="reset" value="Reset">
-<input type="button" value="Convert" onClick="document.calculator.ans.value=eval(document.calculator.ans.value)"> -->
-	<br />
-	<select id = "unitType" onchange = typeSelected()>
-		<option selected disabled value=''>Unit Type</option>
-		<option value = "0">Length</option>
-		<option value = "1">Weight</option>
-		<option value = "2">Volume</option>
-		<option value = "3">Temperature</option>
-	</select>
-	<div id = "units" style = "visibility: hidden">
-	<br />
-	From:
-	<select  id = "field1" onchange = calculate()></select>	
-	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	To:
-	<select  id = "field2" onchange = calculate()></select>
-	<br />
-	<input type = "textfield" name = "ans1" id = "ans1" value = "0" onchange = calculate()>
-	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-	<input type = "textfield" name = "ans2" id = "ans2" value = "0" readonly>
+
+		<br />
+		<select id = "unitType" onchange = typeSelected()>
+			<option selected disabled value=''>Unit Type</option>
+			<option value = "0">Length</option>
+			<option value = "1">Mass</option>
+			<option value = "2">Volume</option>
+			<option value = "3">Temperature</option>
+		</select>
+		<div id = "units" style = "visibility: hidden">
+		<br />
+		From:
+		<select  id = "field1" onchange = calculate()></select>	
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		To:
+		<select  id = "field2" onchange = calculate()></select>
+		<br />
+		<input type = "textfield" name = "ans1" id = "ans1" value = "0" onchange = calculate()>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<input type = "textfield" name = "ans2" id = "ans2" value = "0" readonly>
 
 	</div>
 	
-</form>
- </div>       
-        
-	<script>
-		var arr = ["L", "W", "V", "T"];
-		var length = ["Inch","Foot","Yard", "Mile","Centimeter","Meter", "Kilometer"];
-		var weight = ["Ounce","Pound", "Gram", "Kilogram"];
-		var volume = ["Fluid Ounce", "Pint", "Quart", "Gallon", "Milliliter", "Liter"];
-		var temp = ["°F", "°C", "K"];
-		arr[0] = length;
-		arr[1] = weight;
-		arr[2] = volume;
-		arr[3] = temp;
-		
-		function typeSelected(){
-			var unit = document.getElementById("unitType").value;
-			emptyList(document.getElementById("field1"));
-			emptyList(document.getElementById("field2"));
-			for(var i=0; i<arr[unit].length; i++){
-				addOption(document.calculator.field1, arr[unit][i], arr[unit][i]);
-				addOption(document.calculator.field2, arr[unit][i], arr[unit][i]);				
-			}
-			document.getElementById("ans1").value = 0;
-			document.getElementById("ans2").value = 0;
-			
-			document.getElementById("units").style.visibility = "visible"; 
-		}
-		function emptyList(list){
-			var x = list.length;
-			while(x>0){
-				list.remove(x-1);
-				x = list.length;	
-			}
-		}
-		function addOption(selectbox,text,value ){
-			var optn = document.createElement("OPTION");
-			optn.text = text;
-			if(value == "°F"){
-				value = "F";
-			}
-			if(value =="°C"){
-				value = "C";
-			}
-			optn.value = value;
-			selectbox.options.add(optn);
-		}
-		function calculate(){
-			var first = document.getElementById("field1").value;
-			var second = document.getElementById("field2").value;
-			var call = first+"To"+second;
-			var val = document.getElementById("ans1").value;
-			if (first.toString() == second.toString()) {
-				document.getElementById("ans2").value = val;
-			}
-			else {
-				var answer = window[call](val);
-				answer = Math.round(answer * 100) / 100; //rounds value to 2 decimals
-				document.getElementById("ans2").value = answer;
-			}
-		}
-		//Length Functions
-		function InchToFoot(i){return i/12.0}
-		function InchToYard(i){return i/36.0}
-		function InchToMile(i){return i/MileToInch(1)}
-		function InchToCentimeter(i){return i*2.54;}
-		function InchToMeter(i){return i*0.0254;}
-		function InchToKilometer(i){return i*0.0000254;}
-		function FootToInch(i){return i*12;}
-		function FootToYard(i){return i/3;}	
-		function FootToMile(i){return i/5280;}
-		function FootToCentimeter(i){return i*30.48;}
-		function FootToMeter(i){return i/0.3048;}
-		function FootToKilometer(i){return i/0.0003048;}
-		function YardToInch(i){return i*36;}
-		function YardToFoot(i){return i*3;}
-		function YardToMile(i){return i*1760;}
-		function YardToCentimeter(i){return i*91.44;}
-		function YardToMeter(i){return i*0.9144}
-		function YardToKilometer(i){return i*0.0009144;}
-		function MileToInch(i){return i*63360.0}
-		function MileToFoot(i){return i/FootToMile(1);}
-		function MileToYard(i){return i/YardToMile(1);}
-		function MileToCentimeter(i){return i*160934.0;}
-		function MileToMeter(i){return i*1609.34;}
-		function MileToKilometer(i){return i*1.60934}
-		function CentimeterToInch(i){return i/InchToCentimeter(1);}
-		function CentimeterToFoot(i){return i/FootToCentimeter(1);}
-		function CentimeterToYard(i){return i/YardToCentimeter(1);}
-		function CentimeterToMile(i){return i/MileToCentimeter(1);}
-		function CentimeterToMeter(i){return i/100.0;}
-		function CentimeterToKilometer(i){return i/100000.0;}
-		function MeterToInch(i){return i/InchToMeter(1);}
-		function MeterToFoot(i){return i/FootToMeter(1);}
-		function MeterToYard(i){return i/YardToMeter(1);}
-		function MeterToMile(i){return i/MileToMeter(1);}
-		function MeterToCentimeter(i){return i/CentimeterToMeter(i);}
-		function MeterToKilometer(i){return i/1000.0;}
-		function KilometerToInch(i){return i/InchToKilometer(1);}
-		function KilometerToFoot(i){return i/FootToKilometer(1);}
-		function KilometerToYard(i){return i/YardToKilometer(1);}
-		function KilometerToMile(i){return i/MileToKilometer(1);}
-		function KilometerToCentimeter(i){return i/CentimeterToKilometer(1);}
-		function KilometerToMeter(i){return i/MeterToKilometer(1);}
-		
-		//Temperature Fuctions
-		function CToF(i){return 9.0/5*i + 32;}
-		function FToC(i){return (i-32)*5.0/9;}
-		function FToK(i){return CToK(FToC(i));}
-		function KToF(i){return CToF(KToC(i));}
-		function CToK(i){return parseFloat(i)+273.15;}	
-		function KToC(i){return i-273.15;}
-		
-		/*function addMultiplier(){
-			if(document.calculator.ans.value[document.calculator.ans.value.length -1] == '*'){
-				return;
-			}
-			
-			if(document.calculator.ans.value[document.calculator.ans.value.length -1] == '/'){
-				document.calculator.ans.value = document.calculator.ans.value.substr(0,document.calculator.ans.value.length -1)
-				document.calculator.ans.value+='*';
-			}
-			else {
-				document.calculator.ans.value+='*';
-			}
-		}
-		function addDivider(){
-			if(document.calculator.ans.value[document.calculator.ans.value.length -1] == '/'){
-				return;
-			}
-			
-			if(document.calculator.ans.value[document.calculator.ans.value.length -1] == '*'){
-				document.calculator.ans.value = document.calculator.ans.value.substr(0,document.calculator.ans.value.length -1)
-				document.calculator.ans.value+='/';
-			}
-			else {
-				document.calculator.ans.value+='/';
-			}
+	</form>
+ 	</div>       
 
-		}*/
-		/*function calculateTemp(){
-			var x = document.getElementById("answer").value;
-			var value = x.substring(0, x.length-1);
-			if(x[x.length -1] == '*'){
-				document.calculator.ans.value = "("+value+"-32)/1.8";
-			}
-			else if (x[x.length-1] == '/') {
-				document.calculator.ans.value = "("+value+"*1.8) + 32";
-			}
-			else {
-				alert("Error! You must complete step 2 first.");
-			}
-		}*/
-	</script>
-        
-        
-        
-       <!-- <select>
-        	<option value="2.54" onClick="document.calculator.ans.value+='2.54'"> Inch -> Centimeters </option>
-        	<option value="feet-meters"> Feet -> Meters </option>
-            <option value="yard-meters"> Yard -> Meters </option>
-            <option value="mile-kilometers"> Mile -> KiloMeters </option>
-            <option value="ounce-grams"> Ounce -> Grams </option>
-            <option value="pound-grams"> Pound -> Grams </option>
-            <option value="fluidonce-milliliters"> Fluid Once -> Milliliters </option>
-            <option value="quart-liter"> Quart -> Liters </option>
-            <option value="gallon-liter"> Gallon -> Liters </option>
-        </select>
-        <input type="button" value="*" onClick="document.calculator.ans.value+='*'">
-<input type="button" value="2.54" onClick="document.calculator.ans.value+='2.54'">
-        </div>-->
-  			
-  			
-  	
-  			
-  			
 	</body> 
 </html>
