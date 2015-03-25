@@ -12,8 +12,6 @@
 		border-radius:400px;
 		border: 5px solid white;
 	}
-	
-		
 		
 	#clock {
 		width: 180px;
@@ -47,8 +45,7 @@
 	 	-webkit-transform: translate(-10%, -10%);
 	 	padding:10px;
 	}
-		
-	
+
 	#measure {
 		width: 110px;
 		height: 110px;
@@ -79,8 +76,7 @@
 	 	background: #FF9933;
 	 	-webkit-transform: translate(1%, 3%);
 	 	padding:10px;
-	}
-		
+	}	
 	
 	#advice {
 		width: 150px;
@@ -92,6 +88,7 @@
 		border: 5px solid white;
 		transition: .6s ease-in-out;
 	}
+	
 	#advice:hover {
 	 	background: #ff5050;
 	 	-webkit-transform: translate(-10%, -15%);
@@ -107,14 +104,13 @@
 		margin: -20% 10% 10% 20%;
 		border: 5px solid white;
 		transition: .6s ease-in-out;
-		
 	}
+	
 	#weather:hover {
 		background: #00cc66;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:10px;
 	}
-		
 	
 	#phrase-title {
 		font-size: 1.5em;
@@ -517,9 +513,7 @@
 	  left:-27px;
 	  top:-46px
 	}
-	
-	
-	
+
 	.map .pin {
 	  width: 32px;
 	  height: 32px;
@@ -547,11 +541,7 @@
 	.map .pin:hover {
 		-webkit-transform: translate(10%);
 	}
-	
-	
-	
-	
-	
+		
 	.ruler {
 	  width:40px;
 	  height:160px;
@@ -606,7 +596,6 @@
 	
 	#cloud {
 		width: 117px; height: 40px;
-		
 		background: #f2f9fe;
 		background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
 		background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
@@ -655,8 +644,7 @@
 		position: relative;
 		border-radius:300px;
 		border: 2.5px solid white;
-	}
-	
+	}	
 		
 		
 	#clock {
@@ -675,7 +663,6 @@
 	 	padding:5px;
 	}
 		
-	
 	#currency {
 		width: 85px;
 		height: 85px;
@@ -763,14 +750,6 @@
 	#phrase-title {
 		font-size: .7em;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	.calculator {
 	  width:45px;
@@ -1201,9 +1180,6 @@
 	}
 	
 	
-	
-	
-	
 	.ruler {
 	  width:20px;
 	  height:80px;
@@ -1276,7 +1252,6 @@
 		content: '';
 		position: absolute;
 		background: white;
-		
 	}
 	
 	#cloud:after {
