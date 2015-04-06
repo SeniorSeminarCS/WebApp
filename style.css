@@ -5,7 +5,7 @@
 	#container {
 		width: 500px;
 		height: 500px;
-		background: #33CCFF;
+		background: #66CCFF;
 		margin: 0 auto;
 		top: 65px;
 		position: relative;
@@ -17,7 +17,7 @@
 	#clock {
 		width: 150px;
 		height: 150px;
-		background: #3693d8;
+		background: #ffff77;
 		position: absolute;
 		margin: -8% 40% 10% 65%;
 		border-radius: 150px;
@@ -25,7 +25,7 @@
 		transition: .6s ease-in-out;
 	}
 	#clock:hover {
-	 	background: #1663e8;
+	 	background: #ffffc7;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:10px;
 	}
@@ -33,15 +33,15 @@
 	#news {
 		width: 200px;
 		height: 200px;
-		background: #57cd68;
+		background: #fff14f;
 		position: absolute;
-		margin: 30% 40% 10% 75%;
+		margin: 60% 40% 10% 60%;
 		border-radius: 200px;
 		border: 5px solid white;
 		transition: .6s ease-in-out;
 	}
 	#news:hover {
-	 	background: #37dd48;
+	 	background: #fff19f;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:10px;
 	}		
@@ -49,7 +49,7 @@
 	#currency {
 		width: 110px;
 		height: 110px;
-		background: #FFCC00;
+		background: #336699;
 		position: absolute;
 		margin: 85% 15% 20% 25%;
 		border-radius: 110px;
@@ -57,7 +57,7 @@
 		transition: .6s ease-in-out;
 	}
 	#currency:hover {
-		background: #FFFF00;
+		background: #FFFF94;
 	 	-webkit-transform: translate(-10%, -10%);
 	 	padding:10px;
 	}
@@ -66,9 +66,9 @@
 	#measure {
 		width: 130px;
 		height: 130px;
-		background: #dd88CC;
+		background: #94DBFF;
 		position: absolute;
-		margin: 75% 10% 30% 65%;
+		margin: 30% 10% 30% 85%;
 		border-radius: 130px;
 		border: 5px solid white;
 		transition: .6s ease-in-out;
@@ -82,7 +82,7 @@
 	#phrase {
 		width: 200px;
 		height: 200px;
-		background: #FFAD5C;
+		background: #ffffaa;
 		position: absolute;
 		margin: 50% 65% 35% -15%;
 		border-radius: 200px;
@@ -99,7 +99,7 @@
 	#advice {
 		width: 170px;
 		height: 170px;
-		background: #fa7574;
+		background: #6699cc;
 		position: absolute;
 		border-radius: 170px;
 		margin: 10% 25% -10% -15%;
@@ -107,7 +107,7 @@
 		transition: .6s ease-in-out;
 	}
 	#advice:hover {
-	 	background: #ff5050;
+	 	background: #47B5FF;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:10px;
 	}
@@ -115,7 +115,7 @@
 	#weather {
 		width: 180px;
 		height:180px;
-		background: #00CC99;
+		background: #336699;
 		position: absolute;
 		border-radius: 180px;
 		margin: -15% 10% 10% 20%;
@@ -124,7 +124,7 @@
 		
 	}
 	#weather:hover {
-		background: #00cc66;
+		background: #5376b9;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:10px;
 	}
@@ -138,7 +138,7 @@
 	.calculator {
 	  width:90px;
 	  height:108px;
-	  background:#d7d4c5;
+	  background:#99ccff;
 	  border-radius:6px;
 	  position:absolute;
 	  left:50%;
@@ -189,7 +189,7 @@
 	.calculator .controls .medium {
 	  font-size:35px;
 	  line-height:0em;
-	  color:#8fb243;
+	  color:#908e86;
 	  font-weight:bold;
 	}
 	
@@ -290,7 +290,7 @@
 	.book {
 	  width:116px;
 	  height:124px;
-	  background:#5CD65C;
+	  background:#336699;
 	  border-radius:6px;
 	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
 	  position:absolute;
@@ -299,7 +299,7 @@
 	  top:45%;
 	  margin-top:-52px;
 	  font-size:100%;
-	  color:#4b494f;
+	  color:#6699cc;
 	  line-height:150px;
 	  text-align:center;
 	  font-family: 'Dancing Script', cursive;
@@ -316,7 +316,7 @@
 	  border-top-left-radius:2px;
 	  border-bottom-left-radius:2px;
 	  overflow:hidden;
-	  background:#5CD65C;
+	  background:#336699;
 	}
 	
 	.book .pages .page {
@@ -343,25 +343,25 @@
 	.book .pages .page:nth-child(9){ top:16px; }
 	.book .pages .page:nth-child(10){ 
 	  top:18px;
-	background-image: -webkit-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #3ab43a 4px);
-	background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
-	background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
-	background-image: linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+	background-image: -webkit-linear-gradient(left, #114477 0px, #114477 2px, #114477 2px, #114477 4px, #114477 4px);
+	background-image: -moz-linear-gradient(left, #114477 0px, #114477 2px, #114477 2px, #114477 4px, #114477 4px);
+	background-image: -o-linear-gradient(left, #114477 0px, #114477 2px, #114477 2px, #114477 4px, #114477 4px);
+	background-image: linear-gradient(left, #114477 0px, #114477 2px, #114477 2px, #114477 4px, #114477 4px);
 	}
 	
 	.book .pages .page:nth-child(11){ 
 	  top:23px;
-	  background-image: -webkit-linear-gradient(left, #5CD65C 0px, #3ab43a 2px, #3ab43a 2px, #3ab43a 4px, #5CD65C 4px);
-	  background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #5CD65C 4px);
-	  background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #5CD65C 4px);
-	  background-image: linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #5CD65C 4px);
+	  background-image: -webkit-linear-gradient(left, #114477 0px, #114477 2px, #114477 2px, #114477 4px, #336699 4px);
+	  background-image: -moz-linear-gradient(left, #114477 0px, #114477 2px, #114477 2px, #114477 4px, #336699 4px);
+	  background-image: -o-linear-gradient(left, #114477 0px, #114477 2px, #114477 2px, #114477 4px, #336699 4px);
+	  background-image: linear-gradient(left, #114477 0px, #114477 2px, #114477 2px, #114477 4px, #336699 4px);
 	}
 	
 	.book .top:after {
 	  content:"";
 	  width:2px;
 	  height:93px;
-	  background:#3ab43a;
+	  background:#114477;
 	  position:absolute;
 	  left:5px;
 	  top:31px;
@@ -371,7 +371,7 @@
 	  content:"";
 	  width:2px;
 	  height:93px;
-	  background:#3ab43a;
+	  background:#114477;
 	  position:absolute;
 	  left:7px;
 	  top:31px;
@@ -435,7 +435,7 @@
 	.map .fold {
 	  width:36px;
 	  height:88px;
-	  background:#eae8db;
+	  background:#99cccc;
 	  float:left;
 	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
 	  position:relative;
@@ -464,7 +464,7 @@
 	  content:"";
 	  width:66px;
 	  height:66px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(45deg);
 	  left:-33px;
@@ -474,7 +474,7 @@
 	  content:"";
 	  width:21px;
 	  height:21px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(45deg);
 	  left:16px;
@@ -485,7 +485,7 @@
 	  content:"";
 	  width:47px;
 	  height:47px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(48deg);
 	  top:-28px;
@@ -495,7 +495,7 @@
 	.map .fold:nth-child(2) .content .other {
 	  width:98px;
 	  height:98px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(50deg);
 	  left:25px;
@@ -506,7 +506,7 @@
 	  content:"";
 	  width:23px;
 	  height:23px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  bottom:-35px;
 	}
@@ -515,7 +515,7 @@
 	  content:"";
 	  width:98px;
 	  height:98px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(40deg);
 	  left:-7px;
@@ -526,7 +526,7 @@
 	  content:"";
 	  width:49px;
 	  height:49px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(40deg);
 	  left:-27px;
@@ -539,7 +539,7 @@
 	  width: 32px;
 	  height: 32px;
 	  border-radius: 50% 50% 50% 0;
-	  background: #d65746;
+	  background: #3399FF;
 	  position: absolute;
 	  transform: rotate(-45deg);
 	  left: 50%;
@@ -665,8 +665,8 @@
   width:108px;
   height:94px;
   background:
-        linear-gradient(-135deg, #37353a 7px, transparent 0),
-        linear-gradient(135deg, #37353a 7px, #cccabf 0);
+        linear-gradient(-135deg, #fff14f 7px, transparent 0),
+        linear-gradient(135deg, #fff14f 7px, #cccabf 0);
     background-color: #333538;
     background-position: -9px top;
     background-repeat: repeat-x;
@@ -1101,7 +1101,7 @@
 	.book {
 	  width:58px;
 	  height:62px;
-	  background:#5CD65C;
+	  background:#336699;
 	  border-radius:3px;
 	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
 	  position:absolute;
@@ -1127,7 +1127,7 @@
 	  border-top-left-radius:1px;
 	  border-bottom-left-radius:1px;
 	  overflow:hidden;
-	  background:#5CD65C;
+	  background:#336699;
 	}
 	
 	.book .pages .page {
@@ -1154,18 +1154,18 @@
 	.book .pages .page:nth-child(9){ top:8px; }
 	.book .pages .page:nth-child(10){ 
 	  top:9px;
-	background-image: -webkit-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
-	background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
-	background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
-	background-image: linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -webkit-linear-gradient(left, #336699 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -moz-linear-gradient(left, #336699 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -o-linear-gradient(left, #336699 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: linear-gradient(left, #336699 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
 	}
 	
 	.book .pages .page:nth-child(11){ 
 	  top:11.5px;
-	  background-image: -webkit-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
-	  background-image: -moz-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
-	  background-image: -o-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
-	  background-image: linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: -webkit-linear-gradient(left, #336699 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #336699 2px);
+	  background-image: -moz-linear-gradient(left, #336699 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #336699 2px);
+	  background-image: -o-linear-gradient(left, #336699 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #336699 2px);
+	  background-image: linear-gradient(left, #336699 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #336699 2px);
 	}
 	
 	.book .top:after {
@@ -1275,7 +1275,7 @@
 	  content:"";
 	  width:33px;
 	  height:33px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(45deg);
 	  left:-16.5px;
@@ -1285,7 +1285,7 @@
 	  content:"";
 	  width:10.5px;
 	  height:10.5px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(45deg);
 	  left:8px;
@@ -1296,7 +1296,7 @@
 	  content:"";
 	  width:23.5px;
 	  height:23.5px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(48deg);
 	  top:-14px;
@@ -1306,7 +1306,7 @@
 	.map .fold:nth-child(2) .content .other {
 	  width:49px;
 	  height:49px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(50deg);
 	  left:12.5px;
@@ -1317,7 +1317,7 @@
 	  content:"";
 	  width:11.5px;
 	  height:11.5px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  bottom:-17.5px;
 	}
@@ -1326,7 +1326,7 @@
 	  content:"";
 	  width:49px;
 	  height:49px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(40deg);
 	  left:-3.5px;
@@ -1337,7 +1337,7 @@
 	  content:"";
 	  width:24.5px;
 	  height:24.5px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(40deg);
 	  left:-13.5px;
@@ -1350,7 +1350,7 @@
 	  width: 16px;
 	  height: 16px;
 	  border-radius: 50% 50% 50% 0;
-	  background: #d65746;
+	  background: #3399FF;
 	  position: absolute;
 	  transform: rotate(-45deg);
 	  left: 50%;
