@@ -1,0 +1,5436 @@
+clock.css000644 000765 000024 00000000656 12504565314 013144 0ustar00scm1348staff000000 000000 @charset "utf-8";
+/* CSS Converter */
+
+#worldclock{
+	background:#36F;
+	border-radius: 10px;
+	width: 600;
+	height:600;
+	margin: 0 auto;
+	color:#ff6;
+	text-align:center;
+	font-size:20px;
+	
+}
+
+#worldclock input[type="button"]{
+	padding:10px;
+	background:#FF9;
+	color:#36f;
+	font-size:16px;
+}
+
+#worldclock input[type="textfield"]{
+	
+}
+
+#worldclock input[type="reset"]{
+	padding:10px;
+	background:#FF9;
+	color:#36f;
+	font-size:16px;
+}
+clock.html000644 000765 000024 00000016432 12504565314 013317 0ustar00scm1348staff000000 000000 <!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>World Clock</title>
+
+<link rel="stylesheet" type="text/css" href="style-small.css">
+<link rel="stylesheet" type="text/css" href="clock.css">
+
+</head>
+
+	<body> 
+
+		<div id="container">
+			
+			<a href="clock.html">
+				<div id="clock">
+					<div class="icon">
+						<div class="clock">
+							<div class="circle"></div>
+							<div class="clockwise"></div>
+							<div class="shadows"></div>
+	    				</div>
+	  				</div>
+  				</div>
+  			</a>
+  			
+			<a href="weather.html">
+				<div id="weather">
+					<div id = "cloud">
+					</div>
+				</div>
+			</a>
+			
+			<a href="currency_converter.html">
+				<div id="currency">
+					<div class="icon">
+						<div class="calculator">
+							<div class="display"></div>
+							<div class="controls">&#10010;&nbsp; 
+								<span class="big">-</span> 
+								<br> &#10006;&nbsp; 
+								<span class="medium">=</span>
+							</div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+			<a href="unit_converter.html">
+				<div id="measure">
+					<div class="icon">
+						<div class="ruler">
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<a href="phrase.html">
+				<div id="phrase">  
+					<div class="icon">
+						<div class="book">
+							<div class="top"></div>
+							<div class="pages">
+								<div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+							</div>
+							<span id="phrase-title">Phrases</span>
+							<div class="bookmark"></div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+			<a href="advice.html">
+				<div id="advice">
+					<div class="icon">
+						<div class="map">
+							<div class="folded">
+							  <div class="fold">
+									<div class="content"></div>
+        						</div>
+								<div class="fold">
+									<div class="content">
+										<div class="other"></div>
+       							  </div>
+       						  </div>
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+      						</div>
+	  					<div class="shadow"></div>
+	  					<div class="flip"></div>
+	  					<div class="pin"></div>
+    				</div>
+  					</div>
+  				</div>
+  			</a>
+		</div>
+        
+        <!-- Clock Div -->
+        <div id="worldclock">
+        
+		<!--drop down box, make London(GMT+0) default -->
+        <select id="Time" onchange="getMyTime()">
+			<option selected disabled value=''>Please select a time zone...</option>
+        	<option value="-12"> GMT-12 Auckland, AU </option>
+		    <option value="-11">GMT-11 Unalaska, US </option>
+		   	<option value="-10"> GMT-10 Honolulu, US </option>
+		   	<option value="-9"> GMT-9 Anchorage, US </option>
+		   	<option value="-8"> GMT-8 Los Angeles, US </option>
+		   	<option value="-7"> GMT-7 Denver, US </option>
+		   	<option value="-6"> GMT-6 Chicago, US </option>
+		   	<option value="-5"> GMT-5 New York City, US </option>
+		   	<option value="-4"> GMT-4 San Juan, PR</option>
+		   	<option value="-3"> GMT-3 Buenos Aires, AR </option>
+		   	<option value="-2"> GMT-2 Sao Paulo, BR  </option>
+		   	<option value="-1"> GMT-1 Cape Verde Islands </option>
+		   	<option value="0"> GMT+0 London, UK </option>
+		   	<option value="1"> GMT+1 Madrid, ES </option>
+		   	<option value="2"> GMT+2 Athens, GR </option>
+		   	<option value="3"> GMT+3 Kuwait City, KW </option>
+		   	<option value="4"> GMT+4 Moscow, RU </option>
+		   	<option value="5"> GMT+5 Dubai, AE </option>
+		   	<option value="6"> GMT+6 Islamabad, PK </option>
+		   	<option value="7"> GMT+7 Almaty, KZ </option>
+		   	<option value="8"> GMT+8 Bangkok, TH </option>
+		   	<option value="9"> GMT+9 Hong Kong, CH </option>
+		   	<option value="10"> GMT+10 Tokyo, JP </option>
+			<option value="11"> GMT+11 Sydnet, AU </option>
+			<option value="12"> GMT+12 Fiji </option>
+        </select>
+
+       <!-- <button type="button" onclick="getMyTime()">Get Time</button>  -->  
+		<p id="currentDate">Date: </p>
+		<p id="currentTime">Time: </p>
+		<!-- <p id="currentDay">Day: </p>
+		<p id="currentMonth">Month: </p>
+		<p id="currentYear">Year: </p>
+		<p id="currentHour">Hour: </p>
+		<p id="currentMinute">Minute: </p>
+		<p id="currentSecond">Second: </p> -->
+		
+		<br />
+		<button type="button" onclick="updateTime()">Update Time</button>    
+
+		</div>
+		<script>
+			function getMyTime(){
+				//creates default url if user selects value 0
+				var url = "http://www.timeapi.org/utc/now.json?callback=myCallback";
+				
+				//manipute url based on dropdown selsction
+				var x = document.getElementById("Time").value;
+				if(x>0)
+					url = "http://www.timeapi.org/utc/"+x+"+hours+from+now.json?callback=myCallback";
+				else if(x<0){
+					x = Math.abs(x);
+					url = "http://www.timeapi.org/utc/"+x+"+hours+ago.json?callback=myCallback";
+				}
+				
+				//write new script to run url and add it to the head
+				var script = document.createElement("script");
+				if(document.head.lastChild.nodeName == "SCRIPT")
+					document.head.removeChild(document.head.lastChild);
+				script.setAttribute("src", url);
+				document.head.appendChild(script);
+			}
+			
+			//wrapper function called when url is done
+			function myCallback(json) { 
+				var date = json.dateString;
+				ResultSplit(date);
+			} 
+			
+			//splits returned data into appropriate variables
+			//ex.  February 23, 2015 21:24:17 GMT+0000 -> should be response from webstie
+			function ResultSplit(textData) {
+				var day, month, year, minute, second;
+		    	var time = "";
+				var date = textData;
+				var n = textData.indexOf(" ");
+				month = textData.substring(0,n);
+				rest = textData.substring(n,textData.length);
+				var results = rest.split(",",2);
+				day = results[0];
+				rest = results[1];
+				year = rest.substring(1, 5);
+				time = rest.substring(6,14);
+				results = time.split(":",3);
+				hour = results[0];
+				minute = results[1];
+				second = results[2];
+			   	document.getElementById("currentDate").innerHTML = month+" "+day+", "+year;
+			    document.getElementById("currentTime").innerHTML = hour+":"+minute+":"+second;
+			    /*document.getElementById("currentDay").innerHTML = "Day: "+day;
+			    document.getElementById("currentMonth").innerHTML = "Month: "+month;
+			    document.getElementById("currentYear").innerHTML = "Year: "+year;
+			    document.getElementById("currentHour").innerHTML = "Hour: "+hour;
+			    document.getElementById("currentMinute").innerHTML = "Minute: "+minute;
+			    document.getElementById("currentSecond").innerHTML = "Second: "+second;*/
+			}
+			
+			function updateTime(){
+				if(document.head.lastChild.nodeName == "SCRIPT"){
+					var update = document.createElement("script");
+					update.setAttribute("src", document.head.lastChild.getAttribute("src"));
+					document.head.removeChild(document.head.lastChild);
+					document.head.appendChild(update);
+				}
+
+			}
+		</script>
+
+	</body> 
+</html>./._converter.css000644 000765 000024 00000000452 12473240623 014422 0ustar00scm1348staff000000 000000 Mac OS X        	2�*ATTR*�f�com.apple.TextEncoding�Wde.codingmonkeys.seestateutf-8;134217984d1:pd1:yi72e1:wi1280e1:xi0e1:hi705ee1:sd1:pi287e1:li0ee1:ei1e1:li429e1:m11:SEEMode.CSSeconverter.css000644 000765 000024 00000000655 12473240623 014055 0ustar00scm1348staff000000 000000 @charset "utf-8";
+/* CSS Converter */
+
+
+
+
+#converter{
+	background:#36F;
+	border-radius: 10px;
+	width: 600;
+	height:600;
+	margin: 0 auto;
+	color:#ff6;
+	text-align:center;
+	font-size:20px;
+	
+}
+
+#converter input[type="button"]{
+	padding:10px;
+	background:#FF9;
+	color:#36f;
+	font-size:16px;
+}
+
+#converter input[type="textfield"]{
+	
+}
+
+#converter input[type="reset"]{
+	padding:10px;
+	background:#FF9;
+	color:#36f;
+	font-size:16px;
+}
+currency_converter.html000644 000765 000024 00000013135 12504565314 016142 0ustar00scm1348staff000000 000000 <!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Currency Converter</title>
+
+<link rel="stylesheet" type="text/css" href="style-small.css">
+<link rel="stylesheet" type="text/css" href="converter.css">
+
+
+</head>
+
+<body>
+		<div id="container">
+			
+			<a href="clock.html">
+				<div id="clock">
+					<div class="icon">
+						<div class="clock">
+							<div class="circle"></div>
+							<div class="clockwise"></div>
+							<div class="shadows"></div>
+	    				</div>
+	  				</div>
+  				</div>
+  			</a>
+  			
+			<a href="weather.html">
+				<div id="weather">
+					<div id = "cloud">
+					</div>
+				</div>
+			</a>
+			
+			<a href="currency_converter.html">
+				<div id="currency">
+					<div class="icon">
+						<div class="calculator">
+							<div class="display"></div>
+							<div class="controls">&#10010;&nbsp; 
+								<span class="big">-</span> 
+								<br> &#10006;&nbsp; 
+								<span class="medium">=</span>
+							</div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+			<a href="unit_converter.html">
+				<div id="measure">
+					<div class="icon">
+						<div class="ruler">
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<a href="phrase.html">
+				<div id="phrase">  
+					<div class="icon">
+						<div class="book">
+							<div class="top"></div>
+							<div class="pages">
+								<div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+							</div>
+							<span id="phrase-title">Phrases</span>
+							<div class="bookmark"></div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+			<a href="advice.html">
+				<div id="advice">
+					<div class="icon">
+						<div class="map">
+							<div class="folded">
+							  <div class="fold">
+									<div class="content"></div>
+        						</div>
+								<div class="fold">
+									<div class="content">
+										<div class="other"></div>
+       							  </div>
+       						  </div>
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+      						</div>
+	  					<div class="shadow"></div>
+	  					<div class="flip"></div>
+	  					<div class="pin"></div>
+    				</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+		</div>
+        
+        
+        <!-- Currency Converter -->
+        
+        <div id="converter">
+        <p> From: </p>
+			<!-- http://www.xe.com/iso4217.php -->
+			<select id="fromCur" onchange="getCurrency()">
+				<option value="AUD"> Australian Dollar </option>
+				<option value="CAD"> Canadian Dollar </option>
+				<option value="CHF"> Switzerland Franc </option>
+				<option value="EUR" selected> Euro </option> 
+				<option value="GBP"> Great Britain Pound </option>  
+				<option value="HKD"> Hong Kong Dollar </option>
+				<option value="INR"> Indian Rupee </option>
+				<option value="JPY"> Japaneese Yen </option>
+				<option value="MXN"> Mexican Peso </option> 
+				<option value="RUB"> Russia Ruble </option>    
+				<option value="PKR"> Pakistan Rupee </option>    
+            	<option value="USD"> US Dollar </option>
+				<option value="ZAR"> South Africa Rand </option>
+            </select>
+		<p> Amount: </p> <input type="textfield" value="0" id = "amount" onchange="getCurrency()">
+         <p> To: </p>
+            <select id="toCur" onchange="getCurrency()">
+				<option value="AUD"> Australian Dollar </option>
+				<option value="CAD"> Canadian Dollar </option>
+				<option value="CHF"> Switzerland Franc </option>
+				<option value="EUR"> Euro </option> 
+				<option value="GBP"> Great Britain Pound </option>  
+				<option value="HKD"> Hong Kong Dollar </option>
+				<option value="INR"> Indian Rupee </option>
+				<option value="JPY"> Japaneese Yen </option>
+				<option value="MXN"> Mexican Peso </option> 
+				<option value="RUB"> Russia Ruble </option>    
+				<option value="PKR"> Pakistan Rupee </option>    
+		       	<option value="USD" selected> US Dollar </option>
+				<option value="ZAR"> South Africa Rand </option>            
+			</select>
+		<br />
+       <!-- <button type="button" onclick="getCurrency()">Convert</button>   -->
+		<p> Amount: </p> <input type="textfield" value="" id = "answer" readonly>
+		</div>
+
+	<script> 
+		function getCurrency(){
+			//create URL based on user selections and create new script
+			var url = "http://www.freecurrencyconverterapi.com/api/v3/convert?q="+document.getElementById("fromCur").value+"_"+document.getElementById("toCur").value+"&compact=y&callback=myCallback"
+			var script = document.createElement("script");
+			if(document.head.lastChild.nodeName == "SCRIPT")
+				document.head.removeChild(document.head.lastChild)
+			script.setAttribute("src", url);
+			document.head.appendChild(script);
+		}
+		
+		function myCallback(json) { 
+			var results = document.getElementById("fromCur").value+"_"+document.getElementById("toCur").value
+			var rate = json[results].val;
+			var conversion = document.getElementById("amount").value*rate;
+			conversion = Math.round(conversion * 10000) / 10000; //rounds value to 5 decimals
+			document.getElementById("answer").setAttribute("value", conversion);
+		} 
+		
+	</script>
+        
+</body>
+</html>
+home-style.css000644 000765 000024 00000061402 12504565315 014134 0ustar00scm1348staff000000 000000 
+@media screen and (min-width: 400px) {
+	
+
+	#container {
+		width: 400px;
+		height: 400px;
+		background: #33CCFF;
+		margin: 0 auto;
+		top: 95px;
+		position: relative;
+		border-radius:400px;
+		border: 5px solid white;
+	}
+		
+	#clock {
+		width: 180px;
+		height: 180px;
+		background: #3693d8;
+		position: absolute;
+		margin: -5% 40% 10% 65%;
+		border-radius: 180px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#clock:hover {
+	 	background: #1663e8;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:10px;
+	}
+		
+	
+	#currency {
+		width: 110px;
+		height: 110px;
+		background: #FFCC00;
+		position: absolute;
+		margin: 75% 15% 20% 45%;
+		border-radius: 110px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#currency:hover {
+		background: #FFFF00;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:10px;
+	}
+
+	#measure {
+		width: 110px;
+		height: 110px;
+		background: #dd88CC;
+		position: absolute;
+		margin: 50% 10% 30% 80%;
+		border-radius: 110px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#measure:hover {
+		background: #995599;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:10px;
+	}
+		
+	#phrase {
+		width: 200px;
+		height: 200px;
+		background: #FFAD5C;
+		position: absolute;
+		margin: 45% 65% 35% -15%;
+		border-radius: 200px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#phrase:hover {
+	 	background: #FF9933;
+	 	-webkit-transform: translate(1%, 3%);
+	 	padding:10px;
+	}	
+	
+	#advice {
+		width: 150px;
+		height: 150px;
+		background: #fa7574;
+		position: absolute;
+		border-radius: 150px;
+		margin: 5% 20% -10% -20%;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	
+	#advice:hover {
+	 	background: #ff5050;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:10px;
+	}
+	
+	#weather {
+		width: 150px;
+		height:150px;
+		background: #00CC99;
+		position: absolute;
+		border-radius: 150px;
+		margin: -20% 10% 10% 20%;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	
+	#weather:hover {
+		background: #00cc66;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:10px;
+	}
+	
+	#phrase-title {
+		font-size: 1.5em;
+	}
+	
+	.calculator {
+	  width:90px;
+	  height:108px;
+	  background:#d7d4c5;
+	  border-radius:6px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-45px;
+	  top:50%;
+	  margin-top:-54px;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	}
+	
+	.calculator:after {
+	  content:"";
+	  width:90px;
+	  height:31px;
+	  background:rgba(0,0,0,0.1);
+	  border-top-left-radius:6px;
+	  border-top-right-radius:6px;
+	  position:absolute;
+	  top:4px;
+	}
+	
+	.calculator .display {
+	  width:74px;
+	  height:20px;
+	  background:#868d83;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-37px;
+	  top:11px;
+	  border-radius:2px;
+	  background-image: linear-gradient(45deg, transparent 37px, rgba(0,0,0,0.1) 37px);
+	  box-shadow: inset 0 2px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	.calculator .controls {
+	  font-size:30px;
+	  font-weight:bold;
+	  color:#908e86;
+	  line-height:1em;
+	  margin-top:41px;
+	  margin-left:15px;
+	}
+	
+	.calculator .controls .big {
+	  font-size:50px;
+	  line-height:0em;
+	}
+	
+	.calculator .controls .medium {
+	  font-size:35px;
+	  line-height:0em;
+	  color:#8fb243;
+	  font-weight:bold;
+	}
+	
+	
+	/****************** clock ****************/
+	
+	.clock{
+	  width:108px;
+	  height:108px;
+	  background:#33aadd;
+	  border-radius:50%;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:50%;
+	  margin-left:-54px;
+	  top:50%;
+	  margin-top:-54px;
+	  cursor:pointer;
+	}
+	
+	.clock .circle{
+	  content:"";
+	  width:84px;
+	  height:84px;
+	  background:#cccabf;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-42px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-42px;
+	}
+	
+	.clock .circle:before{
+	  content:"";
+	  width:84px;
+	  height:84px;
+	  background:#edebde;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-42px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-37px;
+	}
+	
+	.clock .circle:after {
+	  content:"";
+	  width:14px;
+	  height:14px;
+	  background:#4b494f;
+	  position:absolute;
+	  border-radius:50%;
+	  left:50%;
+	  margin-left:-7px;
+	  top:50%;
+	  margin-top:-7px;
+	  z-index:5;
+	}
+	
+	.clock .clockwise {
+	  width:29px;
+	  height:4px;
+	  background:#4b494f;
+	  position:absolute;
+	  top:50%;
+	  left:50%;
+	  margin-left:6px;
+	  margin-top:-2px;
+	  transform-origin:-5px 2px;
+	  transition:transform 0.5s;
+	}
+	
+	.clock .clockwise:after{
+	  content:"";
+	  width:21px;
+	  height:4px;
+	  background:#4b494f;
+	  position:absolute;
+	  left:-33px;
+	  transform-origin:26px center;
+	  transform:rotate(50deg);
+	}
+	
+	
+	.clock:hover .clockwise, .clock:hover .shadows {
+	  transform:rotate(250deg);
+	}
+	
+	
+	
+	/****************** book ****************/
+	
+	@import url(http://fonts.googleapis.com/css?family=Dancing+Script);
+	
+	.book {
+	  width:116px;
+	  height:124px;
+	  background:#5CD65C;
+	  border-radius:6px;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:45%;
+	  margin-left:-48px;
+	  top:45%;
+	  margin-top:-52px;
+	  font-size:100%;
+	  color:#4b494f;
+	  line-height:150px;
+	  text-align:center;
+	  font-family: 'Dancing Script', cursive;
+	  cursor:pointer;
+	}
+	
+	.book .pages {
+	  width:111px;
+	  height:50px;
+	  position:absolute;
+	  top:5px;
+	  right:0;
+	  border-top-right-radius:5px;
+	  border-top-left-radius:2px;
+	  border-bottom-left-radius:2px;
+	  overflow:hidden;
+	  background:#5CD65C;
+	}
+	
+	.book .pages .page {
+	  width:111px;
+	  height:111px;
+	  position:absolute;
+	  border-top-right-radius:6px;
+	}
+	.book .pages .page:nth-child(odd){
+	  background:#eeecdf;
+	}
+	
+	.book .pages .page:nth-child(even){
+	  background:#d6d4c8;
+	}
+	
+	.book .pages .page:nth-child(2){ top:2px; }
+	.book .pages .page:nth-child(3){ top:4px; }
+	.book .pages .page:nth-child(4){ top:6px; }
+	.book .pages .page:nth-child(5){ top:8px; }
+	.book .pages .page:nth-child(6){ top:10px; }
+	.book .pages .page:nth-child(7){ top:12px; }
+	.book .pages .page:nth-child(8){ top:14px; }
+	.book .pages .page:nth-child(9){ top:16px; }
+	.book .pages .page:nth-child(10){ 
+	  top:18px;
+	background-image: -webkit-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #3ab43a 4px);
+	background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+	background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+	background-image: linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+	}
+	
+	.book .pages .page:nth-child(11){ 
+	  top:23px;
+	  background-image: -webkit-linear-gradient(left, #5CD65C 0px, #3ab43a 2px, #3ab43a 2px, #3ab43a 4px, #5CD65C 4px);
+	  background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #5CD65C 4px);
+	  background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #5CD65C 4px);
+	  background-image: linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #5CD65C 4px);
+	}
+	
+	.book .top:after {
+	  content:"";
+	  width:2px;
+	  height:93px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:5px;
+	  top:31px;
+	}
+	
+	.book .top:before {
+	  content:"";
+	  width:2px;
+	  height:93px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:7px;
+	  top:31px;
+	}
+	
+	.bookmark {
+	  width:20px;
+	  height:21px;
+	  background:#d64646;
+	  position:absolute;
+	  top:-4px;
+	  left:9px;
+	}
+	
+	.bookmark:after {
+	  content:"";
+	  width:20px;
+	  height:10px;
+	  background:rgba(0,0,0,0.25);
+	  position:absolute;
+	  transform:skewX(-45deg);
+	  top:21px;
+	  left:-5px;
+	}
+	
+	.book:hover .bookmark {
+	  transform:translateY(2px);
+	  height:19px;
+	}
+	.book:hover .bookmark:after {
+	  transform:translateY(-2px) skewX(-45deg);
+	}
+	
+	
+	/****************** map ****************/
+	
+	.map {
+	  width:108px;
+	  height:88px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-54px;
+	  top:50%;
+	  margin-top:-44px;
+	  cursor:pointer;
+	}
+	
+	.map:after {
+	  content:"";
+	  width:0;
+	  height:0;
+	  position:absolute;
+	  bottom:-10px;
+	  right:-2px;
+	}
+	
+	.map .folded{
+	  position:absolute;
+	}
+	
+	.map .fold {
+	  width:36px;
+	  height:88px;
+	  background:#eae8db;
+	  float:left;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	  position:relative;
+	}
+	
+	.map .fold:first-child, .map .fold:last-child {
+	  transform-origin:center left;
+	  transform:skewY(15deg);
+	}
+	
+	.map .fold:nth-child(2) {
+	  transform-origin:center right;
+	  transform:skewY(-15deg);
+	}
+	
+	.map .fold .content {
+	  width:32px;
+	  height:80px;
+	  position:absolute;
+	  left:4px;
+	  top:4px;
+	  overflow:hidden;
+	}
+	
+	.map .fold:first-child .content:after {
+	  content:"";
+	  width:66px;
+	  height:66px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:-33px;
+	}
+	
+	.map .fold:first-child .content:before {
+	  content:"";
+	  width:21px;
+	  height:21px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:16px;
+	  bottom:-10px;
+	}
+	
+	.map .fold:nth-child(2) .content:after {
+	  content:"";
+	  width:47px;
+	  height:47px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(48deg);
+	  top:-28px;
+	  left:-2px;
+	}
+	
+	.map .fold:nth-child(2) .content .other {
+	  width:98px;
+	  height:98px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(50deg);
+	  left:25px;
+	  top:15px
+	}
+	
+	.map .fold:nth-child(2) .content .other:after {
+	  content:"";
+	  width:23px;
+	  height:23px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  bottom:-35px;
+	}
+	
+	.map .fold:last-child .content:after {
+	  content:"";
+	  width:98px;
+	  height:98px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-7px;
+	  top:9px
+	}
+	
+	.map .fold:last-child .content:before {
+	  content:"";
+	  width:49px;
+	  height:49px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-27px;
+	  top:-46px
+	}
+
+	.map .pin {
+	  width: 32px;
+	  height: 32px;
+	  border-radius: 50% 50% 50% 0;
+	  background: #d65746;
+	  position: absolute;
+	  transform: rotate(-45deg);
+	  left: 50%;
+	  top: 50%;
+	  margin: -20px 0 0 -16px;
+	  transition:transform 0.5s;
+	  -webkit-backface-visibility: hidden;
+	}
+	
+	.map .pin:after {
+	  content: "";
+	  width: 14px;
+	  height: 14px;
+	  margin: 9px 0 0 9px;
+	  background: rgba(0,0,0,0.35);
+	  position: absolute;
+	  border-radius: 50%;
+	}
+	
+	.map .pin:hover {
+		-webkit-transform: translate(10%);
+	}
+		
+	.ruler {
+	  width:40px;
+	  height:160px;
+	  background:#FFFF99;
+	  border-radius:6px;
+	  position:absolute;
+	  left:70%;
+	  margin-left:-45px;
+	  top:30%;
+	  margin-top:-54px;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	  transform: rotate(30deg);
+	  transition: transform .6s ease-in-out;
+	}
+	
+	.ruler:hover {
+		transform: rotate(70deg);
+		
+	}
+	
+	.ruler:after {
+	  content:"";
+	  width:20px;
+	  height:150px;
+	  background:rgba(0,0,0,0.1);
+	  border-radius:6px;
+	  position:absolute;
+	  top:4px;
+	}
+	
+	.ruler .point {
+	  width:15px;
+	  height:5px;
+	  background:#868d83;
+	  position:absolute;
+	  top: 5px;
+	  background-image: linear-gradient(45deg, transparent 37px, rgba(0,0,0,0.1) 37px);
+	  box-shadow: inset 0 2px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	
+	.ruler .point:nth-child(2){ top:25px; }
+	.ruler .point:nth-child(3){ top:45px; }
+	.ruler .point:nth-child(4){ top:65px; }
+	.ruler .point:nth-child(5){ top:85px; }
+	.ruler .point:nth-child(6){ top:105px; }
+	.ruler .point:nth-child(7){ top:125px; }
+	.ruler .point:nth-child(8){ top:145px; }
+	
+	
+	
+	
+	#cloud {
+		width: 117px; height: 40px;
+		background: #f2f9fe;
+		background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		border-radius: 33px;
+		-webkit-border-radius: 33px;
+		-moz-border-radius: 33px;
+		position: relative;
+		margin: 60px auto 7px;
+	}
+	
+	#cloud:after, #cloud:before {
+		content: '';
+		position: absolute;
+		background: white;
+		
+	}
+	
+	#cloud:after {
+		width: 33px; height: 33px;
+		top: -17px; left: 17px;
+		border-radius: 33px;
+		-webkit-border-radius: 33px;
+		-moz-border-radius: 33px;
+	}
+	
+	#cloud:before {
+		width: 60px; height: 60px;
+		top: -30px; right: 17px;
+		border-radius: 67px;
+		-webkit-border-radius: 67px;
+		-moz-border-radius: 67px;
+	}
+}
+
+@media screen and (max-width: 520px) {
+
+	#container {
+		width: 300px;
+		height: 300px;
+		background: #33CCFF;
+		margin-left: 0 auto;
+		top: 7em;
+		position: relative;
+		border-radius:300px;
+		border: 2.5px solid white;
+	}	
+		
+		
+	#clock {
+		width: 120px;
+		height: 120px;
+		background: #3693d8;
+		position: absolute;
+		margin: -5% 40% 10% 65%;
+		border-radius: 120px;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#clock:hover {
+	 	background: #1663e8;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:5px;
+	}
+		
+	#currency {
+		width: 85px;
+		height: 85px;
+		background: #FFCC00;
+		position: absolute;
+		margin: 75% 15% 20% 45%;
+		border-radius: 85px;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#currency:hover {
+		background: #FFFF00;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:5px;
+	}
+		
+	
+	#measure {
+		width: 85px;
+		height: 85px;
+		background: #dd88CC;
+		position: absolute;
+		margin: 50% 10% 30% 80%;
+		border-radius: 85px;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#measure:hover {
+		background: #995599;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:5px;
+	}
+		
+	#phrase {
+		width: 130px;
+		height: 130px;
+		background: #FFAD5C;
+		position: absolute;
+		margin: 45% 65% 35% -15%;
+		border-radius: 130px;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#phrase:hover {
+	 	background: #FF9933;
+	 	-webkit-transform: translate(1%, 3%);
+	 	padding:5px;
+	}
+		
+	
+	#advice {
+		width: 105px;
+		height: 105px;
+		background: #fa7574;
+		position: absolute;
+		border-radius: 105px;
+		margin: 5% 20% -10% -15%;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#advice:hover {
+	 	background: #ff5050;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:5px;
+	}
+	
+	#weather {
+		width: 105px;
+		height:105px;
+		background: #00CC99;
+		position: absolute;
+		border-radius: 105px;
+		margin: -20% 10% 10% 20%;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+		
+	}
+	#weather:hover {
+		background: #00cc66;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:5px;
+	}
+		
+	
+	#phrase-title {
+		font-size: .7em;
+	}
+	
+	.calculator {
+	  width:45px;
+	  height:54px;
+	  background:#d7d4c5;
+	  border-radius:3px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-22.5px;
+	  top:50%;
+	  margin-top:-27px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	}
+	
+	.calculator:after {
+	  content:"";
+	  width:45px;
+	  height:15.5px;
+	  background:rgba(0,0,0,0.1);
+	  border-top-left-radius:3px;
+	  border-top-right-radius:3px;
+	  position:absolute;
+	  top:2px;
+	}
+	
+	.calculator .display {
+	  width:37px;
+	  height:10px;
+	  background:#868d83;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-18.5px;
+	  top:5.5px;
+	  border-radius:1px;
+	  background-image: linear-gradient(45deg, transparent 37px, rgba(0,0,0,0.1) 18.5px);
+	  box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	.calculator .controls {
+	  font-size:15px;
+	  font-weight:bold;
+	  color:#908e86;
+	  line-height:1em;
+	  margin-top:20.5px;
+	  margin-left:7.5px;
+	}
+	
+	.calculator .controls .big {
+	  font-size:25px;
+	  line-height:0em;
+	}
+	
+	.calculator .controls .medium {
+	  font-size:17.5px;
+	  line-height:0em;
+	  color:#8fb243;
+	  font-weight:bold;
+	}
+	
+	
+	/****************** clock ****************/
+	
+	.clock{
+	  width:54px;
+	  height:54px;
+	  background:#33aadd;
+	  border-radius:50%;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:50%;
+	  margin-left:-27px;
+	  top:50%;
+	  margin-top:-27px;
+	  cursor:pointer;
+	}
+	
+	.clock .circle{
+	  content:"";
+	  width:42px;
+	  height:42px;
+	  background:#cccabf;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-21px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-21px;
+	}
+	
+	.clock .circle:before{
+	  content:"";
+	  width:42px;
+	  height:42px;
+	  background:#edebde;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-21px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-18.5px;
+	}
+	
+	.clock .circle:after {
+	  content:"";
+	  width:7px;
+	  height:7px;
+	  background:#4b494f;
+	  position:absolute;
+	  border-radius:50%;
+	  left:50%;
+	  margin-left:-3.5px;
+	  top:50%;
+	  margin-top:-3.5px;
+	  z-index:5;
+	}
+	
+	.clock .clockwise {
+	  width:14.5px;
+	  height:2px;
+	  background:#4b494f;
+	  position:absolute;
+	  top:50%;
+	  left:50%;
+	  margin-left:3px;
+	  margin-top:-1px;
+	  transform-origin:-2.5px 1px;
+	  transition:transform 0.5s;
+	}
+	
+	.clock .clockwise:after{
+	  content:"";
+	  width:10.5px;
+	  height:2px;
+	  background:#4b494f;
+	  position:absolute;
+	  left:-16.5px;
+	  transform-origin:13px center;
+	  transform:rotate(50deg);
+	}
+	
+	
+	.clock:hover .clockwise, .clock:hover .shadows {
+	  transform:rotate(250deg);
+	}
+	
+	
+	
+	/****************** book ****************/
+	
+	@import url(http://fonts.googleapis.com/css?family=Dancing+Script);
+	
+	.book {
+	  width:58px;
+	  height:62px;
+	  background:#5CD65C;
+	  border-radius:3px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:45%;
+	  margin-left:-24px;
+	  top:45%;
+	  margin-top:-26px;
+	  font-size:100%;
+	  color:#4b494f;
+	  line-height:75px;
+	  text-align:center;
+	  font-family: 'Dancing Script', cursive;
+	  cursor:pointer;
+	}
+	
+	.book .pages {
+	  width:55.5px;
+	  height:25px;
+	  position:absolute;
+	  top:2.5px;
+	  right:0;
+	  border-top-right-radius:2.5px;
+	  border-top-left-radius:1px;
+	  border-bottom-left-radius:1px;
+	  overflow:hidden;
+	  background:#5CD65C;
+	}
+	
+	.book .pages .page {
+	  width:55.5px;
+	  height:55.5px;
+	  position:absolute;
+	  border-top-right-radius:3px;
+	}
+	.book .pages .page:nth-child(odd){
+	  background:#eeecdf;
+	}
+	
+	.book .pages .page:nth-child(even){
+	  background:#d6d4c8;
+	}
+	
+	.book .pages .page:nth-child(2){ top:1px; }
+	.book .pages .page:nth-child(3){ top:2px; }
+	.book .pages .page:nth-child(4){ top:3px; }
+	.book .pages .page:nth-child(5){ top:4px; }
+	.book .pages .page:nth-child(6){ top:5px; }
+	.book .pages .page:nth-child(7){ top:6px; }
+	.book .pages .page:nth-child(8){ top:7px; }
+	.book .pages .page:nth-child(9){ top:8px; }
+	.book .pages .page:nth-child(10){ 
+	  top:9px;
+	background-image: -webkit-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	}
+	
+	.book .pages .page:nth-child(11){ 
+	  top:11.5px;
+	  background-image: -webkit-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: -moz-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: -o-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	}
+	
+	.book .top:after {
+	  content:"";
+	  width:1px;
+	  height:46.5px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:2.5px;
+	  top:15.5px;
+	}
+	
+	.book .top:before {
+	  content:"";
+	  width:1px;
+	  height:46.5px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:3.5px;
+	  top:15.5px;
+	}
+	
+	.bookmark {
+	  width:10px;
+	  height:10.5px;
+	  background:#d64646;
+	  position:absolute;
+	  top:-2px;
+	  left:4.5px;
+	}
+	
+	.bookmark:after {
+	  content:"";
+	  width:10px;
+	  height:5px;
+	  background:rgba(0,0,0,0.25);
+	  position:absolute;
+	  transform:skewX(-45deg);
+	  top:10.5px;
+	  left:-2.5px;
+	}
+	
+	.book:hover .bookmark {
+	  transform:translateY(1px);
+	  height:9.5px;
+	}
+	.book:hover .bookmark:after {
+	  transform:translateY(-2px) skewX(-45deg);
+	}
+	
+	
+	/****************** map ****************/
+	
+	.map {
+	  width:54px;
+	  height:44px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-27px;
+	  top:50%;
+	  margin-top:-22px;
+	  cursor:pointer;
+	}
+	
+	.map:after {
+	  content:"";
+	  width:0;
+	  height:0;
+	  position:absolute;
+	  bottom:-5px;
+	  right:-1px;
+	}
+	
+	.map .folded{
+	  position:absolute;
+	}
+	
+	.map .fold {
+	  width:18px;
+	  height:44px;
+	  background:#eae8db;
+	  float:left;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  position:relative;
+	}
+	
+	.map .fold:first-child, .map .fold:last-child {
+	  transform-origin:center left;
+	  transform:skewY(15deg);
+	}
+	
+	.map .fold:nth-child(2) {
+	  transform-origin:center right;
+	  transform:skewY(-15deg);
+	}
+	
+	.map .fold .content {
+	  width:18px;
+	  height:40px;
+	  position:absolute;
+	  left:2px;
+	  top:2px;
+	  overflow:hidden;
+	}
+	
+	.map .fold:first-child .content:after {
+	  content:"";
+	  width:33px;
+	  height:33px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:-16.5px;
+	}
+	
+	.map .fold:first-child .content:before {
+	  content:"";
+	  width:10.5px;
+	  height:10.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:8px;
+	  bottom:-5px;
+	}
+	
+	.map .fold:nth-child(2) .content:after {
+	  content:"";
+	  width:23.5px;
+	  height:23.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(48deg);
+	  top:-14px;
+	  left:-1px;
+	}
+	
+	.map .fold:nth-child(2) .content .other {
+	  width:49px;
+	  height:49px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(50deg);
+	  left:12.5px;
+	  top:7.5px
+	}
+	
+	.map .fold:nth-child(2) .content .other:after {
+	  content:"";
+	  width:11.5px;
+	  height:11.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  bottom:-17.5px;
+	}
+	
+	.map .fold:last-child .content:after {
+	  content:"";
+	  width:49px;
+	  height:49px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-3.5px;
+	  top:4.5px
+	}
+	
+	.map .fold:last-child .content:before {
+	  content:"";
+	  width:24.5px;
+	  height:24.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-13.5px;
+	  top:-23px
+	}
+	
+	
+	
+	.map .pin {
+	  width: 16px;
+	  height: 16px;
+	  border-radius: 50% 50% 50% 0;
+	  background: #d65746;
+	  position: absolute;
+	  transform: rotate(-45deg);
+	  left: 50%;
+	  top: 50%;
+	  margin: -10px 0 0 -8px;
+	  transition:transform 0.5s;
+	  -webkit-backface-visibility: hidden;
+	}
+	
+	.map .pin:after {
+	  content: "";
+	  width: 7px;
+	  height: 7px;
+	  margin: 4.5px 0 0 4.5px;
+	  background: rgba(0,0,0,0.35);
+	  position: absolute;
+	  border-radius: 50%;
+	}
+	
+	.map .pin:hover {
+		-webkit-transform: translate(10%);
+	}
+	
+	
+	.ruler {
+	  width:20px;
+	  height:80px;
+	  background:#FFFF99;
+	  border-radius:3px;
+	  position:absolute;
+	  left:70%;
+	  margin-left:-22.5px;
+	  top:30%;
+	  margin-top:-27px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  transform: rotate(30deg);
+	  transition: transform .6s ease-in-out;
+	}
+	
+	.ruler:hover {
+		transform: rotate(70deg);
+		
+	}
+	
+	.ruler:after {
+	  content:"";
+	  width:10px;
+	  height:75px;
+	  background:rgba(0,0,0,0.1);
+	  border-radius:3px;
+	  position:absolute;
+	  top:2px;
+	}
+	
+	.ruler .point {
+	  width:7.5px;
+	  height:2.5px;
+	  background:#868d83;
+	  position:absolute;
+	  top: 2.5px;
+	  background-image: linear-gradient(45deg, transparent 18.5px, rgba(0,0,0,0.1) 18.5px);
+	  box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	
+	.ruler .point:nth-child(2){ top:12.5px; }
+	.ruler .point:nth-child(3){ top:22.5px; }
+	.ruler .point:nth-child(4){ top:32.5px; }
+	.ruler .point:nth-child(5){ top:44.5px; }
+	.ruler .point:nth-child(6){ top:55.5px; }
+	.ruler .point:nth-child(7){ top:66.5px; }
+	.ruler .point:nth-child(8){ top:77.5px; }
+	
+	
+	
+	
+	#cloud {
+		width: 58.5px; height: 20px;
+		
+		background: #f2f9fe;
+		background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		border-radius: 16.5px;
+		-webkit-border-radius: 16.5px;
+		-moz-border-radius: 16.5px;
+		position: relative;
+		margin: 30px auto 3.5px;
+	}
+	
+	#cloud:after, #cloud:before {
+		content: '';
+		position: absolute;
+		background: white;
+	}
+	
+	#cloud:after {
+		width: 16.5px; height: 16.5px;
+		top: -8.5px; left: 8.5px;
+		border-radius: 33px;
+		-webkit-border-radius: 16.5px;
+		-moz-border-radius: 16.5px;
+	}
+	
+	#cloud:before {
+		width: 30px; height: 30px;
+		top: -15px; right: 8.5px;
+		border-radius: 33.5px;
+		-webkit-border-radius: 33.5px;
+		-moz-border-radius: 33.5px;
+	}
+	
+}
+	
+./._index.html000644 000765 000024 00000000253 12504566271 013702 0ustar00scm1348staff000000 000000 Mac OS X        	2y�TEXTATTR���com.apple.TextEncodingUTF-8;134217984index.html000644 000765 000024 00000005746 12504566271 013344 0ustar00scm1348staff000000 000000 <!DOCTYPE> 
+<html> 
+	<head> 
+		<title>  </title> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="style.css">
+ 
+	</head> 
+	
+	<body> 
+		<div id="container">
+			
+			
+			<a href="clock.html">
+				<div id="clock">
+					<div class="icon">
+						<div class="clock">
+							<div class="circle"></div>
+							<div class="clockwise"></div>
+							<div class="shadows"></div>
+	    				</div>
+	  				</div>
+  				</div>
+  			</a>
+  			
+  			
+			<a href="weather.html">
+				<div id="weather">
+					<div id = "cloud">
+					</div>
+				</div>
+			</a>
+			
+			
+			<a href="currency_converter.html">
+				<div id="currency">
+					<div class="icon">
+						<div class="calculator">
+							<div class="display"></div>
+							<div class="controls">&#10010;&nbsp; 
+								<span class="big">-</span> 
+								<br> &#10006;&nbsp; 
+								<span class="medium">=</span>
+							</div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+  			
+			<a href="unit_converter.html">
+				<div id="measure">
+					<div class="icon">
+						<div class="ruler">
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			
+			<a href="phrase.html">
+				<div id="phrase">  
+					<div class="icon">
+						<div class="book">
+							<div class="top"></div>
+							<div class="pages">
+								<div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+							</div>
+							<span id="phrase-title">Phrases</span>
+							<div class="bookmark"></div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+  			
+			<a href="advice.html">
+				<div id="advice">
+					<div class="icon">
+						<div class="map">
+							<div class="folded">
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+								<div class="fold">
+									<div class="content">
+										<div class="other"></div>
+          							</div>
+        						</div>
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+      						</div>
+	  					<div class="shadow"></div>
+	  					<div class="flip"></div>
+	  					<div class="pin"></div>
+    				</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+  			<a href="useful-links.html">
+  				<div id="news" >
+					<div class="icon">
+						<div class="news">
+						  <div class="content"></div>
+						  <div class="flip"></div>
+						</div>
+					</div>
+				</div>
+			</a>
+  			
+		</div>
+
+        
+        
+		
+
+		
+	</body> 
+</html>
+
+phrase-style.css000644 000765 000024 00000005115 12473241612 014461 0ustar00scm1348staff000000 000000 
+
+@media screen and (max-width: 500px) and (max-height: 1200px) {
+
+
+	.phrase-box {
+		width: 300px;
+		height: 400px;
+		margin: 0 auto;
+		background: #a26cd7;
+		border-radius: 10px;
+		overflow:scroll;
+	}
+	
+	#language-select {
+		margin: 0 auto;
+		width: 90%;
+		height: 20%;
+		background: #eeaeee;
+		margin-top: 2%;
+		border-radius: 10px;
+	}
+	
+	#language-select p {
+		font-size: 1.8em;
+		font-family: "Gill Sans";
+		font-weight: 300;
+		text-align: center;
+	}
+	#language-select p:nth-child(2) {
+		font-size:.9em;
+		font-weight:500;
+		margin-top: -20px;
+	}
+	
+	
+	.lang-check-container {
+		margin-bottom: 10px;
+		text-align: center;
+		margin-top: 23px;
+	}
+	
+	.lang-check-container select {
+		padding:10px;
+		text-align:center;	
+		border: 3px solid #824cb7;
+		background:transparent;
+		box-shadow: 0px 0px 70px white;
+	}
+	
+	#lang-check {
+		width:40%;
+		margin-top: -20px;
+	}
+	
+	#spanish-phrases, #italian-phrases, #french-phrases {
+		margin: 0 auto;
+		border: 1px solid white;
+	}
+	
+	
+	
+	#spanish-phrases thead, #spanish-phrases td, #italian-phrases thead, #italian-phrases td, #french-phrases thead, #french-phrases td {
+		font-family:"Gill Sans";
+		font-style: italic;
+		line-height: 30px;
+		color:#333333;
+
+	}
+	
+	#spanish-phrases td , #italian-phrases td, #french-phrases td {
+		border: 1px solid white;
+		background:#ff9977;
+	}
+	
+}
+
+
+@media screen and (min-width: 500px) {
+
+
+	.phrase-box {
+		width: 600px;
+		height: 600px;
+		margin: 0 auto;
+		background: #a26cd7;
+		border-radius: 10px;
+
+		overflow:scroll;
+		
+	}
+	
+	#language-select {
+		margin: 0 auto;
+		width: 90%;
+		height: 20%;
+		background: #eeaeee;
+		margin-top: 2%;
+		border-radius: 10px;
+		
+	}
+	
+	#language-select p {
+		font-size: 2.3em;
+		font-family: "Gill Sans";
+		font-weight: 300;
+		text-align: center;
+	}
+	#language-select p:nth-child(2) {
+		font-size:1.2em;
+		font-weight:500;
+		margin-top: -20px;
+	}
+	
+	
+	.lang-check-container {
+		margin-bottom: 10px;
+		text-align: center;
+		margin-top: 23px;
+	}
+	
+	.lang-check-container select {
+		padding:10px;
+		text-align:center;	
+		border: 3px solid #824cb7;
+		background:transparent;
+		box-shadow: 0px 0px 70px white;
+	}
+	
+	#lang-check {
+		width:40%;
+		margin-top: -20px;
+	}
+	
+	#spanish-phrases, #italian-phrases, #french-phrases {
+		margin: 0 auto;
+		border: 1px solid white;
+	}
+	
+	
+	
+	#spanish-phrases thead, #spanish-phrases td, #italian-phrases thead, #italian-phrases td, #french-phrases thead, #french-phrases td {
+		font-family:"Gill Sans";
+		font-style: italic;
+		line-height: 30px;
+		color:#333333;
+
+	}
+	
+	#spanish-phrases td , #italian-phrases td, #french-phrases td {
+		border: 1px solid white;
+		background:#ff9977;
+	}
+	
+}
+
+
+./._phrase.html000644 000765 000024 00000000455 12473234504 014055 0ustar00scm1348staff000000 000000 Mac OS X        	2�-ATTR-�i�com.apple.TextEncoding�Zde.codingmonkeys.seestateutf-8;134217984d1:pd1:yi72e1:wi1280e1:xi0e1:hi705ee1:sd1:pi738e1:li0ee1:ei1e1:li10684e1:m12:SEEMode.HTMLephrase.html000644 000765 000024 00000024674 12473234504 013514 0ustar00scm1348staff000000 000000 
+<!DOCTYPE> 
+<html> 
+	<head> 
+		<title>Phrasebook</title> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="style-small.css">
+		<link rel="stylesheet" type="text/css" href="phrase-style.css">
+	</head> 
+	
+	<body> 
+	
+		
+		<div id="container">
+			
+			<a href="clock.html">
+				<div id="clock">
+					<div class="icon">
+						<div class="clock">
+							<div class="circle"></div>
+							<div class="clockwise"></div>
+							<div class="shadows"></div>
+	    				</div>
+	  				</div>
+  				</div>
+  				
+  			</a>
+  			
+  			
+			<a href="weather.html">
+				<div id="weather">
+					<div id = "cloud">
+					</div>
+				</div>
+			</a>
+			
+			
+			<a href="currency_converter.html">
+				<div id="currency">
+					<div class="icon">
+						<div class="calculator">
+							<div class="display"></div>
+							<div class="controls">&#10010;&nbsp; 
+								<span class="big">-</span> 
+								<br> &#10006;&nbsp; 
+								<span class="medium">=</span>
+							</div>
+    					</div>
+    					
+  					</div>
+  				</div>
+  			</a>
+  			
+  			
+  			
+			<a href="unit_converter.html">
+				<div id="measure">
+					<div class="icon">
+						<div class="ruler">
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			
+			<a href="phrase.html">
+				<div id="phrase">  
+					<div class="icon">
+						<div class="book">
+							<div class="top"></div>
+							<div class="pages">
+								<div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+							</div>
+							<span id="phrase-title">Phrases</span>
+							<div class="bookmark"></div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+  			
+			<a href="advice.html">
+				<div id="advice">
+					<div class="icon">
+						<div class="map">
+							<div class="folded">
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+								<div class="fold">
+									<div class="content">
+										<div class="other"></div>
+          							</div>
+        						</div>
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+      						</div>
+	  					<div class="shadow"></div>
+	  					<div class="flip"></div>
+	  					<div class="pin"></div>
+    				</div>
+  					</div>
+  				</div>
+  			</a>
+		</div>
+  		
+  			
+  		<div class="phrase-box"> 
+			<div id="language-select">
+				<p>Language</p>
+				<p>Please select which language you would like see certain phrases.</p>
+			</div>
+					<div class="lang-check-container">
+						<select id="lang-check" name="form_select">
+						<option class="lang-check-options" value="0">N/A</option>
+						<option class="lang-check-options" value ="1">Spanish</option>
+						<option class="lang-check-options" value ="2">Italian</option>
+						<option class="lang-check-options" value ="3">French</option>
+						</select>
+					</div>
+					
+			
+					<div id="hidden_div_spanish" style="display: none;">
+						<table id="spanish-phrases">
+							 <thead>
+							    <tr>
+							      <th>English</th>
+							      <th>Spanish</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Hello.</td>
+									<td>Hola.</td>
+								</tr>
+								<tr>
+									<td>How are you?</td>
+									<td>&#191;C&#243;mo est&#225;?</td>
+								</tr>
+								<tr>
+									<td>My name is...</td>
+									<td>Me llamo...</td>
+								</tr>
+								<tr>
+									<td>Where is the bathroom?</td>
+									<td>&#191;Donde esta el ba&#241;o?</td>
+								</tr>
+								<tr>
+									<td>Do you speak English?</td>
+									<td>&#191;Hablas ingles?</td>
+								</tr>
+								<tr>
+									<td>Can you help me?</td>
+									<td>&#191;Puede ayudarme?</td>
+								</tr>
+								<tr>
+									<td>I don't understand.</td>
+									<td>No entiendo.</td>
+								</tr>
+								<tr>
+									<td>I am lost. Can you help me find where I need to go?</td>
+									<td>&#191;Estoy perdido. Puede ayudarme buscar &#225;donde tengo ir?</td>
+								</tr>
+								<tr>
+									<td>Can you write that down for me?</td>
+									<td>&#191;Puede escribirlo para m&#237;?</td>
+								</tr>
+								<tr>
+									<td>Please call the American Embassy.</td>
+									<td>&#191;Por favor, llama la Embajada Americana.</td>
+								</tr>
+								<tr>
+									<td>I need the police.</td>
+									<td>Necesito la polic&#237;a.</td>
+								</tr>
+								<tr>
+									<td>Where is the airport?</td>
+									<td>&#191;D&#243;nde est&#225; el aeropuerto?</td>
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+					
+					
+					
+					<div id="hidden_div_italian" style="display: none;">
+						<table id="italian-phrases">
+							 <thead>
+							    <tr>
+							      <th>English</th>
+							      <th>Italian</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Hello.</td>
+									<td>Ciao.</td>
+								</tr>
+								<tr>
+									<td>How are you?</td>
+									<td>Como state?</td>
+								</tr>
+								<tr>
+									<td>My name is...</td>
+									<td>Mi chiamo...</td>
+								</tr>
+								<tr>
+									<td>Where is the bathroom?</td>
+									<td>Dove posso trovare il bagno?</td>
+								</tr>
+								<tr>
+									<td>Do you speak English?</td>
+									<td>Parla inglese?</td>
+								</tr>
+								<tr>
+									<td>Can you help me?</td>
+									<td>Potrebbe aiutarmi?</td>
+								</tr>
+								<tr>
+									<td>I don't understand.</td>
+									<td>Non capisco!</td>
+								</tr>
+								<tr>
+									<td>I am lost. Can you help me find where I need to go?</td>
+									<td>&#191;Mi sono perso/a. Potrebbe aiutarmi trovare a dove devo andare?</td>
+								</tr>
+								<tr>
+									<td>Can you write that down for me?</td>
+									<td>Pu&#242;scrivere per favore?</td>
+								</tr>
+								<tr>
+									<td>Please call the American Embassy.</td>
+									<td>&#191;Per favore, chiama la Ambasciata Americana.</td>
+								</tr>
+								<tr>
+									<td>I need the police.</td>
+									<td>Devo la polizia.</td>
+								</tr>
+								<tr>
+									<td>Where is the airport?</td>
+									<td>Dove posso trovare aeroporto?</td>
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+
+					<div id="hidden_div_italian" style="display: none;">
+						<table id="italian-phrases">
+							 <thead>
+							    <tr>
+							      <th>English</th>
+							      <th>Italian</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Hello.</td>
+									<td>Ciao.</td>
+								</tr>
+								<tr>
+									<td>How are you?</td>
+									<td>Como state?</td>
+								</tr>
+								<tr>
+									<td>My name is...</td>
+									<td>Mi chiamo...</td>
+								</tr>
+								<tr>
+									<td>Where is the bathroom?</td>
+									<td>Dove posso trovare il bagno?</td>
+								</tr>
+								<tr>
+									<td>Do you speak English?</td>
+									<td>Parla inglese?</td>
+								</tr>
+								<tr>
+									<td>Can you help me?</td>
+									<td>Potrebbe aiutarmi?</td>
+								</tr>
+								<tr>
+									<td>I don't understand.</td>
+									<td>Non capisco!</td>
+								</tr>
+								<tr>
+									<td>I am lost. Can you help me find where I need to go?</td>
+									<td>&#191;Mi sono perso/a. Potrebbe aiutarmi trovare a dove devo andare?</td>
+								</tr>
+								<tr>
+									<td>Can you write that down for me?</td>
+									<td>Pu&#242;scrivere per favore?</td>
+								</tr>
+								<tr>
+									<td>Please call the American Embassy.</td>
+									<td>&#191;Per favore, chiama la Ambasciata Americana.</td>
+								</tr>
+								<tr>
+									<td>I need the police.</td>
+									<td>Devo la polizia.</td>
+								</tr>
+								<tr>
+									<td>Where is the airport?</td>
+									<td>Dove posso trovare aeroporto?</td>
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+					
+					<div id="hidden_div_french" style="display: none;">
+						<table id="french-phrases">
+							 <thead>
+							    <tr>
+							      <th>English</th>
+							      <th>French</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Hello.</td>
+									<td>Bonjour.</td>
+								</tr>
+								<tr>
+									<td>How are you?</td>
+									<td>&#199;a va?</td>
+								</tr>
+								<tr>
+									<td>My name is...</td>
+									<td>Je m'appelle...</td>
+								</tr>
+								<tr>
+									<td>Where is the bathroom?</td>
+									<td>O&#249; sont les toilettes?</td>
+								</tr>
+								<tr>
+									<td>Do you speak English?</td>
+									<td>Parlez-vous Anglais?</td>
+								</tr>
+								<tr>
+									<td>Can you help me?</td>
+									<td>Pouvez-vous m'aider?</td>
+								</tr>
+								<tr>
+									<td>I don't understand.</td>
+									<td>Je ne comprends pas!</td>
+								</tr>
+								<tr>
+									<td>I am lost. Can you help me find where I need to go?</td>
+									<td>Je suis perdu. Pouvez-vous m'aider trouver o&#249; j'ai besoin aller.</td>
+								</tr>
+								<tr>
+									<td>Can you write that down for me?</td>
+									<td>Est-ce que vous pourriez l'&#233;crire?</td>
+								</tr>
+								<tr>
+									<td>Please call the American Embassy.</td>
+									<td>&#191;Merci, appelez la Ambassade Am&#233;ricain.</td>
+								</tr>
+								<tr>
+									<td>I need the police.</td>
+									<td>Devo la polizia.</td>
+								</tr>
+								<tr>
+									<td>Where is the airport?</td>
+									<td>Dove posso trovare aeroporto?</td>
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+					
+					
+					<script>
+			
+						document.getElementById('lang-check').addEventListener('change', function () {
+							
+						var style = this.value == 1 ? 'block' : 'none';
+					    document.getElementById('hidden_div_spanish').style.display = style;
+					    
+					    var style = this.value ==2 ? 'block' : 'none';
+					    document.getElementById('hidden_div_italian').style.display = style;
+					    					    
+					     var style = this.value ==3 ? 'block' : 'none';
+					    document.getElementById('hidden_div_french').style.display = style;
+					    
+						});
+		
+					</script>
+			
+		</div>
+	
+	
+
+  	
+  			
+  			
+	</body> 
+</html>
+
+style-small.css000644 000765 000024 00000033663 12504565314 014323 0ustar00scm1348staff000000 000000 @media screen and (min-width: 500px) {
+	
+	#center{
+		text-align:center;
+	}
+	
+	#container {
+		width: 200px;
+		height: 200px;
+		background: #33CCFF;
+		margin-left: 5%;
+		margin-bottom: 50px;
+		top: 35px;
+		position: relative;
+		border-radius:200px;
+		border: 2.5px solid white;
+		float:left;
+	}
+	
+	
+	#clock {
+		width: 90px;
+		height: 90px;
+		background: #3693d8;
+		position: absolute;
+		margin: -5% 40% 10% 65%;
+		border-radius: 90px;
+		border: 2.5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#clock:hover {
+	 	background: #1663e8;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:5px;
+	}
+		
+	
+	#currency {
+		width: 55px;
+		height: 55px;
+		background: #FFCC00;
+		position: absolute;
+		margin: 75% 15% 20% 45%;
+		border-radius: 55px;
+		border: 2.5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#currency:hover {
+		background: #FFFF00;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:5px;
+	}
+		
+	
+	#measure {
+		width: 55px;
+		height: 55px;
+		background: #dd88CC;
+		position: absolute;
+		margin: 50% 10% 30% 80%;
+		border-radius: 55px;
+		border: 2.5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#measure:hover {
+		background: #995599;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:5px;
+	}
+		
+	#phrase {
+		width: 100px;
+		height: 100px;
+		background: #FFAD5C;
+		position: absolute;
+		margin: 45% 65% 35% -15%;
+		border-radius: 100px;
+		border: 2.5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#phrase:hover {
+	 	background: #FF9933;
+	 	-webkit-transform: translate(1%, 3%);
+	 	padding:5px;
+	}
+		
+	
+	#advice {
+		width: 75px;
+		height: 75px;
+		background: #fa7574;
+		position: absolute;
+		border-radius: 75px;
+		margin: 5% 20% -10% -20%;
+		border: 2.5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#advice:hover {
+	 	background: #ff5050;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:5px;
+	}
+	
+	#weather {
+		width: 75px;
+		height:75px;
+		background: #00CC99;
+		position: absolute;
+		border-radius: 150px;
+		margin: -20% 10% 10% 20%;
+		border: 2.5px solid white;
+		transition: .6s ease-in-out;
+		
+	}
+	#weather:hover {
+		background: #00cc66;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:5px;
+	}
+		
+	
+	#phrase-title {
+		font-size: .7em;
+	}
+	
+	
+	
+	.calculator {
+	  width:45px;
+	  height:54px;
+	  background:#d7d4c5;
+	  border-radius:3px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-22.5px;
+	  top:50%;
+	  margin-top:-27px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	}
+	
+	.calculator:after {
+	  content:"";
+	  width:45px;
+	  height:15.5px;
+	  background:rgba(0,0,0,0.1);
+	  border-top-left-radius:3px;
+	  border-top-right-radius:3px;
+	  position:absolute;
+	  top:2px;
+	}
+	
+	.calculator .display {
+	  width:37px;
+	  height:10px;
+	  background:#868d83;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-18.5px;
+	  top:5.5px;
+	  border-radius:1px;
+	  background-image: linear-gradient(45deg, transparent 37px, rgba(0,0,0,0.1) 18.5px);
+	  box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	.calculator .controls {
+	  font-size:15px;
+	  font-weight:bold;
+	  color:#908e86;
+	  line-height:1em;
+	  margin-top:20.5px;
+	  margin-left:7.5px;
+	}
+	
+	.calculator .controls .big {
+	  font-size:25px;
+	  line-height:0em;
+	}
+	
+	.calculator .controls .medium {
+	  font-size:17.5px;
+	  line-height:0em;
+	  color:#8fb243;
+	  font-weight:bold;
+	}
+	
+	
+	/****************** clock ****************/
+	
+	.clock{
+	  width:54px;
+	  height:54px;
+	  background:#33aadd;
+	  border-radius:50%;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:50%;
+	  margin-left:-27px;
+	  top:50%;
+	  margin-top:-27px;
+	  cursor:pointer;
+	}
+	
+	.clock .circle{
+	  content:"";
+	  width:42px;
+	  height:42px;
+	  background:#cccabf;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-21px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-21px;
+	}
+	
+	.clock .circle:before{
+	  content:"";
+	  width:42px;
+	  height:42px;
+	  background:#edebde;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-21px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-18.5px;
+	}
+	
+	.clock .circle:after {
+	  content:"";
+	  width:7px;
+	  height:7px;
+	  background:#4b494f;
+	  position:absolute;
+	  border-radius:50%;
+	  left:50%;
+	  margin-left:-3.5px;
+	  top:50%;
+	  margin-top:-3.5px;
+	  z-index:5;
+	}
+	
+	.clock .clockwise {
+	  width:14.5px;
+	  height:2px;
+	  background:#4b494f;
+	  position:absolute;
+	  top:50%;
+	  left:50%;
+	  margin-left:3px;
+	  margin-top:-1px;
+	  transform-origin:-2.5px 1px;
+	  transition:transform 0.5s;
+	}
+	
+	.clock .clockwise:after{
+	  content:"";
+	  width:10.5px;
+	  height:2px;
+	  background:#4b494f;
+	  position:absolute;
+	  left:-16.5px;
+	  transform-origin:13px center;
+	  transform:rotate(50deg);
+	}
+	
+	
+	.clock:hover .clockwise, .clock:hover .shadows {
+	  transform:rotate(250deg);
+	}
+	
+	
+	
+	/****************** book ****************/
+	
+	@import url(http://fonts.googleapis.com/css?family=Dancing+Script);
+	
+	.book {
+	  width:58px;
+	  height:62px;
+	  background:#5CD65C;
+	  border-radius:3px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:45%;
+	  margin-left:-24px;
+	  top:45%;
+	  margin-top:-26px;
+	  font-size:100%;
+	  color:#4b494f;
+	  line-height:75px;
+	  text-align:center;
+	  font-family: 'Dancing Script', cursive;
+	  cursor:pointer;
+	}
+	
+	.book .pages {
+	  width:55.5px;
+	  height:25px;
+	  position:absolute;
+	  top:2.5px;
+	  right:0;
+	  border-top-right-radius:2.5px;
+	  border-top-left-radius:1px;
+	  border-bottom-left-radius:1px;
+	  overflow:hidden;
+	  background:#5CD65C;
+	}
+	
+	.book .pages .page {
+	  width:55.5px;
+	  height:55.5px;
+	  position:absolute;
+	  border-top-right-radius:3px;
+	}
+	.book .pages .page:nth-child(odd){
+	  background:#eeecdf;
+	}
+	
+	.book .pages .page:nth-child(even){
+	  background:#d6d4c8;
+	}
+	
+	.book .pages .page:nth-child(2){ top:1px; }
+	.book .pages .page:nth-child(3){ top:2px; }
+	.book .pages .page:nth-child(4){ top:3px; }
+	.book .pages .page:nth-child(5){ top:4px; }
+	.book .pages .page:nth-child(6){ top:5px; }
+	.book .pages .page:nth-child(7){ top:6px; }
+	.book .pages .page:nth-child(8){ top:7px; }
+	.book .pages .page:nth-child(9){ top:8px; }
+	.book .pages .page:nth-child(10){ 
+	  top:9px;
+	background-image: -webkit-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	}
+	
+	.book .pages .page:nth-child(11){ 
+	  top:11.5px;
+	  background-image: -webkit-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: -moz-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: -o-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	}
+	
+	.book .top:after {
+	  content:"";
+	  width:1px;
+	  height:46.5px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:2.5px;
+	  top:15.5px;
+	}
+	
+	.book .top:before {
+	  content:"";
+	  width:1px;
+	  height:46.5px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:3.5px;
+	  top:15.5px;
+	}
+	
+	.bookmark {
+	  width:10px;
+	  height:10.5px;
+	  background:#d64646;
+	  position:absolute;
+	  top:-2px;
+	  left:4.5px;
+	}
+	
+	.bookmark:after {
+	  content:"";
+	  width:10px;
+	  height:5px;
+	  background:rgba(0,0,0,0.25);
+	  position:absolute;
+	  transform:skewX(-45deg);
+	  top:10.5px;
+	  left:-2.5px;
+	}
+	
+	.book:hover .bookmark {
+	  transform:translateY(1px);
+	  height:9.5px;
+	}
+	.book:hover .bookmark:after {
+	  transform:translateY(-2px) skewX(-45deg);
+	}
+	
+	
+	/****************** map ****************/
+	
+	.map {
+	  width:54px;
+	  height:44px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-27px;
+	  top:50%;
+	  margin-top:-22px;
+	  cursor:pointer;
+	}
+	
+	.map:after {
+	  content:"";
+	  width:0;
+	  height:0;
+	  position:absolute;
+	  bottom:-5px;
+	  right:-1px;
+	}
+	
+	.map .folded{
+	  position:absolute;
+	}
+	
+	.map .fold {
+	  width:18px;
+	  height:44px;
+	  background:#eae8db;
+	  float:left;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  position:relative;
+	}
+	
+	.map .fold:first-child, .map .fold:last-child {
+	  transform-origin:center left;
+	  transform:skewY(15deg);
+	}
+	
+	.map .fold:nth-child(2) {
+	  transform-origin:center right;
+	  transform:skewY(-15deg);
+	}
+	
+	.map .fold .content {
+	  width:18px;
+	  height:40px;
+	  position:absolute;
+	  left:2px;
+	  top:2px;
+	  overflow:hidden;
+	}
+	
+	.map .fold:first-child .content:after {
+	  content:"";
+	  width:33px;
+	  height:33px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:-16.5px;
+	}
+	
+	.map .fold:first-child .content:before {
+	  content:"";
+	  width:10.5px;
+	  height:10.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:8px;
+	  bottom:-5px;
+	}
+	
+	.map .fold:nth-child(2) .content:after {
+	  content:"";
+	  width:23.5px;
+	  height:23.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(48deg);
+	  top:-14px;
+	  left:-1px;
+	}
+	
+	.map .fold:nth-child(2) .content .other {
+	  width:49px;
+	  height:49px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(50deg);
+	  left:12.5px;
+	  top:7.5px
+	}
+	
+	.map .fold:nth-child(2) .content .other:after {
+	  content:"";
+	  width:11.5px;
+	  height:11.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  bottom:-17.5px;
+	}
+	
+	.map .fold:last-child .content:after {
+	  content:"";
+	  width:49px;
+	  height:49px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-3.5px;
+	  top:4.5px
+	}
+	
+	.map .fold:last-child .content:before {
+	  content:"";
+	  width:24.5px;
+	  height:24.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-13.5px;
+	  top:-23px
+	}
+	
+	
+	
+	.map .pin {
+	  width: 16px;
+	  height: 16px;
+	  border-radius: 50% 50% 50% 0;
+	  background: #d65746;
+	  position: absolute;
+	  transform: rotate(-45deg);
+	  left: 50%;
+	  top: 50%;
+	  margin: -10px 0 0 -8px;
+	  transition:transform 0.5s;
+	  -webkit-backface-visibility: hidden;
+	}
+	
+	.map .pin:after {
+	  content: "";
+	  width: 7px;
+	  height: 7px;
+	  margin: 4.5px 0 0 4.5px;
+	  background: rgba(0,0,0,0.35);
+	  position: absolute;
+	  border-radius: 50%;
+	}
+	
+	.map .pin:hover {
+		-webkit-transform: translate(10%);
+	}
+	
+	
+	
+	
+	
+	.ruler {
+	  width:20px;
+	  height:80px;
+	  background:#FFFF99;
+	  border-radius:3px;
+	  position:absolute;
+	  left:70%;
+	  margin-left:-22.5px;
+	  top:30%;
+	  margin-top:-27px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  transform: rotate(30deg);
+	  transition: transform .6s ease-in-out;
+	}
+	
+	.ruler:hover {
+		transform: rotate(70deg);
+		
+	}
+	
+	.ruler:after {
+	  content:"";
+	  width:10px;
+	  height:75px;
+	  background:rgba(0,0,0,0.1);
+	  border-radius:3px;
+	  position:absolute;
+	  top:2px;
+	}
+	
+	.ruler .point {
+	  width:7.5px;
+	  height:2.5px;
+	  background:#868d83;
+	  position:absolute;
+	  top: 2.5px;
+	  background-image: linear-gradient(45deg, transparent 18.5px, rgba(0,0,0,0.1) 18.5px);
+	  box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	
+	.ruler .point:nth-child(2){ top:12.5px; }
+	.ruler .point:nth-child(3){ top:22.5px; }
+	.ruler .point:nth-child(4){ top:32.5px; }
+	.ruler .point:nth-child(5){ top:44.5px; }
+	.ruler .point:nth-child(6){ top:55.5px; }
+	.ruler .point:nth-child(7){ top:66.5px; }
+	.ruler .point:nth-child(8){ top:77.5px; }
+	
+	
+	
+	
+	#cloud {
+		width: 58.5px; height: 20px;
+		
+		background: #f2f9fe;
+		background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		border-radius: 16.5px;
+		-webkit-border-radius: 16.5px;
+		-moz-border-radius: 16.5px;
+		position: relative;
+		margin: 30px auto 3.5px;
+	}
+	
+	#cloud:after, #cloud:before {
+		content: '';
+		position: absolute;
+		background: white;
+		
+	}
+	
+	#cloud:after {
+		width: 16.5px; height: 16.5px;
+		top: -8.5px; left: 8.5px;
+		border-radius: 33px;
+		-webkit-border-radius: 16.5px;
+		-moz-border-radius: 16.5px;
+	}
+	
+	#cloud:before {
+		width: 30px; height: 30px;
+		top: -15px; right: 8.5px;
+		border-radius: 33.5px;
+		-webkit-border-radius: 33.5px;
+		-moz-border-radius: 33.5px;
+	}
+	
+}	
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 500px) and (max-height: 1200px) {
+	
+	#container {
+		width: 300px;
+		height: 150px;
+		background: #33CCFF;
+		margin: 0 auto;
+		margin-bottom: 3%;
+		top: 5px;
+		position: relative;
+		border-radius:10px;
+		border: 2.5px solid white;
+		padding: 5px;
+		padding-bottom: 15px;
+		
+	}
+	
+		
+		
+	#clock {
+		width: 45%;
+		height: 30%;
+		background: #3693d8;
+		position: relative;
+		float:right;
+		border-radius: 10px;
+		border: 2.5px solid white;
+		margin: 2px;
+	}
+	
+
+	
+	#currency {
+		width: 45%;
+		height: 30%;
+		background: #FFCC00;
+		position: relative;
+		float:left;
+		border-radius: 10px;
+		border: 2.5px solid white;
+		margin: 2px;
+	}
+
+		
+	
+	#measure {
+		width: 45%;
+		height: 30%;
+		background: #dd88CC;
+		position: relative;
+		float:right;
+		border-radius: 10px;
+		border: 2.5px solid white;
+		margin: 2px;
+	}
+
+		
+	#phrase {
+		width: 45%;
+		height: 30%;
+		background: #FFAD5C;
+		position: relative;
+		float:left;
+		border-radius: 10px;
+		border: 2.5px solid white;
+		margin: 2px;
+	}
+
+		
+	
+	#advice {
+		width: 45%;
+		height: 30%;
+		background: #fa7574;
+		position: relative;
+		border-radius: 10px;
+		float:right;
+		border: 2.5px solid white;
+		margin: 2px;
+	}
+
+	
+	#weather {
+		width: 45%;
+		height: 30%;
+		background: #00CC99;
+		position: relative;
+		border-radius: 10px;
+		float:left;
+		border: 2.5px solid white;
+		margin: 2px;
+		
+	}
+	.controls, #phrase-title {
+	 	visibility: hidden;
+	 }
+
+		
+	
+}
+style.css000644 000765 000024 00000070572 12504565315 013216 0ustar00scm1348staff000000 000000 
+@media screen and (min-width: 400px) {
+	
+
+	#container {
+		width: 500px;
+		height: 500px;
+		background: #33CCFF;
+		margin: 0 auto;
+		top: 65px;
+		position: relative;
+		border-radius:500px;
+		border: 5px solid white;
+	}
+		
+		
+	#clock {
+		width: 150px;
+		height: 150px;
+		background: #3693d8;
+		position: absolute;
+		margin: -8% 40% 10% 65%;
+		border-radius: 150px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#clock:hover {
+	 	background: #1663e8;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:10px;
+	}
+
+	#news {
+		width: 200px;
+		height: 200px;
+		background: #57cd68;
+		position: absolute;
+		margin: 30% 40% 10% 75%;
+		border-radius: 200px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#news:hover {
+	 	background: #37dd48;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:10px;
+	}		
+	
+	#currency {
+		width: 110px;
+		height: 110px;
+		background: #FFCC00;
+		position: absolute;
+		margin: 85% 15% 20% 25%;
+		border-radius: 110px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#currency:hover {
+		background: #FFFF00;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:10px;
+	}
+		
+	
+	#measure {
+		width: 130px;
+		height: 130px;
+		background: #dd88CC;
+		position: absolute;
+		margin: 75% 10% 30% 65%;
+		border-radius: 130px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#measure:hover {
+		background: #995599;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:10px;
+	}
+		
+	#phrase {
+		width: 200px;
+		height: 200px;
+		background: #FFAD5C;
+		position: absolute;
+		margin: 50% 65% 35% -15%;
+		border-radius: 200px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#phrase:hover {
+	 	background: #FF9933;
+	 	-webkit-transform: translate(1%, 3%);
+	 	padding:10px;
+	}
+		
+	
+	#advice {
+		width: 170px;
+		height: 170px;
+		background: #fa7574;
+		position: absolute;
+		border-radius: 170px;
+		margin: 10% 25% -10% -15%;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	#advice:hover {
+	 	background: #ff5050;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:10px;
+	}
+	
+	#weather {
+		width: 180px;
+		height:180px;
+		background: #00CC99;
+		position: absolute;
+		border-radius: 180px;
+		margin: -15% 10% 10% 20%;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+		
+	}
+	#weather:hover {
+		background: #00cc66;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:10px;
+	}
+		
+	
+	#phrase-title {
+		font-size: 1.5em;
+	}
+	
+
+	.calculator {
+	  width:90px;
+	  height:108px;
+	  background:#d7d4c5;
+	  border-radius:6px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-45px;
+	  top:50%;
+	  margin-top:-54px;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	}
+	
+	.calculator:after {
+	  content:"";
+	  width:90px;
+	  height:31px;
+	  background:rgba(0,0,0,0.1);
+	  border-top-left-radius:6px;
+	  border-top-right-radius:6px;
+	  position:absolute;
+	  top:4px;
+	}
+	
+	.calculator .display {
+	  width:74px;
+	  height:20px;
+	  background:#868d83;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-37px;
+	  top:11px;
+	  border-radius:2px;
+	  background-image: linear-gradient(45deg, transparent 37px, rgba(0,0,0,0.1) 37px);
+	  box-shadow: inset 0 2px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	.calculator .controls {
+	  font-size:30px;
+	  font-weight:bold;
+	  color:#908e86;
+	  line-height:1em;
+	  margin-top:41px;
+	  margin-left:15px;
+	}
+	
+	.calculator .controls .big {
+	  font-size:50px;
+	  line-height:0em;
+	}
+	
+	.calculator .controls .medium {
+	  font-size:35px;
+	  line-height:0em;
+	  color:#8fb243;
+	  font-weight:bold;
+	}
+	
+	
+	/****************** clock ****************/
+	
+	.clock{
+	  width:108px;
+	  height:108px;
+	  background:#33aadd;
+	  border-radius:50%;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:50%;
+	  margin-left:-54px;
+	  top:50%;
+	  margin-top:-54px;
+	  cursor:pointer;
+	}
+	
+	.clock .circle{
+	  content:"";
+	  width:84px;
+	  height:84px;
+	  background:#cccabf;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-42px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-42px;
+	}
+	
+	.clock .circle:before{
+	  content:"";
+	  width:84px;
+	  height:84px;
+	  background:#edebde;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-42px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-37px;
+	}
+	
+	.clock .circle:after {
+	  content:"";
+	  width:14px;
+	  height:14px;
+	  background:#4b494f;
+	  position:absolute;
+	  border-radius:50%;
+	  left:50%;
+	  margin-left:-7px;
+	  top:50%;
+	  margin-top:-7px;
+	  z-index:5;
+	}
+	
+	.clock .clockwise {
+	  width:29px;
+	  height:4px;
+	  background:#4b494f;
+	  position:absolute;
+	  top:50%;
+	  left:50%;
+	  margin-left:6px;
+	  margin-top:-2px;
+	  transform-origin:-5px 2px;
+	  transition:transform 0.5s;
+	}
+	
+	.clock .clockwise:after{
+	  content:"";
+	  width:21px;
+	  height:4px;
+	  background:#4b494f;
+	  position:absolute;
+	  left:-33px;
+	  transform-origin:26px center;
+	  transform:rotate(50deg);
+	}
+	
+	
+	.clock:hover .clockwise, .clock:hover .shadows {
+	  transform:rotate(250deg);
+	}
+	
+	
+	
+	/****************** book ****************/
+	
+	@import url(http://fonts.googleapis.com/css?family=Dancing+Script);
+	
+	.book {
+	  width:116px;
+	  height:124px;
+	  background:#5CD65C;
+	  border-radius:6px;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:45%;
+	  margin-left:-48px;
+	  top:45%;
+	  margin-top:-52px;
+	  font-size:100%;
+	  color:#4b494f;
+	  line-height:150px;
+	  text-align:center;
+	  font-family: 'Dancing Script', cursive;
+	  cursor:pointer;
+	}
+	
+	.book .pages {
+	  width:111px;
+	  height:50px;
+	  position:absolute;
+	  top:5px;
+	  right:0;
+	  border-top-right-radius:5px;
+	  border-top-left-radius:2px;
+	  border-bottom-left-radius:2px;
+	  overflow:hidden;
+	  background:#5CD65C;
+	}
+	
+	.book .pages .page {
+	  width:111px;
+	  height:111px;
+	  position:absolute;
+	  border-top-right-radius:6px;
+	}
+	.book .pages .page:nth-child(odd){
+	  background:#eeecdf;
+	}
+	
+	.book .pages .page:nth-child(even){
+	  background:#d6d4c8;
+	}
+	
+	.book .pages .page:nth-child(2){ top:2px; }
+	.book .pages .page:nth-child(3){ top:4px; }
+	.book .pages .page:nth-child(4){ top:6px; }
+	.book .pages .page:nth-child(5){ top:8px; }
+	.book .pages .page:nth-child(6){ top:10px; }
+	.book .pages .page:nth-child(7){ top:12px; }
+	.book .pages .page:nth-child(8){ top:14px; }
+	.book .pages .page:nth-child(9){ top:16px; }
+	.book .pages .page:nth-child(10){ 
+	  top:18px;
+	background-image: -webkit-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #3ab43a 4px);
+	background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+	background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+	background-image: linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #95b4c9 4px);
+	}
+	
+	.book .pages .page:nth-child(11){ 
+	  top:23px;
+	  background-image: -webkit-linear-gradient(left, #5CD65C 0px, #3ab43a 2px, #3ab43a 2px, #3ab43a 4px, #5CD65C 4px);
+	  background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #5CD65C 4px);
+	  background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #5CD65C 4px);
+	  background-image: linear-gradient(left, #5CD65C 0px, #51768f 2px, #749cb5 2px, #749cb5 4px, #5CD65C 4px);
+	}
+	
+	.book .top:after {
+	  content:"";
+	  width:2px;
+	  height:93px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:5px;
+	  top:31px;
+	}
+	
+	.book .top:before {
+	  content:"";
+	  width:2px;
+	  height:93px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:7px;
+	  top:31px;
+	}
+	
+	.bookmark {
+	  width:20px;
+	  height:21px;
+	  background:#d64646;
+	  position:absolute;
+	  top:-4px;
+	  left:9px;
+	}
+	
+	.bookmark:after {
+	  content:"";
+	  width:20px;
+	  height:10px;
+	  background:rgba(0,0,0,0.25);
+	  position:absolute;
+	  transform:skewX(-45deg);
+	  top:21px;
+	  left:-5px;
+	}
+	
+	.book:hover .bookmark {
+	  transform:translateY(2px);
+	  height:19px;
+	}
+	.book:hover .bookmark:after {
+	  transform:translateY(-2px) skewX(-45deg);
+	}
+	
+	
+	/****************** map ****************/
+	
+	.map {
+	  width:108px;
+	  height:88px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-54px;
+	  top:50%;
+	  margin-top:-44px;
+	  cursor:pointer;
+	}
+	
+	.map:after {
+	  content:"";
+	  width:0;
+	  height:0;
+	  position:absolute;
+	  bottom:-10px;
+	  right:-2px;
+	}
+	
+	.map .folded{
+	  position:absolute;
+	}
+	
+	.map .fold {
+	  width:36px;
+	  height:88px;
+	  background:#eae8db;
+	  float:left;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	  position:relative;
+	}
+	
+	.map .fold:first-child, .map .fold:last-child {
+	  transform-origin:center left;
+	  transform:skewY(15deg);
+	}
+	
+	.map .fold:nth-child(2) {
+	  transform-origin:center right;
+	  transform:skewY(-15deg);
+	}
+	
+	.map .fold .content {
+	  width:32px;
+	  height:80px;
+	  position:absolute;
+	  left:4px;
+	  top:4px;
+	  overflow:hidden;
+	}
+	
+	.map .fold:first-child .content:after {
+	  content:"";
+	  width:66px;
+	  height:66px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:-33px;
+	}
+	
+	.map .fold:first-child .content:before {
+	  content:"";
+	  width:21px;
+	  height:21px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:16px;
+	  bottom:-10px;
+	}
+	
+	.map .fold:nth-child(2) .content:after {
+	  content:"";
+	  width:47px;
+	  height:47px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(48deg);
+	  top:-28px;
+	  left:-2px;
+	}
+	
+	.map .fold:nth-child(2) .content .other {
+	  width:98px;
+	  height:98px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(50deg);
+	  left:25px;
+	  top:15px
+	}
+	
+	.map .fold:nth-child(2) .content .other:after {
+	  content:"";
+	  width:23px;
+	  height:23px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  bottom:-35px;
+	}
+	
+	.map .fold:last-child .content:after {
+	  content:"";
+	  width:98px;
+	  height:98px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-7px;
+	  top:9px
+	}
+	
+	.map .fold:last-child .content:before {
+	  content:"";
+	  width:49px;
+	  height:49px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-27px;
+	  top:-46px
+	}
+	
+	
+	
+	.map .pin {
+	  width: 32px;
+	  height: 32px;
+	  border-radius: 50% 50% 50% 0;
+	  background: #d65746;
+	  position: absolute;
+	  transform: rotate(-45deg);
+	  left: 50%;
+	  top: 50%;
+	  margin: -20px 0 0 -16px;
+	  transition:transform 0.5s;
+	  -webkit-backface-visibility: hidden;
+	}
+	
+	.map .pin:after {
+	  content: "";
+	  width: 14px;
+	  height: 14px;
+	  margin: 9px 0 0 9px;
+	  background: rgba(0,0,0,0.35);
+	  position: absolute;
+	  border-radius: 50%;
+	}
+	
+	.map .pin:hover {
+		-webkit-transform: translate(10%);
+	}
+	
+	
+	
+	
+	
+	.ruler {
+	  width:40px;
+	  height:160px;
+	  background:#FFFF99;
+	  border-radius:6px;
+	  position:absolute;
+	  left:70%;
+	  margin-left:-45px;
+	  top:30%;
+	  margin-top:-54px;
+	  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25), inset 0 1px 0 0 rgba(255,255,255,0.2);
+	  transform: rotate(30deg);
+	  transition: transform .6s ease-in-out;
+	}
+	
+	.ruler:hover {
+		transform: rotate(70deg);
+		
+	}
+	
+	.ruler:after {
+	  content:"";
+	  width:20px;
+	  height:150px;
+	  background:rgba(0,0,0,0.1);
+	  border-radius:6px;
+	  position:absolute;
+	  top:4px;
+	}
+	
+	.ruler .point {
+	  width:15px;
+	  height:5px;
+	  background:#868d83;
+	  position:absolute;
+	  top: 5px;
+	  background-image: linear-gradient(45deg, transparent 37px, rgba(0,0,0,0.1) 37px);
+	  box-shadow: inset 0 2px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	
+	.ruler .point:nth-child(2){ top:25px; }
+	.ruler .point:nth-child(3){ top:45px; }
+	.ruler .point:nth-child(4){ top:65px; }
+	.ruler .point:nth-child(5){ top:85px; }
+	.ruler .point:nth-child(6){ top:105px; }
+	.ruler .point:nth-child(7){ top:125px; }
+	.ruler .point:nth-child(8){ top:145px; }
+	
+	
+	
+	
+	#cloud {
+		width: 127px; height: 50px;
+		
+		background: #f2f9fe;
+		background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		border-radius: 33px;
+		-webkit-border-radius: 33px;
+		-moz-border-radius: 33px;
+		position: relative;
+		margin: 70px auto 7px;
+	}
+	
+	#cloud:after, #cloud:before {
+		content: '';
+		position: absolute;
+		background: white;
+		
+	}
+	
+	#cloud:after {
+		width: 33px; height: 33px;
+		top: -17px; left: 17px;
+		border-radius: 33px;
+		-webkit-border-radius: 33px;
+		-moz-border-radius: 33px;
+	}
+	
+	#cloud:before {
+		width: 70px; height: 70px;
+		top: -30px; right: 17px;
+		border-radius: 67px;
+		-webkit-border-radius: 67px;
+		-moz-border-radius: 67px;
+	}
+	
+	
+	
+	
+.news {
+  width:108px;
+  height:94px;
+  background:
+        linear-gradient(-135deg, #37353a 7px, transparent 0),
+        linear-gradient(135deg, #37353a 7px, #cccabf 0);
+    background-color: #333538;
+    background-position: -9px top;
+    background-repeat: repeat-x;
+    background-size: 14px 94px;
+    border-radius:6px;
+  position:absolute;
+  left:50%;
+  margin-left:-54px;
+  top:50%;
+  margin-top:-47px;
+  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25);    
+}
+
+.news:after {
+  content:"";
+  width:0;
+  height:0;
+  
+	border-left: 30px solid transparent;
+  position:absolute;
+  bottom:-2px;
+  right:-2px;
+}
+
+.news .flip {
+  position:absolute;
+  right:0;
+  bottom:0;
+  width: 0;
+	height: 0;
+	border-top: 28px solid #e3e1d4;
+	border-right: 28px solid transparent;
+}
+
+.news .content {
+  width:86px;
+  height:10px;
+  background:#539ebe;
+  position:absolute;
+  left:50%;
+  margin-left:-43px;
+  top:20px;
+}
+
+.news .content:before {
+  content:"";
+  width:40px;
+  height:50px;
+  position:absolute;
+  background-color: transparent;
+  background-image: linear-gradient(#afafaf 40px, transparent 40px, transparent 45px, rgba(255,255,255,.25) 45px, rgba(255,255,255,.25) 48px);
+  background-size: 40px 50px;
+  top:15px;
+}
+
+.news .content:after {
+  content:"";
+  width:40px;
+  height:50px;
+  position:absolute;
+  background-color: transparent;
+  background-image: linear-gradient(rgba(255,255,255,.25) 0px, rgba(255,255,255,.25) 4px, transparent 4px, transparent 8px);
+  background-size: 40px 9px;
+  top:15px;
+  right:0;
+}
+	
+
+	
+}
+
+@media screen and (max-width: 520px) {
+
+	#container {
+		width: 300px;
+		height: 300px;
+		background: #33CCFF;
+		margin-left: 0 auto;
+		top: 7em;
+		position: relative;
+		border-radius:300px;
+		border: 2.5px solid white;
+	}
+	
+	#news {
+		width: 120px;
+		height: 120px;
+		background: #57cd68;
+		position: absolute;
+		margin: 30% 40% 10% 75%;
+		border-radius: 120px;
+		border: 5px solid white;
+		transition: .6s ease-in-out;
+	}
+	
+	#news:hover {
+	 	background: #37dd48;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:10px;
+	}		
+		
+	#clock {
+		width: 100px;
+		height: 100px;
+		background: #3693d8;
+		position: absolute;
+		margin: -10% 40% 10% 65%;
+		border-radius: 100px;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#clock:hover {
+	 	background: #1663e8;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:5px;
+	}
+		
+	
+	#currency {
+		width: 85px;
+		height: 85px;
+		background: #FFCC00;
+		position: absolute;
+		margin: 85% 15% 20% 25%;
+		border-radius: 85px;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#currency:hover {
+		background: #FFFF00;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:5px;
+	}
+		
+	
+	#measure {
+		width: 85px;
+		height: 85px;
+		background: #dd88CC;
+		position: absolute;
+		margin: 75% 10% 30% 65%;
+		border-radius: 85px;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#measure:hover {
+		background: #995599;
+	 	-webkit-transform: translate(-10%, -10%);
+	 	padding:5px;
+	}
+		
+	#phrase {
+		width: 130px;
+		height: 130px;
+		background: #FFAD5C;
+		position: absolute;
+		margin: 45% 65% 35% -15%;
+		border-radius: 130px;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#phrase:hover {
+	 	background: #FF9933;
+	 	-webkit-transform: translate(1%, 3%);
+	 	padding:5px;
+	}
+		
+	
+	#advice {
+		width: 105px;
+		height: 105px;
+		background: #fa7574;
+		position: absolute;
+		border-radius: 105px;
+		margin: 5% 20% -10% -15%;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+	}
+	#advice:hover {
+	 	background: #ff5050;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:5px;
+	}
+	
+	#weather {
+		width: 105px;
+		height:105px;
+		background: #00CC99;
+		position: absolute;
+		border-radius: 105px;
+		margin: -20% 10% 10% 20%;
+		border: 4px solid white;
+		transition: .6s ease-in-out;
+		
+	}
+	#weather:hover {
+		background: #00cc66;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:5px;
+	}
+		
+	
+	#phrase-title {
+		font-size: .7em;
+	}
+	
+	.calculator {
+	  width:45px;
+	  height:54px;
+	  background:#d7d4c5;
+	  border-radius:3px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-22.5px;
+	  top:50%;
+	  margin-top:-27px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	}
+	
+	.calculator:after {
+	  content:"";
+	  width:45px;
+	  height:15.5px;
+	  background:rgba(0,0,0,0.1);
+	  border-top-left-radius:3px;
+	  border-top-right-radius:3px;
+	  position:absolute;
+	  top:2px;
+	}
+	
+	.calculator .display {
+	  width:37px;
+	  height:10px;
+	  background:#868d83;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-18.5px;
+	  top:5.5px;
+	  border-radius:1px;
+	  background-image: linear-gradient(45deg, transparent 37px, rgba(0,0,0,0.1) 18.5px);
+	  box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	.calculator .controls {
+	  font-size:15px;
+	  font-weight:bold;
+	  color:#908e86;
+	  line-height:1em;
+	  margin-top:20.5px;
+	  margin-left:7.5px;
+	}
+	
+	.calculator .controls .big {
+	  font-size:25px;
+	  line-height:0em;
+	}
+	
+	.calculator .controls .medium {
+	  font-size:17.5px;
+	  line-height:0em;
+	  color:#8fb243;
+	  font-weight:bold;
+	}
+	
+	
+	/****************** clock ****************/
+	
+	.clock{
+	  width:54px;
+	  height:54px;
+	  background:#33aadd;
+	  border-radius:50%;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:50%;
+	  margin-left:-27px;
+	  top:50%;
+	  margin-top:-27px;
+	  cursor:pointer;
+	}
+	
+	.clock .circle{
+	  content:"";
+	  width:42px;
+	  height:42px;
+	  background:#cccabf;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-21px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-21px;
+	}
+	
+	.clock .circle:before{
+	  content:"";
+	  width:42px;
+	  height:42px;
+	  background:#edebde;
+	  border-radius:50%;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-21px;
+	  overflow:hidden;
+	  top:50%;
+	  margin-top:-18.5px;
+	}
+	
+	.clock .circle:after {
+	  content:"";
+	  width:7px;
+	  height:7px;
+	  background:#4b494f;
+	  position:absolute;
+	  border-radius:50%;
+	  left:50%;
+	  margin-left:-3.5px;
+	  top:50%;
+	  margin-top:-3.5px;
+	  z-index:5;
+	}
+	
+		
+.news {
+  width:71.28px;
+  height:62px;
+  background:
+        linear-gradient(-135deg, #37353a 4.62px, transparent 0),
+        linear-gradient(135deg, #37353a 4.62px, #cccabf 0);
+    background-color: #333538;
+    background-position: -6px top;
+    background-repeat: repeat-x;
+    background-size: 9.24px 62px;
+    border-radius:6px;
+  position:absolute;
+  left:50%;
+  margin-left:-35.64px;
+  top:50%;
+  margin-top:-31px;
+  box-shadow: 0 2px 0 0px rgba(0,0,0,0.25);    
+}
+
+.news:after {
+  content:"";
+  width:0;
+  height:0;
+  border-left: 20px solid transparent;
+  position:absolute;
+  bottom:-2px;
+  right:-2px;
+}
+
+.news .flip {
+  position:absolute;
+  right:0;
+  bottom:0;
+  width: 0;
+	height: 0;
+	border-top: 18.5px solid #e3e1d4;
+	border-right: 18.5px solid transparent;
+}
+
+.news .content {
+  width:56.76px;
+  height:6.66px;
+  background:#539ebe;
+  position:absolute;
+  left:50%;
+  margin-left:-28.38px;
+  top:14.5px;
+}
+
+.news .content:before {
+  content:"";
+  width:26.55px;
+  height:33px;
+  position:absolute;
+  background-color: transparent;
+  background-image: linear-gradient(#afafaf 40px, transparent 40px, transparent 45px, rgba(255,255,255,.25) 45px, rgba(255,255,255,.25) 48px);
+  background-size: 26.55px 33px;
+  top:15px;
+}
+
+.news .content:after {
+  content:"";
+  width:26.55px;
+  height:33px;
+  position:absolute;
+  background-color: transparent;
+  background-image: linear-gradient(rgba(255,255,255,.25) 0px, rgba(255,255,255,.25) 4px, transparent 4px, transparent 8px);
+  background-size: 26.55px 6px;
+  top:15px;
+  right:0;
+}
+	
+	.clock .clockwise {
+	  width:14.5px;
+	  height:2px;
+	  background:#4b494f;
+	  position:absolute;
+	  top:50%;
+	  left:50%;
+	  margin-left:3px;
+	  margin-top:-1px;
+	  transform-origin:-2.5px 1px;
+	  transition:transform 0.5s;
+	}
+	
+	.clock .clockwise:after{
+	  content:"";
+	  width:10.5px;
+	  height:2px;
+	  background:#4b494f;
+	  position:absolute;
+	  left:-16.5px;
+	  transform-origin:13px center;
+	  transform:rotate(50deg);
+	}
+	
+	
+	.clock:hover .clockwise, .clock:hover .shadows {
+	  transform:rotate(250deg);
+	}
+	
+	
+	
+	/****************** book ****************/
+	
+	@import url(http://fonts.googleapis.com/css?family=Dancing+Script);
+	
+	.book {
+	  width:58px;
+	  height:62px;
+	  background:#5CD65C;
+	  border-radius:3px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  position:absolute;
+	  left:45%;
+	  margin-left:-24px;
+	  top:45%;
+	  margin-top:-26px;
+	  font-size:100%;
+	  color:#4b494f;
+	  line-height:75px;
+	  text-align:center;
+	  font-family: 'Dancing Script', cursive;
+	  cursor:pointer;
+	}
+	
+	.book .pages {
+	  width:55.5px;
+	  height:25px;
+	  position:absolute;
+	  top:2.5px;
+	  right:0;
+	  border-top-right-radius:2.5px;
+	  border-top-left-radius:1px;
+	  border-bottom-left-radius:1px;
+	  overflow:hidden;
+	  background:#5CD65C;
+	}
+	
+	.book .pages .page {
+	  width:55.5px;
+	  height:55.5px;
+	  position:absolute;
+	  border-top-right-radius:3px;
+	}
+	.book .pages .page:nth-child(odd){
+	  background:#eeecdf;
+	}
+	
+	.book .pages .page:nth-child(even){
+	  background:#d6d4c8;
+	}
+	
+	.book .pages .page:nth-child(2){ top:1px; }
+	.book .pages .page:nth-child(3){ top:2px; }
+	.book .pages .page:nth-child(4){ top:3px; }
+	.book .pages .page:nth-child(5){ top:4px; }
+	.book .pages .page:nth-child(6){ top:5px; }
+	.book .pages .page:nth-child(7){ top:6px; }
+	.book .pages .page:nth-child(8){ top:7px; }
+	.book .pages .page:nth-child(9){ top:8px; }
+	.book .pages .page:nth-child(10){ 
+	  top:9px;
+	background-image: -webkit-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	}
+	
+	.book .pages .page:nth-child(11){ 
+	  top:11.5px;
+	  background-image: -webkit-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: -moz-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: -o-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	  background-image: linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	}
+	
+	.book .top:after {
+	  content:"";
+	  width:1px;
+	  height:46.5px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:2.5px;
+	  top:15.5px;
+	}
+	
+	.book .top:before {
+	  content:"";
+	  width:1px;
+	  height:46.5px;
+	  background:#3ab43a;
+	  position:absolute;
+	  left:3.5px;
+	  top:15.5px;
+	}
+	
+	.bookmark {
+	  width:10px;
+	  height:10.5px;
+	  background:#d64646;
+	  position:absolute;
+	  top:-2px;
+	  left:4.5px;
+	}
+	
+	.bookmark:after {
+	  content:"";
+	  width:10px;
+	  height:5px;
+	  background:rgba(0,0,0,0.25);
+	  position:absolute;
+	  transform:skewX(-45deg);
+	  top:10.5px;
+	  left:-2.5px;
+	}
+	
+	.book:hover .bookmark {
+	  transform:translateY(1px);
+	  height:9.5px;
+	}
+	.book:hover .bookmark:after {
+	  transform:translateY(-2px) skewX(-45deg);
+	}
+	
+	
+	/****************** map ****************/
+	
+	.map {
+	  width:54px;
+	  height:44px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-27px;
+	  top:50%;
+	  margin-top:-22px;
+	  cursor:pointer;
+	}
+	
+	.map:after {
+	  content:"";
+	  width:0;
+	  height:0;
+	  position:absolute;
+	  bottom:-5px;
+	  right:-1px;
+	}
+	
+	.map .folded{
+	  position:absolute;
+	}
+	
+	.map .fold {
+	  width:18px;
+	  height:44px;
+	  background:#eae8db;
+	  float:left;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  position:relative;
+	}
+	
+	.map .fold:first-child, .map .fold:last-child {
+	  transform-origin:center left;
+	  transform:skewY(15deg);
+	}
+	
+	.map .fold:nth-child(2) {
+	  transform-origin:center right;
+	  transform:skewY(-15deg);
+	}
+	
+	.map .fold .content {
+	  width:18px;
+	  height:40px;
+	  position:absolute;
+	  left:2px;
+	  top:2px;
+	  overflow:hidden;
+	}
+	
+	.map .fold:first-child .content:after {
+	  content:"";
+	  width:33px;
+	  height:33px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:-16.5px;
+	}
+	
+	.map .fold:first-child .content:before {
+	  content:"";
+	  width:10.5px;
+	  height:10.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(45deg);
+	  left:8px;
+	  bottom:-5px;
+	}
+	
+	.map .fold:nth-child(2) .content:after {
+	  content:"";
+	  width:23.5px;
+	  height:23.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(48deg);
+	  top:-14px;
+	  left:-1px;
+	}
+	
+	.map .fold:nth-child(2) .content .other {
+	  width:49px;
+	  height:49px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(50deg);
+	  left:12.5px;
+	  top:7.5px
+	}
+	
+	.map .fold:nth-child(2) .content .other:after {
+	  content:"";
+	  width:11.5px;
+	  height:11.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  bottom:-17.5px;
+	}
+	
+	.map .fold:last-child .content:after {
+	  content:"";
+	  width:49px;
+	  height:49px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-3.5px;
+	  top:4.5px
+	}
+	
+	.map .fold:last-child .content:before {
+	  content:"";
+	  width:24.5px;
+	  height:24.5px;
+	  background:#CCBCCC;
+	  position:absolute;
+	  transform:rotate(40deg);
+	  left:-13.5px;
+	  top:-23px
+	}
+	
+	
+	
+	.map .pin {
+	  width: 16px;
+	  height: 16px;
+	  border-radius: 50% 50% 50% 0;
+	  background: #d65746;
+	  position: absolute;
+	  transform: rotate(-45deg);
+	  left: 50%;
+	  top: 50%;
+	  margin: -10px 0 0 -8px;
+	  transition:transform 0.5s;
+	  -webkit-backface-visibility: hidden;
+	}
+	
+	.map .pin:after {
+	  content: "";
+	  width: 7px;
+	  height: 7px;
+	  margin: 4.5px 0 0 4.5px;
+	  background: rgba(0,0,0,0.35);
+	  position: absolute;
+	  border-radius: 50%;
+	}
+	
+	.map .pin:hover {
+		-webkit-transform: translate(10%);
+	}
+	
+	.ruler {
+	  width:20px;
+	  height:80px;
+	  background:#FFFF99;
+	  border-radius:3px;
+	  position:absolute;
+	  left:70%;
+	  margin-left:-22.5px;
+	  top:30%;
+	  margin-top:-27px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
+	  transform: rotate(30deg);
+	  transition: transform .6s ease-in-out;
+	}
+	
+	.ruler:hover {
+		transform: rotate(70deg);
+		
+	}
+	
+	.ruler:after {
+	  content:"";
+	  width:10px;
+	  height:75px;
+	  background:rgba(0,0,0,0.1);
+	  border-radius:3px;
+	  position:absolute;
+	  top:2px;
+	}
+	
+	.ruler .point {
+	  width:7.5px;
+	  height:2.5px;
+	  background:#868d83;
+	  position:absolute;
+	  top: 2.5px;
+	  background-image: linear-gradient(45deg, transparent 18.5px, rgba(0,0,0,0.1) 18.5px);
+	  box-shadow: inset 0 1px 0 0 rgba(0,0,0,0.2);
+	}
+	
+	
+	.ruler .point:nth-child(2){ top:12.5px; }
+	.ruler .point:nth-child(3){ top:22.5px; }
+	.ruler .point:nth-child(4){ top:32.5px; }
+	.ruler .point:nth-child(5){ top:44.5px; }
+	.ruler .point:nth-child(6){ top:55.5px; }
+	.ruler .point:nth-child(7){ top:66.5px; }
+	.ruler .point:nth-child(8){ top:77.5px; }
+
+	#cloud {
+		width: 58.5px; height: 20px;
+		
+		background: #f2f9fe;
+		background: linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+		border-radius: 16.5px;
+		-webkit-border-radius: 16.5px;
+		-moz-border-radius: 16.5px;
+		position: relative;
+		margin: 30px auto 3.5px;
+	}
+	
+	#cloud:after, #cloud:before {
+		content: '';
+		position: absolute;
+		background: white;
+		
+	}
+	
+	#cloud:after {
+		width: 16.5px; height: 16.5px;
+		top: -8.5px; left: 8.5px;
+		border-radius: 33px;
+		-webkit-border-radius: 16.5px;
+		-moz-border-radius: 16.5px;
+	}
+	
+	#cloud:before {
+		width: 30px; height: 30px;
+		top: -15px; right: 8.5px;
+		border-radius: 33.5px;
+		-webkit-border-radius: 33.5px;
+		-moz-border-radius: 33.5px;
+	}
+	
+}
+	
+unit_converter.html000644 000765 000024 00000007310 12504565314 015265 0ustar00scm1348staff000000 000000 <!DOCTYPE> 
+<html> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Unit Converter</title>
+
+<link rel="stylesheet" type="text/css" href="style-small.css">
+<link rel="stylesheet" type="text/css" href="converter.css">
+<script src = "unit_converter.js"></script>
+
+</head>
+	<body> 
+
+		<div id="container">
+			
+			<a href="clock.html">
+				<div id="clock">
+					<div class="icon">
+						<div class="clock">
+							<div class="circle"></div>
+							<div class="clockwise"></div>
+							<div class="shadows"></div>
+	    				</div>
+	  				</div>
+  				</div>
+  			</a>
+  			
+			<a href="weather.html">
+				<div id="weather">
+					<div id = "cloud">
+					</div>
+				</div>
+			</a>
+			<a href="currency_converter.html">
+
+				<div id="currency">
+					<div class="icon">
+						<div class="calculator">
+							<div class="display"></div>
+							<div class="controls">&#10010;&nbsp; 
+								<span class="big">-</span> 
+								<br> &#10006;&nbsp; 
+								<span class="medium">=</span>
+							</div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+			<a href="unit_converter.html">
+				<div id="measure">
+					<div class="icon">
+						<div class="ruler">
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<a href="phrase.html">
+				<div id="phrase">  
+					<div class="icon">
+						<div class="book">
+							<div class="top"></div>
+							<div class="pages">
+								<div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+							</div>
+							<span id="phrase-title">Phrases</span>
+							<div class="bookmark"></div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+			<a href="advice.html">
+				<div id="advice">
+					<div class="icon">
+						<div class="map">
+							<div class="folded">
+							  <div class="fold">
+									<div class="content"></div>
+        						</div>
+								<div class="fold">
+									<div class="content">
+										<div class="other"></div>
+       							  </div>
+       						  </div>
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+      						</div>
+	  					<div class="shadow"></div>
+	  					<div class="flip"></div>
+	  					<div class="pin"></div>
+    				</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+		</div>
+        
+        <!-- Unit Converter Div -->
+        
+        <div id="converter">
+        <form name="calculator" >
+
+		<br />
+		<select id = "unitType" onchange = typeSelected()>
+			<option selected disabled value=''>Unit Type</option>
+			<option value = "0">Length</option>
+			<option value = "1">Mass</option>
+			<option value = "2">Volume</option>
+			<option value = "3">Temperature</option>
+		</select>
+		<div id = "units" style = "visibility: hidden">
+		<br />
+		From:
+		<select  id = "field1" onchange = calculate()></select>	
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		To:
+		<select  id = "field2" onchange = calculate()></select>
+		<br />
+		<input type = "textfield" name = "ans1" id = "ans1" value = "0" onchange = calculate()>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<input type = "textfield" name = "ans2" id = "ans2" value = "0" readonly>
+
+	</div>
+	
+	</form>
+ 	</div>       
+
+	</body> 
+</html>unit_converter.js000644 000765 000024 00000014236 12504565314 014742 0ustar00scm1348staff000000 000000 var arr = ["L", "M", "V", "T"];
+var length = ["Inch","Foot","Yard", "Mile","Centimeter","Meter", "Kilometer"];
+var weight = ["Ounce","Pound", "Gram", "Kilogram"];
+var volume = ["Fluid Ounce", "Pint", "Quart", "Gallon", "Milliliter", "Liter"];
+var temp = ["°F", "°C", "K"];
+arr[0] = length;
+arr[1] = weight;
+arr[2] = volume;
+arr[3] = temp;
+
+function typeSelected(){
+	var unit = document.getElementById("unitType").value;
+	emptyList(document.getElementById("field1"));
+	emptyList(document.getElementById("field2"));
+	for(var i=0; i<arr[unit].length; i++){
+		addOption(document.calculator.field1, arr[unit][i], arr[unit][i]);
+		addOption(document.calculator.field2, arr[unit][i], arr[unit][i]);				
+	}
+	document.getElementById("ans1").value = 0;
+	document.getElementById("ans2").value = 0;
+	
+	document.getElementById("units").style.visibility = "visible"; 
+}
+function emptyList(list){
+	var x = list.length;
+	while(x>0){
+		list.remove(x-1);
+		x = list.length;	
+	}
+}
+function addOption(selectbox,text,value ){
+	var optn = document.createElement("OPTION");
+	optn.text = text;
+	if(value == "°F"){
+		value = "F";
+	}
+	if(value =="°C"){
+		value = "C";
+	}
+	optn.value = value;
+	selectbox.options.add(optn);
+}
+function calculate(){
+	var first = document.getElementById("field1").value.replace(/\s+/g, '');
+	var second = document.getElementById("field2").value.replace(/\s+/g, '');
+	var call = first+"To"+second;
+	var val = document.getElementById("ans1").value;
+	if (first.toString() == second.toString()) {
+		document.getElementById("ans2").value = val;
+	}
+	else {
+		var answer = window[call](val);
+		answer = Math.round(answer * 10000) / 10000; //rounds value to 5 decimals
+		document.getElementById("ans2").value = answer;
+	}
+}
+//Length Functions
+function InchToFoot(i){return i/12.0}
+function InchToYard(i){return i/36.0}
+function InchToMile(i){return i/MileToInch(1)}
+function InchToCentimeter(i){return i*2.54;}
+function InchToMeter(i){return i*0.0254;}
+function InchToKilometer(i){return i*0.0000254;}
+function FootToInch(i){return i*12.0;}
+function FootToYard(i){return i/3.0;}	
+function FootToMile(i){return i/5280;}
+function FootToCentimeter(i){return i*30.48;}
+function FootToMeter(i){return i/0.3048;}
+function FootToKilometer(i){return i/0.0003048;}
+function YardToInch(i){return i*36.0;}
+function YardToFoot(i){return i*3.0;}
+function YardToMile(i){return i*1760.0;}
+function YardToCentimeter(i){return i*91.44;}
+function YardToMeter(i){return i*0.9144}
+function YardToKilometer(i){return i*0.0009144;}
+function MileToInch(i){return i*63360.0}
+function MileToFoot(i){return i/FootToMile(1);}
+function MileToYard(i){return i/YardToMile(1);}
+function MileToCentimeter(i){return i*160934.0;}
+function MileToMeter(i){return i*1609.34;}
+function MileToKilometer(i){return i*1.60934}
+function CentimeterToInch(i){return i/InchToCentimeter(1);}
+function CentimeterToFoot(i){return i/FootToCentimeter(1);}
+function CentimeterToYard(i){return i/YardToCentimeter(1);}
+function CentimeterToMile(i){return i/MileToCentimeter(1);}
+function CentimeterToMeter(i){return i/100.0;}
+function CentimeterToKilometer(i){return i/100000.0;}
+function MeterToInch(i){return i/InchToMeter(1);}
+function MeterToFoot(i){return i/FootToMeter(1);}
+function MeterToYard(i){return i/YardToMeter(1);}
+function MeterToMile(i){return i/MileToMeter(1);}
+function MeterToCentimeter(i){return i/CentimeterToMeter(i);}
+function MeterToKilometer(i){return i/1000.0;}
+function KilometerToInch(i){return i/InchToKilometer(1);}
+function KilometerToFoot(i){return i/FootToKilometer(1);}
+function KilometerToYard(i){return i/YardToKilometer(1);}
+function KilometerToMile(i){return i/MileToKilometer(1);}
+function KilometerToCentimeter(i){return i/CentimeterToKilometer(1);}
+function KilometerToMeter(i){return i/MeterToKilometer(1);}
+
+//Weight Functons
+function OunceToPound(i) {return i*0.0625;}
+function OunceToGram(i) {return i*28.3495;}
+function OunceToKilogram(i) {return i*0.0283495;}
+function PoundToOunce(i) {return i/OunceToPound(1);}
+function PoundToGram(i) {return i*453.592;}
+function PoundToKilogram(i) {return i*0.453592;}
+function GramToOunce(i) {return i/OunceToGram(1);}
+function GramToPound(i) {return i/PoundToGram(1);}
+function GramToKilogram(i) {return i/1000.0;}
+function KilogramToOunce(i) {return i/OunceToKilogram(1);}
+function KilogramToPound(i) {return i/PoundToKilogram(1);}
+function KilogramToGram(i) {return i/GramToKilogram(1);}
+
+//Volume Functions
+function FluidOunceToPint(i) {return i*0.0625;}
+function FluidOunceToQuart(i) {return i*0.03125;}
+function FluidOunceToGallon(i) {return i*0.0078125;}
+function FluidOunceToMilliliter(i) {return i*29.5735;}
+function FluidOunceToLiter(i) {return i*0.0295735;}
+function PintToFluidOunce(i) {return i/FluidOunceToPint(1);}
+function PintToQuart(i) {return i*0.5;}
+function PintToGallon(i) {return i*0.125;}
+function PintToMillilier(i) {return i*473.176;}
+function PintToLiter(i) {return i*0.473176;}
+function QuartToFluidOunce(i) {return i/FluidOunceToQuart(1);}
+function QuartToPint(i) {return i/PintToQuart(1);}
+function QuartToGallon(i) {return i*0.25;}
+function QuartToMilliliter(i) {return i*946.353;}
+function QuartToLiter(i) {return i*0.946353;}
+function GallonToFluidOunce(i) {return i/FluidOunceToGallon(1);}
+function GallonToPint(i) {return i/PintToGallon(1);}
+function GallonToQuart(i) {return i/QuartToGallon(1);}
+function GallonToMilliliter(i) {return i*3785.41;}
+function GallonToLiter(i) {return i*3.78541;}
+function MilliliterToFluidOunce(i) {return i/FluidOunceToMilliliter(1);}
+function MilliliterToPint(i) {return i/PintToMillilier(1);}
+function MilliliterToQuart(i) {return i/QuartToMilliliter(1);}
+function MilliliterToGallon(i) {return i/GallonToMilliliter(1);}
+function MilliliterToLiter(i) {return i*0.001;}
+function LiterToFluidOunce(i) {return i/FluidOunceToLiter(1);}
+function LiterToPint(i) {return i/PintToLiter(1);}
+function LiterToQuart(i) {return i/QuartToLiter(1);}
+function LiterToGallon(i) {return i/GallonToLiter(1);}
+function LiterToMilliliter(i) {return i*1000;}
+
+//Temperature Fuctions
+function CToF(i){return 9.0/5*i + 32;}
+function FToC(i){return (i-32)*5.0/9;}
+function FToK(i){return CToK(FToC(i));}
+function KToF(i){return CToF(KToC(i));}
+function CToK(i){return parseFloat(i)+273.15;}	
+function KToC(i){return i-273.15;}./._useful-links.html000644 000765 000024 00000000253 12504567314 015213 0ustar00scm1348staff000000 000000 Mac OS X        	2y�TEXTATTR���com.apple.TextEncodingUTF-8;134217984useful-links.html000644 000765 000024 00000006575 12504567314 014656 0ustar00scm1348staff000000 000000 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Useful Links</title>
+
+<link rel="stylesheet" type="text/css" href="style-small.css">
+
+</head>
+		<div id="container">
+			
+			<a href="clock.html">
+				<div id="clock">
+					<div class="icon">
+						<div class="clock">
+							<div class="circle"></div>
+							<div class="clockwise"></div>
+							<div class="shadows"></div>
+	    				</div>
+	  				</div>
+  				</div>
+  			</a>
+  			
+			<a href="weather.html">
+				<div id="weather">
+					<div id = "cloud">
+					</div>
+				</div>
+			</a>
+			
+			<a href="#">
+				<div id="currency">
+					<div class="icon">
+						<div class="calculator">
+							<div class="display"></div>
+							<div class="controls">&#10010;&nbsp; 
+								<span class="big">-</span> 
+								<br> &#10006;&nbsp; 
+								<span class="medium">=</span>
+							</div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+			<a href="#">
+				<div id="measure">
+					<div class="icon">
+						<div class="ruler">
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<a href="phrase.html">
+				<div id="phrase">  
+					<div class="icon">
+						<div class="book">
+							<div class="top"></div>
+							<div class="pages">
+								<div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+							</div>
+							<span id="phrase-title">Phrases</span>
+							<div class="bookmark"></div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+			<a href="#">
+				<div id="advice">
+					<div class="icon">
+						<div class="map">
+							<div class="folded">
+							  <div class="fold">
+									<div class="content"></div>
+        						</div>
+								<div class="fold">
+									<div class="content">
+										<div class="other"></div>
+       							  </div>
+       						  </div>
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+      						</div>
+	  					<div class="shadow"></div>
+	  					<div class="flip"></div>
+	  					<div class="pin"></div>
+    				</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+		</div>
+        
+<!-- USeful link page starts -->
+
+<h1> Useful Links </h1>
+<div id="center">
+	<a href= "http://www.usembassy.gov/">United States Embassy website</a>
+</div><br>   
+<div id="center">
+	<a href= "http://www.hostelworld.com/">HostelWorld</a>
+</div><br>      
+<div id="center">
+	<a href= "http://www.tripadvisor.com/">TripAdvisor</a>
+</div><br>       
+<div id="center">
+	<a href= "http://travel.state.gov/content/passports/english/go/checklist.html">State Department Travel Tips</a>
+</div><br>   
+<div id="center">
+	<a href= "http://www.ryanair.com/">RyanAir Budget Flights</a>
+</div><br>     
+  
+</body>
+</html>
+weather-style.css000644 000765 000024 00000003432 12473234443 014642 0ustar00scm1348staff000000 000000 @media screen and (max-width: 500px)  {
+	#weather-container {
+		width: 300px;
+		height: 400px;
+		margin: 0 auto;
+		background: #3388ee;
+		border-radius: 10px;
+		overflow:scroll;
+	}
+
+	#weather-city-box {
+		text-align:center;
+	}
+	#weather-city-box input{
+		height: 40px;
+	}
+	#weather-city-box input[type="text"]{
+		font-size: 1.3em;
+		color:#bbbbbb;
+	}
+	
+	.conditions-box {
+		margin: 0 auto;
+		margin-bottom:10px;
+		width: 70%;
+		min-height: 4%;
+		border: 1px solid white;
+		font-size:.9em;
+		background:#55ccff;
+		border-radius: 10px;
+	}
+	.conditions-box p {
+		margin-left: 15%;
+	}
+	#current-weather-info {
+		font-family: "Gill Sans";
+		font-size:1.1em;
+		padding:30px;
+	}
+	
+	input[type="button"] {
+		background:#aaccff;
+		border-radius:10px;
+		height:40px;
+		border:3px solid white;
+		margin: 0 auto;
+		font-size: 1.1em;
+	}
+	#button-box {
+		margin-top: 10px;
+		text-align:center;
+	}
+	
+}
+
+@media screen and (min-width: 500px) and (min-height: 500px) {
+	html, body {
+		height:100%;
+		width:100%;
+	}
+	#weather-container {
+		width: 60%;
+		height: 95%;
+		margin: 0 auto;
+		background: #3388ee;
+		border-radius: 10px;
+		overflow:scroll;
+	}
+
+	#weather-city-box {
+		text-align:center;
+	}
+	#weather-city-box input{
+		height: 6%;
+	}
+	#weather-city-box input[type="text"]{
+		font-size: 1.5em;
+		color:#bbbbbb;
+	}
+	
+	.conditions-box {
+		margin: 0 auto;
+		margin-bottom:10px;
+		width: 70%;
+		min-height:5%;
+		border: 1px solid white;
+		font-size:1.3em;
+		background:#55ccff;
+		border-radius: 10px;
+	}
+	.conditions-box p {
+		margin-left: 15%;
+	}
+	#current-weather-info {
+		font-family: "Gill Sans";
+		font-size:.9em;
+	}
+	
+	input[type="button"] {
+		background:#aaccff;
+		border-radius:10px;
+		height:40px;
+		border:3px solid white;
+		margin: 0 auto;
+		font-size: 1.3em;
+	}
+	#button-box {
+		margin-top: 10px;
+		text-align:center;
+	}
+}weather.html000644 000765 000024 00000007676 12473234443 013676 0ustar00scm1348staff000000 000000 
+<!DOCTYPE> 
+<html> 
+	<head> 
+		<title>Weather</title> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="style-small.css">
+		<link rel="stylesheet" type="text/css" href="phrase-style.css">
+		<link rel="stylesheet" type="text/css" href="weather-style.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="jquery-2.1.3.js"></script>
+		<script src="weather.js"></script>
+	</head> 
+	
+	<body> 
+
+		
+		<div id="container">
+			
+			<a href="clock.html">
+				<div id="clock">
+					<div class="icon">
+						<div class="clock">
+							<div class="circle"></div>
+							<div class="clockwise"></div>
+							<div class="shadows"></div>
+	    				</div>
+	  				</div>
+  				</div>
+  			</a>
+  			
+  			
+			<a href="weather.html">
+				<div id="weather">
+					<div id = "cloud">
+					</div>
+				</div>
+			</a>
+			<a href="currency_converter.html">
+				<div id="currency">
+					<div class="icon">
+						<div class="calculator">
+							<div class="display"></div>
+							<div class="controls">&#10010;&nbsp; 
+								<span class="big">-</span> 
+								<br> &#10006;&nbsp; 
+								<span class="medium">=</span>
+							</div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+
+			<a href="unit_converter.html">
+
+			<a href="unit_converter.html">
+				<div id="measure">
+					<div class="icon">
+						<div class="ruler">
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+							<div class="point"></div>
+						</div>
+					</div>
+				</div>
+			</a>
+			
+			<a href="phrase.html">
+				<div id="phrase">  
+					<div class="icon">
+						<div class="book">
+							<div class="top"></div>
+							<div class="pages">
+								<div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+						        <div class="page"></div>
+							</div>
+							<span id="phrase-title">Phrases</span>
+							<div class="bookmark"></div>
+    					</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+  			
+			<a href="advice.html">
+				<div id="advice">
+					<div class="icon">
+						<div class="map">
+							<div class="folded">
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+								<div class="fold">
+									<div class="content">
+										<div class="other"></div>
+          							</div>
+        						</div>
+								<div class="fold">
+									<div class="content"></div>
+        						</div>
+      						</div>
+	  					<div class="shadow"></div>
+	  					<div class="flip"></div>
+	  					<div class="pin"></div>
+    				</div>
+  					</div>
+  				</div>
+  			</a>
+  			
+		</div>
+
+
+
+
+		<div id="weather-container">
+			<form id="weather_status_form">
+				<br>
+				<div id="weather-city-box"><input type="text" id="weather_city" placeholder="Input"/></br></div>		
+				<div id="button-box"><input type="button" value="Current Forecast"></div>
+			</form>
+			
+			<div id="current-weather-info">
+				<div class="conditions-box"><p>Country: <span id="weather_country"></span></p></div>
+				<div class="conditions-box"><p>Current Conditions: <span id="weather_description"></span></p></div>
+				<div class="conditions-box"><p>Temperature: <span id="weather_temp"></span>&#176;</p></div>
+				<div class="conditions-box"><p>Humidity: <span id="weather_humidity"></span></p></div>
+				<div class="conditions-box"><p>Cloudiness: <span id="weather_clouds"></span>%</p></div>
+				<div class="conditions-box"><p>Wind speed: <span id="weather_wind"></span></p></div>
+			</div>	
+		</div>		
+			
+			
+		
+	</body> 
+</html>
+
+weather.js000644 000765 000024 00000002042 12473234443 013324 0ustar00scm1348staff000000 000000 
+(function ($) {
+
+  $(document).ready(function() {
+    
+    $("input[type='button']").click(function(){
+        var radioValue = $("#weather_city").val();
+    $('#weather_city').val(radioValue);
+    processForm();
+    
+    });
+  });
+ 
+  /**
+   * Callback to process the form.
+   */
+  function processForm() {
+    // Fetch the data from the public API through JSONP.
+    // See http://openweathermap.org/API#weather.
+
+    $.ajax({
+      url: 'http://api.openweathermap.org/data/2.5/weather',
+      cache: false,
+      data: {
+        q: $('#weather_city').val()
+      },
+      // work with the response
+      success: function (response) {
+        $('#weather_description').text(response.weather[0].description);
+        $('#weather_country').text(response.sys.country);
+        $('#weather_temp').text(Math.round((9/5)*(response.main.temp - 273) + 32));
+        $('#weather_humidity').text(response.main.humidity);
+        $('#weather_clouds').text(response.clouds.all);
+        $('#weather_wind').text(response.wind.speed);
+      },
+    });
+  }
+})(jQuery);
