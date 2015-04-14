@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+
+  		<div class="phrase-box"> 
+			<div id="language-select">
+				<p>Language</p>
+				<p>Please select which language you would like see certain phrases.</p>
+			</div>
+					<div class="lang-check-container">
+						<select id="lang-check" name="form_select">
+						<option class="lang-check-options" value="0">N/A</option>
+						<option class="lang-check-options" value ="1">Spanish</option>
+						<option class="lang-check-options" value ="2">Italian</option>
+						<option class="lang-check-options" value ="3">French</option>
+						</select>
+					</div>
+					
+			
+					<div id="hidden_div_spain" style="display: none;">
+						<table id="spanish-phrases">
+							 <thead>
+							    <tr>
+						
+							      <th>Spain Cultural Tips</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Hello.</td>
+									<td>Hola.</td>
+								</tr>
+								<tr>
+									<td>How are you?</td>
+									<td>&#191;C&#243;mo est&#225;?</td>
+								</tr>
+								<tr>
+									<td>My name is...</td>
+									<td>Me llamo...</td>
+								</tr>
+								<tr>
+									<td>Where is the bathroom?</td>
+									<td>&#191;Donde esta el ba&#241;o?</td>
+								</tr>
+								<tr>
+									<td>Do you speak English?</td>
+									<td>&#191;Hablas ingles?</td>
+								</tr>
+								<tr>
+									<td>Can you help me?</td>
+									<td>&#191;Puede ayudarme?</td>
+								</tr>
+								<tr>
+									<td>I don't understand.</td>
+									<td>No entiendo.</td>
+								</tr>
+								<tr>
+									<td>I am lost. Can you help me find where I need to go?</td>
+									<td>&#191;Estoy perdido. Puede ayudarme buscar &#225;donde tengo ir?</td>
+								</tr>
+								<tr>
+									<td>Can you write that down for me?</td>
+									<td>&#191;Puede escribirlo para m&#237;?</td>
+								</tr>
+								<tr>
+									<td>Please call the American Embassy.</td>
+									<td>&#191;Por favor, llama la Embajada Americana.</td>
+								</tr>
+								<tr>
+									<td>I need the police.</td>
+									<td>Necesito la polic&#237;a.</td>
+								</tr>
+								<tr>
+									<td>Where is the airport?</td>
+									<td>&#191;D&#243;nde est&#225; el aeropuerto?</td>
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+					
+					
+					
+					<div id="hidden_div_italy" style="display: none;">
+						<table id="italian-phrases">
+							 <thead>
+							    <tr>
+							     
+							      <th>Italy Cultural Tips</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>Dinner is between 7:30 and 9 <br /> Dressing up is recomended.</td>
+						
+								</tr>
+								<tr>
+									<td>Most places are closed from 1 - 4 in the afternoon</td>
+								</tr>
+								<tr>
+									<td>Taxi's - either call or go to a taxi stop: They won't hail to you</td>
+									
+								</tr>
+								<tr>
+									<td>Most people don't tip at meals <br  /> There is a caperto added to most bills (price per person)</td>
+								
+								</tr>
+								<tr>
+									<td>You must ask for the check at the end of your meal</td>
+									
+								</tr>
+							
+							</tbody>							
+						</table>
+					</div>
+
+					
+					<div id="hidden_div_france" style="display: none;">
+						<table id="french-phrases">
+							 <thead>
+							    <tr>
+							      
+							      <th>France Cultural Tips</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>&#149; Wine is the cheapest drink option even cheaper than water. <br />&nsbp;*Make sure to still drink water to avoid dehydration</td>
+		
+								</tr>
+								<tr>
+									<td>&#149; Restuarant reservations are recommended but not necessary.</td>
+									
+								</tr>
+								<tr>
+									<td>&#149; Try not to make eye contact with people on the street in Paris</td>
+								
+								</tr>
+								<tr>
+									<td>&#149; Do, however, say "hello" to store clerks upon entrance</td>
+									
+								</tr>
+								<tr>
+									<td>&#149; You must ask for your check at the end of your meal <br /> "Service compris" means tip was included in your total <br /> "Service non-compris" means tip was not included in your total</td>
+									
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+					
+					
+					<script>
+			
+						document.getElementById('lang-check').addEventListener('change', function () {
+							
+						var style = this.value == 1 ? 'block' : 'none';
+					    document.getElementById('hidden_div_spain').style.display = style;
+					    
+					    var style = this.value ==2 ? 'block' : 'none';
+					    document.getElementById('hidden_div_italy').style.display = style;
+					    					    
+					     var style = this.value ==3 ? 'block' : 'none';
+					    document.getElementById('hidden_div_france').style.display = style;
+					    
+						});
+		
+					</script>
+			
+		</div>
+
+<body>
+</body>
+</html>
