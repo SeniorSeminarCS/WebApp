@@ -7,7 +7,7 @@
 		width: 300px;
 		height: 400px;
 		margin: 0 auto;
-		background: #a26cd7;
+		background: #36F;
 		border-radius: 10px;
 		overflow:scroll;
 	}
@@ -64,7 +64,7 @@
 		font-family:"Gill Sans";
 		font-style: italic;
 		line-height: 30px;
-		color:#333333;
+		color:#36F;
 
 	}
 	
@@ -83,7 +83,7 @@
 		width: 600px;
 		height: 600px;
 		margin: 0 auto;
-		background: #a26cd7;
+		background: #36F;
 		border-radius: 10px;
 
 		overflow:scroll;
@@ -94,7 +94,7 @@
 		margin: 0 auto;
 		width: 90%;
 		height: 20%;
-		background: #eeaeee;
+		background: #d3d3d3;
 		margin-top: 2%;
 		border-radius: 10px;
 		
@@ -105,6 +105,7 @@
 		font-family: "Gill Sans";
 		font-weight: 300;
 		text-align: center;
+		color:#FF9;
 	}
 	#language-select p:nth-child(2) {
 		font-size:1.2em;
@@ -117,6 +118,7 @@
 		margin-bottom: 10px;
 		text-align: center;
 		margin-top: 23px;
+		
 	}
 	
 	.lang-check-container select {
@@ -125,6 +127,7 @@
 		border: 3px solid #824cb7;
 		background:transparent;
 		box-shadow: 0px 0px 70px white;
+		color:#ff6;
 	}
 	
 	#lang-check {
@@ -143,13 +146,13 @@
 		font-family:"Gill Sans";
 		font-style: italic;
 		line-height: 30px;
-		color:#333333;
+		color:#000000;
 
 	}
 	
 	#spanish-phrases td , #italian-phrases td, #french-phrases td {
 		border: 1px solid white;
-		background:#ff9977;
+		background:#d3d3d3;
 	}
 	
 }

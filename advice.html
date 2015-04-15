@@ -2,12 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>cultural advice</title>
+<title>Advice - cultural tips</title>
 
 <link rel="stylesheet" type="text/css" href="style-small.css">
-<link rel="stylesheet" type="text/css" href="converter.css">
+<link rel="stylesheet" type="text/css" href="phrase-style.css">
 
 </head>
+
+
 		<div id="container">
 			
 			<a href="clock.html">
@@ -112,31 +114,146 @@
   			</a>
   			
 		</div>
-        
-                                                         <!-- Advice page starts -->
-                                                         
-                                                         
-<div id="converter">
-	<h1> Cultural Advice </h1>
-    
-    <h2> France </h2>
-    <ul>
-    	<li>Wine is the cheapest drink option even cheaper than water. <br />*Make sure to still drink water to avoid dehydration</li>
-        <li>Restuarant reservations are recommended but not necessary. </li>
-        <li>Try not to make eye contact with people on the street in Paris</li>
-        <li>Do, however, say "hello" to store clerks upon entrance</li>
-        <li>You must ask for your check at the end of your meal <br /> "Service compris" means tip was included in your total <br /> "Service non-compris" means tip was not included in your total</li>
-    </ul>
-    <h2> Italy </h2>
-    <ul>
-    	<li>Dinner is between 7:30 and 9 <br /> Dressing up is recomended </li>
-        <li>Most places are closed from 1 - 4 in the afternoon</li>
-        <li>Taxi's - either call or go to a taxi stop: They won't hail to you</li>
-        <li>Most people don't tip at meals <br  /> There is a caperto added to most bills (price per person)</li>
-        <li>You must ask for the check at the end of your meal</li>
-   </ul>
-      
-	
-</div> 
+
+       <!-- Advice page starts here -->
+
+  		<div class="phrase-box"> 
+			<div id="language-select">
+				<p>Cultural Tips</p>
+				<p>Please select which country you would like tips about.</p>
+			</div>
+					<div class="lang-check-container">
+						<select id="lang-check" name="form_select">
+						<option class="lang-check-options" value="0">N/A</option>
+						<option class="lang-check-options" value ="1">Spain</option>
+						<option class="lang-check-options" value ="2">Italy</option>
+						<option class="lang-check-options" value ="3">France</option>
+						</select>
+					</div>
+					
+			
+					<div id="hidden_div_spain" style="display: none;">
+						<table id="spanish-phrases">
+							 <thead>
+							    <tr>
+						
+							      <th>Spain Cultural Tips</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td>  &#149;From 2-5 in the afternoon the only things open are bars and resturants</td>
+				
+								</tr>
+								<tr>
+									<td> &#149; Banks are usually only open until 2pm in the afternoon</td>
+					
+								</tr>
+								<tr>
+									<td> &#149; Don't wait for the bartenders to come to you, you must get their attention</td>
+									
+								</tr>
+								<tr>
+									<td> &#149; Pedestrians have the right away <br /> &nbsp; It is recommended you step out and make sure cars are slowing down before crossing</td>
+									
+								</tr>
+					
+							</tbody>							
+						</table>
+					</div>
+					
+					
+					
+					<div id="hidden_div_italy" style="display: none;">
+						<table id="italian-phrases">
+							 <thead>
+							    <tr>
+							     
+							      <th>Italy Cultural Tips</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+									<td> &#149; Dinner is between 7:30 and 9 <br /> &nbsp; Dressing up is recomended.</td>
+						
+								</tr>
+								<tr>
+									<td> &#149; Most places are closed from 1 - 4 in the afternoon</td>
+								</tr>
+								<tr>
+									<td> &#149; Taxi's - either call or go to a taxi stop: They won't hail to you</td>
+									
+								</tr>
+								<tr>
+									<td> &#149; Most people don't tip at meals <br  /> &nbsp; There is a caperto added to most bills (price per person)</td>
+								
+								</tr>
+								<tr>
+									<td> &#149; You must ask for the check at the end of your meal</td>
+									
+								</tr>
+							
+							</tbody>							
+						</table>
+					</div>
+
+					
+					<div id="hidden_div_france" style="display: none;">
+						<table id="french-phrases">
+							 <thead>
+							    <tr>
+							      
+							      <th>France Cultural Tips</th>
+							    </tr>
+							  </thead>
+		  
+							<tbody>
+								<tr>
+								  <td>&#149; Wine is the cheapest drink option even cheaper than water. <br /> &nbsp; *Make sure to still drink water to avoid dehydration</td>
+		
+								</tr>
+								<tr>
+									<td>&#149; Restuarant reservations are recommended but not necessary.</td>
+									
+								</tr>
+								<tr>
+									<td>&#149; Try not to make eye contact with people on the street in Paris</td>
+								
+								</tr>
+								<tr>
+									<td>&#149; Do, however, say "hello" to store clerks upon entrance</td>
+									
+								</tr>
+								<tr>
+									<td>&#149; You must ask for your check at the end of your meal <br /> &nbsp; "Service compris" means tip was included in your total <br /> &nbsp; "Service non-compris" means tip was not included in your total</td>
+									
+								</tr>
+							</tbody>							
+						</table>
+					</div>
+					
+					
+					<script>
+			
+						document.getElementById('lang-check').addEventListener('change', function () {
+							
+						var style = this.value == 1 ? 'block' : 'none';
+					    document.getElementById('hidden_div_spain').style.display = style;
+					    
+					    var style = this.value ==2 ? 'block' : 'none';
+					    document.getElementById('hidden_div_italy').style.display = style;
+					    					    
+					     var style = this.value ==3 ? 'block' : 'none';
+					    document.getElementById('hidden_div_france').style.display = style;
+					    
+						});
+		
+					</script>
+			
+		</div>
+
+<body>
 </body>
 </html>
