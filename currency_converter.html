@@ -11,8 +11,12 @@
 </head>
 
 <body>
+
+
+
 		<div id="container">
 			
+           
 			<a href="clock.html">
 				<div id="clock">
 					<div class="icon">
@@ -118,11 +122,17 @@
         
         
         <!-- Currency Converter -->
+    <div id="converter">
         
-        <div id="converter">
+    	<div id="top-header">
+			<p>Currency Converter</p>
+			<p>Please select a type</p>
+		</div>
+        
+        
         <p> From: </p>
 			<!-- http://www.xe.com/iso4217.php -->
-			<select id="fromCur" onchange="getCurrency()">
+			<select id="fromCur" onChange="getCurrency()">
 				<option value="AUD"> Australian Dollar </option>
 				<option value="CAD"> Canadian Dollar </option>
 				<option value="CHF"> Switzerland Franc </option>
@@ -137,9 +147,9 @@
             	<option value="USD"> US Dollar </option>
 				<option value="ZAR"> South Africa Rand </option>
             </select>
-		<p> Amount: </p> <input type="textfield" value="0" id = "amount" onchange="getCurrency()">
+		<p> Amount: </p> <input type="textfield" value="0" id = "amount" onChange="getCurrency()">
          <p> To: </p>
-            <select id="toCur" onchange="getCurrency()">
+            <select id="toCur" onChange="getCurrency()">
 				<option value="AUD"> Australian Dollar </option>
 				<option value="CAD"> Canadian Dollar </option>
 				<option value="CHF"> Switzerland Franc </option>

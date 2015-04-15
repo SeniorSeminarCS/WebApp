@@ -1,58 +1,141 @@
-@charset "utf-8";
+
 /* CSS Converter */
 
 
+@media screen and (max-width: 500px) and (max-height: 1200px) {
+	
+	
+	#converter{
+		background:#36F;
+		border-radius: 10px;
+		width: 300px;
+		height:400px;
+		margin: 0 auto;
+		color:#ff6;
+		text-align:center;
+		font-size:20px;
+		overflow:scroll;
+		border-radius: 10px;
+		font-family:bantag, Verdana, Geneva, sans-serif;
+	
+	}
+
+	#converter input[type="button"]{
+		padding:10px;
+		background:#FF9;
+		color:#36f;
+		font-size:16px;	
+	}
 
 
-#converter{
-	background:#36F;
-	border-radius: 10px;
-	width: 600;
-	height:600;
-	margin: 0 auto;
-	color:#ff6;
-	text-align:center;
-	font-size:20px;
+	#converter input[type="reset"]{
+		padding:10px;
+		background:#FF9;
+		color:#36f;
+		font-size:16px;
+	}
+
+	#converter a:link{
+		text-align:center;
+		font-size: 20px;
+		color:#FF6;
+	}
+
+	#converter a:visited{
+		text-align:center;
+		font-size: 20px;
+		color:#d3d3d3;
+	}
+
+	#converter a:hover{
+		color:#f4f414;
+		text-align:center;
+		font-size: 20px;
+	}
+
+	#converter ul{
+		text-align:left;
+		font-size:18px;
+	}
+
+	#top-header{
+		margin: 0 auto;
+		width: 90%;
+		height: 20%;
+		background: #333314;
+		margin-top: 2%;
+		border-radius: 100px;
+		color:#FF9;
+		
+	}
+
 	
 }
 
-#converter input[type="button"]{
-	padding:10px;
-	background:#FF9;
-	color:#36f;
-	font-size:16px;
-}
 
-#converter input[type="textfield"]{
+
+@media screen and (min-width: 500px) {
+
+	#converter{
+		background:#36F;
+		border-radius: 10px;
+		width: 600px;
+		height:600px;
+		margin: 0 auto;
+		color:#ff6;
+		text-align:center;
+		font-size:20px;
+		border-radius: 10px;
+		font-family:bantag, Verdana, Geneva, sans-serif;
 	
-}
+	}
 
-#converter input[type="reset"]{
-	padding:10px;
-	background:#FF9;
-	color:#36f;
-	font-size:16px;
-}
+	#converter input[type="button"]{
+		padding:10px;
+		background:#FF9;
+		color:#36f;
+		font-size:16px;	
+	}
 
-#converter a:link{
-	text-align:center;
-	font-size: 20px;
-	color:#FF6;
-}
 
-#converter a:visited{
-	text-align:center;
-	font-size: 20px;
-	color:#d3d3d3;
-}
+	#converter input[type="reset"]{
+		padding:10px;
+		background:#FF9;
+		color:#36f;
+		font-size:16px;
+	}
 
-#converter a:hover{
-	color:#f4f414;
-	text-align:center;
-	font-size: 20px;
-}
+	#converter a:link{
+		text-align:center;
+		font-size: 20px;
+		color:#FF6;
+	}
 
-#converter ul{
-	text-align:left;
-	font-size:18px;
+	#converter a:visited{
+		text-align:center;
+		font-size: 20px;
+		color:#d3d3d3;
+	}
+
+	#converter a:hover{
+		color:#f4f414;
+		text-align:center;
+		font-size: 20px;
+	}
+
+	#converter ul{
+		text-align:left;
+		font-size:18px;
+	}
+
+	#top-header{
+		margin: 0 auto;
+		width: 90%;
+		height: 20%;
+		background: #333314;
+		margin-top: 2%;
+		border-radius: 100px;
+		
+	}
+
 }
