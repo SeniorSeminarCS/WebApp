@@ -5,6 +5,7 @@
 	html, body {
 		height:100%;
 		width:100%;
+		text-align:center;
 	}
 	
 	/*--------------WEATHER PAGE-----------------*/
@@ -15,6 +16,19 @@
 		background: #3388ee;
 		border-radius: 10px;
 		overflow:scroll;
+	}
+	#main-container h1 {
+		font-size: 2.3em;
+		font-family: "Gill Sans";
+		font-weight: 300;
+		text-align: center;
+		color:#FF9;
+	}
+	
+	.weather-text {
+		text-align:center;
+		color:#FF9;
+		font-family: "Gill Sans";
 	}
 
 	#weather-city-box {
@@ -41,16 +55,77 @@
 	.conditions-box p {
 		margin-left: 15%;
 	}
-	#current-weather-info {
-		font-family: "Gill Sans";
-		font-size:.9em;
+
+	#weather-city-box {
+		text-align:center;
 	}
+	#weather-city-box input{
+		height: 6%;
+	}
+	.conditions-box {
+		margin:auto;
+		margin-bottom:10px;
+		width: 75%;
+		min-height:5%;
+		border: 1px solid white;
+		font-size:1.3em;
+		background-color:#65cdef;
+		border-radius: 10px;
+	
+	}
+	
+	.conditions-box p {
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+	
+	#right {
+		float:right;
+		margin-bottom:10px;
+		width: 40%;
+		min-height:5%;
+		border: 1px solid white;
+		font-size:1.3em;
+		background-color:#65cdef;
+		border-radius: 10px;
+		margin-right:40px;
+	
+	}
+	
+	#left {
+		float:left;
+		margin-bottom:10px;
+		width: 40%;
+		min-height:5%;
+		border: 1px solid white;
+		font-size:1.3em;
+		background-color:#65cdef;
+		border-radius: 10px;
+		margin-left:40px;
+	
+	
+	}
+	
 	
 	input[type="button"] {
 		background:#aaccff;
 		border-radius:10px;
+		border: 1px solid #aaccff;
 		height:40px;
-		border:3px solid white;
+		margin: 0 auto;
+		font-size: 1.3em;
+	}
+	input[type="button"]:hover {
+		 box-shadow: 1px 1px 20px yellow;
+	}
+	#button-box {
+		margin-top: 10px;
+		text-align:center;
+	}
+	input[type="button"] {
+		background:#aaccff;
+		border-radius:10px;
+		height:40px;
 		margin: 0 auto;
 		font-size: 1.3em;
 	}
@@ -79,8 +154,28 @@
 		color:#36f;
 		font-size:16px;
 	}
-
 	
+	#Time {
+		background-color: transparent;
+		width: 40%;
+		height: 7%;
+		font-size: 1.2em;
+		font-family: "Gill Sans";
+	}
+	#time-button {
+		background:#FF9;;
+		border-radius:10px;
+		height:8%;
+		width: 25%;
+		margin: 0 auto;
+		font-size: 1.3em;
+		border: 1px solid #ff9;
+		box-shadow: 1px 1px 10px #FF9;
+	}
+	#time-button:hover {
+		box-shadow: 1px 1px 15px #FF9;
+	}
+
 	
 	
 	/*--------------UNIT CONVERTER PAGE-----------------*/
@@ -108,8 +203,23 @@
 		font-size:16px;
 	}
 
-
 	
+	#unitType, #field1, #field2 {
+		background-color: transparent;
+		width: 40%;
+		height: 7%;
+		font-size: 1.2em;
+		font-family: "Gill Sans";
+	}
+	
+	#ans1, #ans2 {
+		width: 30%;
+		height: 50px;
+		font-size: 2.2em;
+	}
+	.measure-text {
+		font: "Gill Sans";
+	}
 	
 	
 	/*--------------PHRASEBOOK PAGE-----------------*/	
@@ -128,7 +238,6 @@
 		margin: 0 auto;
 		width: 90%;
 		height: 20%;
-		background: #333314;
 		margin-top: 2%;
 		border-radius: 100px;
 		
@@ -158,10 +267,8 @@
 	.lang-check-container select {
 		padding:10px;
 		text-align:center;	
-		border: 3px solid #824cb7;
-		background:transparent;
-		box-shadow: 0px 0px 70px white;
-		color:#ff6;
+		background: #f9f46c;
+		color:black;
 	}
 	
 	#lang-check {
@@ -180,14 +287,39 @@
 		font-family:"Gill Sans";
 		font-style: italic;
 		line-height: 30px;
-		color:#ff6;
+		color: #020531;
 
 	}
 	
 	#spanish-phrases td , #italian-phrases td, #french-phrases td {
 		border: 1px solid white;
-		background:#333314;
+		background-color:#65cdef;
 	}
+	
+	
+	
+	
+/*--------------CURRENCY PAGE-----------------*/	
+	#fromCur, #toCur {
+		background-color: transparent;
+		width: 40%;
+		height: 7%;
+		font-size: 1.2em;
+		font-family: "Gill Sans";
+	}
+	
+	#amount, #answer {
+		width: 20%;
+		height: 50px;
+		font-size: 2.2em;
+	}
+	
+	#useful-links-container a {
+		font-family: "Gill Sans";
+		font-size: 1.3em;
+		text-decoration:none;
+	}
+	
 
 }
 
@@ -405,7 +537,6 @@
 		margin: 0 auto;
 		width: 90%;
 		height: 20%;
-		background: #333314;
 		margin-top: 2%;
 		border-radius: 100px;
 		color:#FF9;
@@ -433,7 +564,6 @@
 	.lang-check-container select {
 		padding:10px;
 		text-align:center;	
-		border: 3px solid #824cb7;
 		background:transparent;
 		box-shadow: 0px 0px 70px white;
 		color:#ff6;
@@ -461,7 +591,7 @@
 	
 	#spanish-phrases td , #italian-phrases td, #french-phrases td {
 		border: 1px solid white;
-		background:#333314;
+		background:#343414;
 	}
 
 

@@ -133,6 +133,12 @@
 					</div>
 				</div>
 			</a>
+			
+						<a href="index.html">
+				<div id="home">
+					<h4>Home</h4>
+				</div>
+			</a>
   			
 		</div>
         
@@ -140,12 +146,12 @@
         <!-- Currency Converter -->
     <div id="converter">
         
-    	<div id="top-header">
+    	<div id="language-select">
 			<p>Currency Converter</p>
 			<p>Please select a type</p>
 		</div>
         
-        
+        <div id="leftCur">
         <p> From: </p>
 			<!-- http://www.xe.com/iso4217.php -->
 			<select id="fromCur" onChange="getCurrency()">
@@ -164,6 +170,10 @@
 				<option value="ZAR"> South Africa Rand </option>
             </select>
 		<p> Amount: </p> <input type="textfield" value="0" id = "amount" onChange="getCurrency()">
+        </div>
+        
+        
+        <div id=rightCur>
          <p> To: </p>
             <select id="toCur" onChange="getCurrency()">
 				<option value="AUD"> Australian Dollar </option>
@@ -183,6 +193,7 @@
 		<br />
        <!-- <button type="button" onclick="getCurrency()">Convert</button>   -->
 		<p> Amount: </p> <input type="textfield" value="" id = "answer" readonly>
+        </div>
 		</div>
 
 	<script> 

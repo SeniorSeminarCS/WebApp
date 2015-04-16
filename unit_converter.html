@@ -154,13 +154,19 @@
   					</div>
   				</div>
   			</a>
+  			
+  						<a href="index.html">
+				<div id="home">
+					<h4>Home</h4>
+				</div>
+			</a>
 		</div>
         
         <!-- Unit Converter Div -->
         
         <div id="converter">
         
-            <div id="top-header">
+            <div id="language-select">
 				<p>Unit Converter</p>
 				<p>Please select a type</p>
 			</div>
@@ -176,14 +182,15 @@
 			<option value = "2">Volume</option>
 			<option value = "3">Temperature</option>
 		</select>
+		
 		<div id = "units" style = "visibility: hidden">
 		<br />
-		From:
+		<span class="measure-text">From:</span>
 		<select  id = "field1" onchange = calculate()></select>	
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		To:
+		<span class="measure-text">To:</span>
 		<select  id = "field2" onchange = calculate()></select>
-		<br />
+		<br /><br><br><br><br>
 		<input type = "textfield" name = "ans1" id = "ans1" value = "0" onchange = calculate()>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 		<input type = "textfield" name = "ans2" id = "ans2" value = "0" readonly>

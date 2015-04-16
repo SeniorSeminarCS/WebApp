@@ -154,13 +154,24 @@
   					</div>
   				</div>
   			</a>
+  			
+  						<a href="index.html">
+				<div id="home">
+					<h4>Home</h4>
+				</div>
+			</a>
 		</div>
         
         <!-- Clock Div -->
         <div id="main-container">
         
+        	<div id="language-select">
+				<p>Clock</p>
+				<p>Please select a time zone</p>
+			</div>
+
 		<!--drop down box, make London(GMT+0) default -->
-        <select id="Time" onchange="getMyTime()">
+        <select id="Time" onChange="getMyTime()">
 			<option selected disabled value=''>Please select a time zone...</option>
         	<option value="-12"> GMT-12 Auckland, AU </option>
 		    <option value="-11">GMT-11 Unalaska, US </option>
@@ -189,18 +200,13 @@
 			<option value="12"> GMT+12 Fiji </option>
         </select>
 
-       <!-- <button type="button" onclick="getMyTime()">Get Time</button>  -->  
+
 		<p id="currentDate">Date: </p>
 		<p id="currentTime">Time: </p>
-		<!-- <p id="currentDay">Day: </p>
-		<p id="currentMonth">Month: </p>
-		<p id="currentYear">Year: </p>
-		<p id="currentHour">Hour: </p>
-		<p id="currentMinute">Minute: </p>
-		<p id="currentSecond">Second: </p> -->
+
 		
 		<br />
-		<button type="button" onclick="updateTime()">Update Time</button>    
+		<button id="time-button" type="button" onClick="updateTime()">Update Time</button>    
 
 		</div>
 		<script>
