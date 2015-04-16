@@ -5,57 +5,75 @@
 	}
 	
 	#container {
-		width: 200px;
-		height: 200px;
-		background: #33CCFF;
+		width: 180px;
+		height: 180px;
+		background: #66CCFF;
 		margin-left: 5%;
 		margin-bottom: 50px;
 		top: 35px;
 		position: relative;
-		border-radius:200px;
+		border-radius:180px;
 		border: 2.5px solid white;
 		float:left;
 	}
 	
 	
 	#clock {
-		width: 90px;
-		height: 90px;
-		background: #3693d8;
+		width: 70px;
+		height: 70px;
+		background: #ffff77;
 		position: absolute;
 		margin: -5% 40% 10% 65%;
-		border-radius: 90px;
+		border-radius: 70px;
 		border: 2.5px solid white;
 		transition: .6s ease-in-out;
 	}
 	#clock:hover {
-	 	background: #1663e8;
+	  	background: #ffffc7;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:5px;
 	}
 		
+	#news {
+		width: 80px;
+		height: 80px;
+		background: #fff14f;
+		position: absolute;
+		margin: 60% 40% 10% 60%;
+		border-radius: 80px;
+		border: 2.5px solid white;
+		transition: .6s ease-in-out;
+		
+	}
+	#news:hover {
+	 	background: yellow;
+	 	-webkit-transform: translate(-10%, -15%);
+	 	padding:10px;
+	 	border: 2px solid #efef97;
+	}		
 	
 	#currency {
 		width: 55px;
 		height: 55px;
-		background: #FFCC00;
+		background: #336699;
 		position: absolute;
 		margin: 75% 15% 20% 45%;
-		border-radius: 55px;
+		border-radius: 35px;
 		border: 2.5px solid white;
 		transition: .6s ease-in-out;
 	}
 	#currency:hover {
-		background: #FFFF00;
+		background: #0066CC;
 	 	-webkit-transform: translate(-10%, -10%);
 	 	padding:5px;
 	}
+	
 		
 	
 	#measure {
 		width: 55px;
 		height: 55px;
-		background: #dd88CC;
+		background: #94DBFF;
 		position: absolute;
 		margin: 50% 10% 30% 80%;
 		border-radius: 55px;
@@ -63,57 +81,57 @@
 		transition: .6s ease-in-out;
 	}
 	#measure:hover {
-		background: #995599;
+		background: #66CCFF;
 	 	-webkit-transform: translate(-10%, -10%);
 	 	padding:5px;
 	}
 		
 	#phrase {
-		width: 100px;
-		height: 100px;
-		background: #FFAD5C;
+		width: 70px;
+		height: 70px;
+		background: #ffffaa;
 		position: absolute;
 		margin: 45% 65% 35% -15%;
-		border-radius: 100px;
+		border-radius: 70px;
 		border: 2.5px solid white;
 		transition: .6s ease-in-out;
 	}
 	#phrase:hover {
-	 	background: #FF9933;
+	 	background: #fff19f;
 	 	-webkit-transform: translate(1%, 3%);
 	 	padding:5px;
 	}
 		
 	
 	#advice {
-		width: 75px;
-		height: 75px;
-		background: #fa7574;
+		width: 65px;
+		height: 65px;
+		background: #6699cc;
 		position: absolute;
-		border-radius: 75px;
+		border-radius: 65px;
 		margin: 5% 20% -10% -20%;
 		border: 2.5px solid white;
 		transition: .6s ease-in-out;
 	}
 	#advice:hover {
-	 	background: #ff5050;
+	 	background: #47B5FF;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:5px;
 	}
 	
 	#weather {
-		width: 75px;
-		height:75px;
-		background: #00CC99;
+		width: 65px;
+		height:65px;
+		background: #336699;
 		position: absolute;
-		border-radius: 150px;
+		border-radius: 65px;
 		margin: -20% 10% 10% 20%;
 		border: 2.5px solid white;
 		transition: .6s ease-in-out;
 		
 	}
 	#weather:hover {
-		background: #00cc66;
+		background: #537699;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:5px;
 	}
@@ -128,7 +146,7 @@
 	.calculator {
 	  width:45px;
 	  height:54px;
-	  background:#d7d4c5;
+	  background:#99ccff;
 	  border-radius:3px;
 	  position:absolute;
 	  left:50%;
@@ -179,7 +197,7 @@
 	.calculator .controls .medium {
 	  font-size:17.5px;
 	  line-height:0em;
-	  color:#8fb243;
+	  color:#908e86;
 	  font-weight:bold;
 	}
 	
@@ -280,7 +298,7 @@
 	.book {
 	  width:58px;
 	  height:62px;
-	  background:#5CD65C;
+	  background:#336699;
 	  border-radius:3px;
 	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
 	  position:absolute;
@@ -289,7 +307,7 @@
 	  top:45%;
 	  margin-top:-26px;
 	  font-size:100%;
-	  color:#4b494f;
+	  color:#6699cc;
 	  line-height:75px;
 	  text-align:center;
 	  font-family: 'Dancing Script', cursive;
@@ -306,7 +324,7 @@
 	  border-top-left-radius:1px;
 	  border-bottom-left-radius:1px;
 	  overflow:hidden;
-	  background:#5CD65C;
+	  background:#336699;
 	}
 	
 	.book .pages .page {
@@ -333,25 +351,25 @@
 	.book .pages .page:nth-child(9){ top:8px; }
 	.book .pages .page:nth-child(10){ 
 	  top:9px;
-	background-image: -webkit-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
-	background-image: -moz-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
-	background-image: -o-linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
-	background-image: linear-gradient(left, #5CD65C 0px, #51768f 1px, #749cb5 1px, #749cb5 2px, #3ab43a 2px);
+	background-image: -webkit-linear-gradient(left, #114477 0px, #114477 1px, #114477 1px, #114477 2px, #114477 2px);
+	background-image: -moz-linear-gradient(left, #114477 0px, #114477 1px, #114477 1px, #114477 2px, #114477 2px);
+	background-image: -o-linear-gradient(left, #114477 0px, #114477 1px, #114477 1px, #114477 2px, #114477 2px);
+	background-image: linear-gradient(left, #114477 0px, #114477 1px, #114477 1px, #114477 2px, #114477 2px);
 	}
 	
 	.book .pages .page:nth-child(11){ 
 	  top:11.5px;
-	  background-image: -webkit-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
-	  background-image: -moz-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
-	  background-image: -o-linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
-	  background-image: linear-gradient(left, #5CD65C 0px, #3ab43a 1px, #3ab43a 1px, #3ab43a 2px, #5CD65C 2px);
+	background-image: -webkit-linear-gradient(left, #114477 0px, #114477 1px, #114477 1px, #114477 2px, #336699 2px);
+	background-image: -moz-linear-gradient(left, #114477 0px, #114477 1px, #114477 1px, #114477 2px, #336699 2px);
+	background-image: -o-linear-gradient(left, #114477 0px, #114477 1px, #114477 1px, #114477 2px, #336699 2px);
+	background-image: linear-gradient(left, #114477 0px, #114477 1px, #114477 1px, #114477 2px, #336699 2px);
 	}
 	
 	.book .top:after {
 	  content:"";
 	  width:1px;
 	  height:46.5px;
-	  background:#3ab43a;
+	  background:#114477;
 	  position:absolute;
 	  left:2.5px;
 	  top:15.5px;
@@ -361,7 +379,7 @@
 	  content:"";
 	  width:1px;
 	  height:46.5px;
-	  background:#3ab43a;
+	  background:#114477;
 	  position:absolute;
 	  left:3.5px;
 	  top:15.5px;
@@ -425,7 +443,7 @@
 	.map .fold {
 	  width:18px;
 	  height:44px;
-	  background:#eae8db;
+	  background:#99cccc;
 	  float:left;
 	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25), inset 0 .5px 0 0 rgba(255,255,255,0.2);
 	  position:relative;
@@ -454,7 +472,7 @@
 	  content:"";
 	  width:33px;
 	  height:33px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(45deg);
 	  left:-16.5px;
@@ -464,7 +482,7 @@
 	  content:"";
 	  width:10.5px;
 	  height:10.5px;
-	  background:#CCBCCC;
+	  background:#ffffaa;	 
 	  position:absolute;
 	  transform:rotate(45deg);
 	  left:8px;
@@ -475,7 +493,7 @@
 	  content:"";
 	  width:23.5px;
 	  height:23.5px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(48deg);
 	  top:-14px;
@@ -485,7 +503,7 @@
 	.map .fold:nth-child(2) .content .other {
 	  width:49px;
 	  height:49px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(50deg);
 	  left:12.5px;
@@ -496,7 +514,7 @@
 	  content:"";
 	  width:11.5px;
 	  height:11.5px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  bottom:-17.5px;
 	}
@@ -505,7 +523,7 @@
 	  content:"";
 	  width:49px;
 	  height:49px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(40deg);
 	  left:-3.5px;
@@ -516,7 +534,7 @@
 	  content:"";
 	  width:24.5px;
 	  height:24.5px;
-	  background:#CCBCCC;
+	  background:#ffffaa;
 	  position:absolute;
 	  transform:rotate(40deg);
 	  left:-13.5px;
@@ -529,7 +547,7 @@
 	  width: 16px;
 	  height: 16px;
 	  border-radius: 50% 50% 50% 0;
-	  background: #d65746;
+	  background: #3399FF;
 	  position: absolute;
 	  transform: rotate(-45deg);
 	  left: 50%;

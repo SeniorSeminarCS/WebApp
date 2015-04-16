@@ -28,6 +28,7 @@
 	 	background: #ffffc7;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:10px;
+	 	border: 6px solid #efefa7;
 	}
 
 	#news {
@@ -41,9 +42,10 @@
 		transition: .6s ease-in-out;
 	}
 	#news:hover {
-	 	background: #fff19f;
+	 	background: yellow;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:10px;
+	 	border: 7px solid #efef97;
 	}		
 	
 	#currency {
@@ -57,9 +59,10 @@
 		transition: .6s ease-in-out;
 	}
 	#currency:hover {
-		background: #FFFF94;
+		background: #0066CC;
 	 	-webkit-transform: translate(-10%, -10%);
 	 	padding:10px;
+	 		border: 5px solid #3498ce;
 	}
 		
 	
@@ -74,9 +77,10 @@
 		transition: .6s ease-in-out;
 	}
 	#measure:hover {
-		background: #995599;
+		background: #66CCFF;
 	 	-webkit-transform: translate(-10%, -10%);
 	 	padding:10px;
+	 	border: 8px solid #0099FF;
 	}
 		
 	#phrase {
@@ -90,9 +94,10 @@
 		transition: .6s ease-in-out;
 	}
 	#phrase:hover {
-	 	background: #FF9933;
+	 	background: #fff19f;
 	 	-webkit-transform: translate(1%, 3%);
 	 	padding:10px;
+	 	border: 7px solid #dfdf8a;
 	}
 		
 	
@@ -110,6 +115,7 @@
 	 	background: #47B5FF;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:10px;
+	 	border: 8px solid #2795df;
 	}
 	
 	#weather {
@@ -124,9 +130,10 @@
 		
 	}
 	#weather:hover {
-		background: #5376b9;
+		background: #537699;
 	 	-webkit-transform: translate(-10%, -15%);
 	 	padding:10px;
+	 	border: 6px solid #336699;
 	}
 		
 	
