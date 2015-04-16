@@ -35,12 +35,12 @@
 	}
 		
 	#news {
-		width: 80px;
-		height: 80px;
+		width: 65px;
+		height: 65px;
 		background: #fff14f;
 		position: absolute;
-		margin: 60% 40% 10% 60%;
-		border-radius: 80px;
+		margin: 75% 40% 10% 55%;
+		border-radius: 65px;
 		border: 2.5px solid white;
 		transition: .6s ease-in-out;
 		
@@ -57,7 +57,7 @@
 		height: 55px;
 		background: #336699;
 		position: absolute;
-		margin: 75% 15% 20% 45%;
+		margin: 80% 15% 20% 20%;
 		border-radius: 35px;
 		border: 2.5px solid white;
 		transition: .6s ease-in-out;
@@ -75,7 +75,7 @@
 		height: 55px;
 		background: #94DBFF;
 		position: absolute;
-		margin: 50% 10% 30% 80%;
+		margin: 40% 10% 30% 85%;
 		border-radius: 55px;
 		border: 2.5px solid white;
 		transition: .6s ease-in-out;
@@ -91,7 +91,7 @@
 		height: 70px;
 		background: #ffffaa;
 		position: absolute;
-		margin: 45% 65% 35% -15%;
+		margin: 50% 65% 35% -20%;
 		border-radius: 70px;
 		border: 2.5px solid white;
 		transition: .6s ease-in-out;
@@ -665,6 +665,82 @@
 		-webkit-border-radius: 33.5px;
 		-moz-border-radius: 33.5px;
 	}
+	
+	
+	
+	.news {
+	  width:54px;
+	  height:47px;
+	  background:
+	        linear-gradient(-135deg, #fff14f 7px, transparent 0),
+	        linear-gradient(135deg, #fff14f 7px, #cccabf 0);
+	    background-color: #333538;
+	    background-position: -9px top;
+	    background-repeat: repeat-x;
+	    background-size: 7px 47px;
+	    border-radius:3px;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-27px;
+	  top:50%;
+	  margin-top:-24px;
+	  box-shadow: 0 1px 0 0px rgba(0,0,0,0.25);    
+	}
+	
+	.news:after {
+	  content:"";
+	  width:0;
+	  height:0;
+	  
+		border-left: 15px solid transparent;
+	  position:absolute;
+	  bottom:-1px;
+	  right:-1px;
+	}
+	
+	.news .flip {
+	  position:absolute;
+	  right:0;
+	  bottom:0;
+	  width: 0;
+		height: 0;
+		border-top: 14px solid #e3e1d4;
+		border-right: 14px solid transparent;
+	}
+	
+	.news .content {
+	  width:43px;
+	  height:5px;
+	  background:#539ebe;
+	  position:absolute;
+	  left:50%;
+	  margin-left:-22px;
+	  top:10px;
+	}
+	
+	.news .content:before {
+	  content:"";
+	  width:20px;
+	  height:25px;
+	  position:absolute;
+	  background-color: transparent;
+	  background-image: linear-gradient(#afafaf 20px, transparent 20px, transparent 22px, rgba(255,255,255,.25) 22px, rgba(255,255,255,.25) 24px);
+	  background-size: 40px 50px;
+	  top:8px;
+	}
+	
+	.news .content:after {
+	  content:"";
+	  width:20px;
+	  height:25px;
+	  position:absolute;
+	  background-color: transparent;
+	  background-image: linear-gradient(rgba(255,255,255,.25) 0px, rgba(255,255,255,.25) 2px, transparent 2px, transparent 4px);
+	  background-size: 20px 4px;
+	  top:8px;
+	  right:0;
+	}
+		
 	
 }	
 
