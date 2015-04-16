@@ -5,7 +5,7 @@
 <title>World Clock</title>
 
 <link rel="stylesheet" type="text/css" href="style-small.css">
-<link rel="stylesheet" type="text/css" href="clock.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
@@ -23,7 +23,9 @@
 	    				</div>
 	  				</div>
   				</div>
+  				
   			</a>
+  			
   			
 			<a href="weather.html">
 				<div id="weather">
@@ -31,6 +33,7 @@
 					</div>
 				</div>
 			</a>
+			
 			
 			<a href="currency_converter.html">
 				<div id="currency">
@@ -43,9 +46,12 @@
 								<span class="medium">=</span>
 							</div>
     					</div>
+    					
   					</div>
   				</div>
   			</a>
+  			
+  			
   			
 			<a href="unit_converter.html">
 				<div id="measure">
@@ -63,6 +69,7 @@
 					</div>
 				</div>
 			</a>
+			
 			
 			<a href="phrase.html">
 				<div id="phrase">  
@@ -89,19 +96,20 @@
   				</div>
   			</a>
   			
+  			
 			<a href="advice.html">
 				<div id="advice">
 					<div class="icon">
 						<div class="map">
 							<div class="folded">
-							  <div class="fold">
+								<div class="fold">
 									<div class="content"></div>
         						</div>
 								<div class="fold">
 									<div class="content">
 										<div class="other"></div>
-       							  </div>
-       						  </div>
+          							</div>
+        						</div>
 								<div class="fold">
 									<div class="content"></div>
         						</div>
@@ -116,7 +124,7 @@
 		</div>
         
         <!-- Clock Div -->
-        <div id="worldclock">
+        <div id="main-container">
         
 		<!--drop down box, make London(GMT+0) default -->
         <select id="Time" onchange="getMyTime()">
